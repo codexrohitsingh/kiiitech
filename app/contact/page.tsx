@@ -138,6 +138,7 @@ export default function Contact() {
                   {[
                     { name: "name", label: "Full Name" },
                     { name: "email", label: "Email" },
+                    { name: "phone", label: "number" },
                     { name: "subject", label: "Subject" },
                   ].map((field) => (
                     <div key={field.name} className="relative">
@@ -147,7 +148,7 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         placeholder=" "
-                        className="peer w-full px-4 pt-6 pb-2 rounded-xl border bg-white/70 focus:ring-2 focus:ring-accent outline-none transition"
+                        className="peer w-full px-4 pt-6 pb-2 rounded-xl border bg-white/70 focus:ring-2 text-black focus:ring-accent outline-none transition"
                       />
                       <label
                         className="absolute left-4 top-2 text-sm text-muted-foreground transition-all
@@ -166,7 +167,7 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Your message..."
-                    className="w-full px-4 py-3 rounded-xl border bg-white/70 focus:ring-2 focus:ring-accent transition"
+                    className="w-full px-4 py-3 rounded-xl border bg-white/70 focus:ring-2 text-black focus:ring-accent transition"
                   />
 
                   <Button
@@ -174,7 +175,7 @@ export default function Contact() {
                     disabled={isSubmitting}
                     className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-accent to-secondary hover:scale-[1.03] active:scale-[0.97] transition shadow-lg"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message 🚀"}
+                    {isSubmitting ? "Sending..." : "Send Message "}
                   </Button>
                 </form>
               </div>
@@ -219,7 +220,7 @@ export default function Contact() {
               </p>
             </div>
 
-            <Button className="w-fit px-6 rounded-xl">Open in Maps 📍</Button>
+            {/* <Button className="w-fit px-6 rounded-xl">Open in Maps </Button> */}
           </div>
         </div>
       </section>
