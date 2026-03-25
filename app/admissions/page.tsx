@@ -18,45 +18,32 @@ export default function Admissions() {
       <Header />
 
       {/* Hero Section */}
-      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground pt-28 pb-20">
-        {/* Background Glow */}
-        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
+      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
-          {/* Back Link */}
-          <div className="mb-8">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="mb-6">
             <Link
               href="/"
-              className="inline-flex items-center text-sm font-medium text-accent/90 hover:text-accent transition"
+              className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit"
             >
               ← Back to Home
             </Link>
           </div>
-
-          {/* Content */}
           <div className="max-w-3xl">
-            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
               Admissions
             </h1>
-
-            <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed mb-10">
+            <p className="text-xl opacity-95 mb-8">
               Join KIITECH and start your journey towards a successful career.
-              Experience a simple application process, transparent criteria, and
-              strong growth opportunities.
+              Simple application process, transparent criteria, guaranteed
+              opportunity.
             </p>
-
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button variant="secondary" size="lg" asChild>
-                <a href="#apply-now" className="flex items-center gap-2">
-                  Apply Now →
-                </a>
-              </Button>
-
-              <Button variant="outline" size="lg" asChild>
-                <a href="#learn-more">Learn More</a>
-              </Button>
-            </div>
+            <Button variant="secondary" size="lg" asChild>
+              <a href="#apply-now" className="flex items-center gap-2">
+                Apply Now
+              </a>
+            </Button>
           </div>
         </div>
       </section>
