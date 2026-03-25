@@ -138,7 +138,8 @@ export function Header() {
 
       {/* MOBILE MENU */}
       {isOpen && (
-        <div className="md:hidden bg-yellow-600 border-t border-[#8C4F01] shadow-lg px-6 py-4 space-y-4">
+        <div className="md:hidden bg-yellow-600 border-t border-[#8C4F01] shadow-lg px-6 py-4 flex flex-col space-y-4">
+          {/* HOME */}
           <Link
             href="/"
             className="block text-black font-semibold"
@@ -148,7 +149,7 @@ export function Header() {
           </Link>
 
           {/* PROGRAMS MOBILE */}
-          <div>
+          <div className="flex flex-col">
             <button
               onClick={() => toggleDropdown("programs")}
               className="w-full flex justify-between items-center text-black font-semibold"
@@ -162,23 +163,43 @@ export function Header() {
             </button>
 
             {openDropdown === "programs" && (
-              <div className="mt-2 ml-3 space-y-2 border-l border-black/30 pl-3">
-                <Link href="/programs/bca" onClick={() => setIsOpen(false)}>
+              <div className="mt-2 ml-3 flex flex-col space-y-2 border-l border-black/30 pl-3">
+                <Link
+                  href="/programs/bca"
+                  className="block text-black"
+                  onClick={() => setIsOpen(false)}
+                >
                   BCA
                 </Link>
-                <Link href="/programs/diploma" onClick={() => setIsOpen(false)}>
+
+                <Link
+                  href="/programs/diploma"
+                  className="block text-black"
+                  onClick={() => setIsOpen(false)}
+                >
                   Diploma
                 </Link>
-                <Link href="/programs/bba" onClick={() => setIsOpen(false)}>
+
+                <Link
+                  href="/programs/bba"
+                  className="block text-black"
+                  onClick={() => setIsOpen(false)}
+                >
                   BBA
                 </Link>
-                <Link href="/programs/pgdm" onClick={() => setIsOpen(false)}>
+
+                <Link
+                  href="/programs/pgdm"
+                  className="block text-black"
+                  onClick={() => setIsOpen(false)}
+                >
                   PGDM
                 </Link>
               </div>
             )}
           </div>
 
+          {/* OTHER LINKS */}
           <Link
             href="/about"
             className="block text-black font-semibold"
@@ -186,6 +207,7 @@ export function Header() {
           >
             About
           </Link>
+
           <Link
             href="/admissions"
             className="block text-black font-semibold"
@@ -193,6 +215,7 @@ export function Header() {
           >
             Admissions
           </Link>
+
           <Link
             href="/faculty"
             className="block text-black font-semibold"
@@ -200,6 +223,7 @@ export function Header() {
           >
             Faculty
           </Link>
+
           <Link
             href="/placements"
             className="block text-black font-semibold"
@@ -207,6 +231,7 @@ export function Header() {
           >
             Placements
           </Link>
+
           <Link
             href="/contact"
             className="block text-black font-semibold"
@@ -217,9 +242,7 @@ export function Header() {
 
           {/* MOBILE CTA */}
           <Button
-            className="w-full mt-2 text-white
-            bg-gradient-to-r from-[#B30000] via-[#E3A008] to-[#B30000]
-            animate-[goldRedBlink_1.5s_infinite]"
+            className="w-full mt-2 text-white bg-gradient-to-r from-[#B30000] via-[#E3A008] to-[#B30000] animate-[goldRedBlink_1.5s_infinite]"
             asChild
           >
             <Link href="/admissions/apply" onClick={() => setIsOpen(false)}>
