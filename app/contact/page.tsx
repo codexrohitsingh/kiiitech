@@ -229,7 +229,7 @@ export default function Contact() {
                         <br />
                         Majhgaon, Jharkhand 833214
                         <br />
-                        Jharkhand - 833214
+                        Jharkhand - 833214 .
                         <br />
                         Country
                       </p>
