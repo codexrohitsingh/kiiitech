@@ -18,27 +18,45 @@ export default function Admissions() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="mb-6">
-            <Link href="/" className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit">
+      <section className="relative overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground pt-28 pb-20">
+        {/* Background Glow */}
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] bg-accent/10 rounded-full blur-3xl" />
+        <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] bg-accent/10 rounded-full blur-3xl" />
+
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10 relative z-10">
+          {/* Back Link */}
+          <div className="mb-8">
+            <Link
+              href="/"
+              className="inline-flex items-center text-sm font-medium text-accent/90 hover:text-accent transition"
+            >
               ← Back to Home
             </Link>
           </div>
+
+          {/* Content */}
           <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-6xl font-extrabold tracking-tight leading-tight mb-6">
               Admissions
             </h1>
-            <p className="text-xl opacity-95 mb-8">
-              Join KIITECH and start your journey towards a successful career. Simple application process, transparent criteria, guaranteed opportunity.
+
+            <p className="text-lg md:text-xl text-primary-foreground/90 leading-relaxed mb-10">
+              Join KIITECH and start your journey towards a successful career.
+              Experience a simple application process, transparent criteria, and
+              strong growth opportunities.
             </p>
-            <Button variant="secondary" size="lg" asChild>
-              <a href="#apply-now" className="flex items-center gap-2">
-                Apply Now
-              </a>
-            </Button>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <Button variant="secondary" size="lg" asChild>
+                <a href="#apply-now" className="flex items-center gap-2">
+                  Apply Now →
+                </a>
+              </Button>
+
+              <Button variant="outline" size="lg" asChild>
+                <a href="#learn-more">Learn More</a>
+              </Button>
+            </div>
           </div>
         </div>
       </section>
@@ -46,41 +64,54 @@ export default function Admissions() {
       {/* Programs Overview */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Our Programs</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Our Programs
+          </h2>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                program: 'BCA',
-                duration: '3 Years',
-                eligibility: '12th Pass',
-                seats: '100',
+                program: "BCA",
+                duration: "3 Years",
+                eligibility: "12th Pass",
+                seats: "100",
               },
               {
-                program: 'Diploma',
-                duration: '2-3 Years',
-                eligibility: '10th Pass',
-                seats: '150',
+                program: "Diploma",
+                duration: "2-3 Years",
+                eligibility: "10th Pass",
+                seats: "150",
               },
               {
-                program: 'BBA',
-                duration: '3 Years',
-                eligibility: '12th Pass',
-                seats: '80',
+                program: "BBA",
+                duration: "3 Years",
+                eligibility: "12th Pass",
+                seats: "80",
               },
               {
-                program: 'PGDM',
-                duration: '2 Years',
-                eligibility: 'Bachelor Degree',
-                seats: '60',
+                program: "PGDM",
+                duration: "2 Years",
+                eligibility: "Bachelor Degree",
+                seats: "60",
               },
             ].map((prog, index) => (
-              <Card key={index} className="p-6 border-border bg-white hover:shadow-lg transition-shadow">
-                <h4 className="text-xl font-bold text-foreground mb-4">{prog.program}</h4>
+              <Card
+                key={index}
+                className="p-6 border-border bg-white hover:shadow-lg transition-shadow"
+              >
+                <h4 className="text-xl font-bold text-foreground mb-4">
+                  {prog.program}
+                </h4>
                 <div className="space-y-2 text-muted-foreground text-sm">
-                  <p><strong>Duration:</strong> {prog.duration}</p>
-                  <p><strong>Eligibility:</strong> {prog.eligibility}</p>
-                  <p><strong>Seats:</strong> {prog.seats}</p>
+                  <p>
+                    <strong>Duration:</strong> {prog.duration}
+                  </p>
+                  <p>
+                    <strong>Eligibility:</strong> {prog.eligibility}
+                  </p>
+                  <p>
+                    <strong>Seats:</strong> {prog.seats}
+                  </p>
                 </div>
               </Card>
             ))}
@@ -91,54 +122,63 @@ export default function Admissions() {
       {/* Eligibility */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Eligibility Criteria</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Eligibility Criteria
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: 'BCA Program',
+                title: "BCA Program",
                 criteria: [
-                  'Passed 10+2 (12th Standard) from recognized board',
-                  'Any stream (Science/Commerce/Arts)',
-                  'No minimum aggregate requirement',
-                  'Age: No upper age limit',
+                  "Passed 10+2 (12th Standard) from recognized board",
+                  "Any stream (Science/Commerce/Arts)",
+                  "No minimum aggregate requirement",
+                  "Age: No upper age limit",
                 ],
               },
               {
-                title: 'Diploma Program',
+                title: "Diploma Program",
                 criteria: [
-                  'Passed 10th Standard from recognized board',
-                  'Any stream eligible',
-                  'Minimum 40% in aggregate',
-                  'Age: No upper age limit',
+                  "Passed 10th Standard from recognized board",
+                  "Any stream eligible",
+                  "Minimum 40% in aggregate",
+                  "Age: No upper age limit",
                 ],
               },
               {
-                title: 'BBA Program',
+                title: "BBA Program",
                 criteria: [
-                  'Passed 10+2 (12th Standard)',
-                  'Any stream (Science/Commerce/Arts)',
-                  'No minimum aggregate requirement',
-                  'Good communication skills preferred',
+                  "Passed 10+2 (12th Standard)",
+                  "Any stream (Science/Commerce/Arts)",
+                  "No minimum aggregate requirement",
+                  "Good communication skills preferred",
                 ],
               },
               {
-                title: 'PGDM Program',
+                title: "PGDM Program",
                 criteria: [
-                  'Bachelor degree from recognized university',
-                  'Any discipline eligible',
-                  'Minimum 50% aggregate or equivalent',
-                  'Preference: 2+ years work experience',
+                  "Bachelor degree from recognized university",
+                  "Any discipline eligible",
+                  "Minimum 50% aggregate or equivalent",
+                  "Preference: 2+ years work experience",
                 ],
               },
             ].map((eligibility, index) => (
-              <Card key={index} className="p-8 border-border bg-white hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-bold text-foreground mb-6">{eligibility.title}</h3>
+              <Card
+                key={index}
+                className="p-8 border-border bg-white hover:shadow-lg transition-shadow"
+              >
+                <h3 className="text-xl font-bold text-foreground mb-6">
+                  {eligibility.title}
+                </h3>
                 <ul className="space-y-3">
                   {eligibility.criteria.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex gap-3">
                       <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                      <span className="text-muted-foreground text-sm">{item}</span>
+                      <span className="text-muted-foreground text-sm">
+                        {item}
+                      </span>
                     </li>
                   ))}
                 </ul>
@@ -152,7 +192,9 @@ export default function Admissions() {
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Application Process</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Application Process
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               Simple and straightforward process to apply at KIITECH
             </p>
@@ -162,34 +204,40 @@ export default function Admissions() {
             <div className="space-y-6">
               {[
                 {
-                  step: '1',
-                  title: 'Visit Our Portal',
-                  description: 'Visit the admission portal and create your account. Provide basic information.',
+                  step: "1",
+                  title: "Visit Our Portal",
+                  description:
+                    "Visit the admission portal and create your account. Provide basic information.",
                 },
                 {
-                  step: '2',
-                  title: 'Fill Application Form',
-                  description: 'Complete the detailed application form with personal and educational details.',
+                  step: "2",
+                  title: "Fill Application Form",
+                  description:
+                    "Complete the detailed application form with personal and educational details.",
                 },
                 {
-                  step: '3',
-                  title: 'Upload Documents',
-                  description: '10th/12th marksheet, ID proof, address proof, passport size photo, and other required documents.',
+                  step: "3",
+                  title: "Upload Documents",
+                  description:
+                    "10th/12th marksheet, ID proof, address proof, passport size photo, and other required documents.",
                 },
                 {
-                  step: '4',
-                  title: 'Pay Application Fee',
-                  description: 'Pay the non-refundable application fee (₹500). Multiple payment options available.',
+                  step: "4",
+                  title: "Pay Application Fee",
+                  description:
+                    "Pay the non-refundable application fee (₹500). Multiple payment options available.",
                 },
                 {
-                  step: '5',
-                  title: 'Entrance Exam (if applicable)',
-                  description: 'Appear for the entrance test. Some programs require merit-based selection.',
+                  step: "5",
+                  title: "Entrance Exam (if applicable)",
+                  description:
+                    "Appear for the entrance test. Some programs require merit-based selection.",
                 },
                 {
-                  step: '6',
-                  title: 'Counseling & Admission',
-                  description: 'Attend counseling session, confirm seat, and submit enrollment fee.',
+                  step: "6",
+                  title: "Counseling & Admission",
+                  description:
+                    "Attend counseling session, confirm seat, and submit enrollment fee.",
                 },
               ].map((item, index) => (
                 <div key={index} className="flex gap-6">
@@ -202,7 +250,9 @@ export default function Admissions() {
                     )}
                   </div>
                   <div className="pt-2 pb-6">
-                    <h4 className="font-bold text-foreground mb-2 text-lg">{item.title}</h4>
+                    <h4 className="font-bold text-foreground mb-2 text-lg">
+                      {item.title}
+                    </h4>
                     <p className="text-muted-foreground">{item.description}</p>
                   </div>
                 </div>
@@ -215,27 +265,36 @@ export default function Admissions() {
       {/* Important Dates */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Important Dates</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Important Dates
+          </h2>
+
           <div className="max-w-4xl mx-auto overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-border">
-                  <th className="text-left p-4 font-bold text-foreground">Event</th>
+                  <th className="text-left p-4 font-bold text-foreground">
+                    Event
+                  </th>
                   <th className="text-left p-4 font-bold text-accent">Date</th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  ['Application Window Opens', 'January 2026'],
-                  ['Last Date for Applications', 'June 2026'],
-                  ['Entrance Exam (if applicable)', 'July 2026'],
-                  ['Results Declaration', 'August 2026'],
-                  ['Counseling Round', 'August-September 2026'],
-                  ['Classes Begin', 'September 2026'],
+                  ["Application Window Opens", "January 2026"],
+                  ["Last Date for Applications", "June 2026"],
+                  ["Entrance Exam (if applicable)", "July 2026"],
+                  ["Results Declaration", "August 2026"],
+                  ["Counseling Round", "August-September 2026"],
+                  ["Classes Begin", "September 2026"],
                 ].map((row, index) => (
-                  <tr key={index} className="border-b border-border hover:bg-muted/50">
-                    <td className="p-4 font-semibold text-foreground">{row[0]}</td>
+                  <tr
+                    key={index}
+                    className="border-b border-border hover:bg-muted/50"
+                  >
+                    <td className="p-4 font-semibold text-foreground">
+                      {row[0]}
+                    </td>
                     <td className="p-4 text-muted-foreground">{row[1]}</td>
                   </tr>
                 ))}
@@ -248,8 +307,10 @@ export default function Admissions() {
       {/* Fees & Scholarships */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Fees & Scholarships</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Fees & Scholarships
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-8">
             <Card className="p-8 border-border bg-white">
               <h3 className="text-xl font-bold text-foreground mb-6 flex items-center gap-2">
@@ -257,11 +318,19 @@ export default function Admissions() {
                 Annual Fee Structure
               </h3>
               <div className="space-y-3 text-muted-foreground text-sm">
-                <p><strong>BCA/BBA:</strong> ₹1,50,000 - ₹2,00,000 per annum</p>
-                <p><strong>Diploma:</strong> ₹80,000 - ₹1,20,000 per annum</p>
-                <p><strong>PGDM:</strong> ₹3,00,000 - ₹4,00,000 per annum</p>
+                <p>
+                  <strong>BCA/BBA:</strong> ₹1,50,000 - ₹2,00,000 per annum
+                </p>
+                <p>
+                  <strong>Diploma:</strong> ₹80,000 - ₹1,20,000 per annum
+                </p>
+                <p>
+                  <strong>PGDM:</strong> ₹3,00,000 - ₹4,00,000 per annum
+                </p>
                 <p className="pt-4 border-t border-border">
-                  <strong>Hostel:</strong> ₹1,00,000 - ₹1,50,000 per annum (optional)<br/>
+                  <strong>Hostel:</strong> ₹1,00,000 - ₹1,50,000 per annum
+                  (optional)
+                  <br />
                   <strong>Application Fee:</strong> ₹500 (Non-refundable)
                 </p>
               </div>
@@ -275,25 +344,32 @@ export default function Admissions() {
               <div className="space-y-4">
                 {[
                   {
-                    name: 'Merit Scholarship',
-                    amount: 'Up to 50% waiver',
+                    name: "Merit Scholarship",
+                    amount: "Up to 50% waiver",
                   },
                   {
-                    name: 'Need-Based Scholarship',
-                    amount: 'Case-by-case basis',
+                    name: "Need-Based Scholarship",
+                    amount: "Case-by-case basis",
                   },
                   {
-                    name: 'Sports Scholarship',
-                    amount: 'For outstanding athletes',
+                    name: "Sports Scholarship",
+                    amount: "For outstanding athletes",
                   },
                   {
-                    name: 'Girl Child Scholarship',
-                    amount: 'Special support',
+                    name: "Girl Child Scholarship",
+                    amount: "Special support",
                   },
                 ].map((scholarship, index) => (
-                  <div key={index} className="flex justify-between items-start p-3 bg-muted/30 rounded">
-                    <span className="font-semibold text-foreground">{scholarship.name}</span>
-                    <span className="text-accent font-semibold text-sm">{scholarship.amount}</span>
+                  <div
+                    key={index}
+                    className="flex justify-between items-start p-3 bg-muted/30 rounded"
+                  >
+                    <span className="font-semibold text-foreground">
+                      {scholarship.name}
+                    </span>
+                    <span className="text-accent font-semibold text-sm">
+                      {scholarship.amount}
+                    </span>
                   </div>
                 ))}
               </div>
@@ -305,58 +381,65 @@ export default function Admissions() {
       {/* Documents Required */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Required Documents</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Required Documents
+          </h2>
+
           <div className="max-w-4xl mx-auto">
             <Card className="p-8 border-border bg-white">
               <div className="grid md:grid-cols-2 gap-8">
                 {[
                   {
-                    category: 'Educational Documents',
+                    category: "Educational Documents",
                     items: [
-                      '10th Standard Mark Sheet',
-                      '12th Standard Mark Sheet',
-                      'Transfer Certificate',
-                      'Character Certificate',
-                      'Admit Card/Enrollment Number',
+                      "10th Standard Mark Sheet",
+                      "12th Standard Mark Sheet",
+                      "Transfer Certificate",
+                      "Character Certificate",
+                      "Admit Card/Enrollment Number",
                     ],
                   },
                   {
-                    category: 'Personal Documents',
+                    category: "Personal Documents",
                     items: [
-                      'Aadhaar Card / PAN Card',
-                      'Passport / Voter ID / Driving License',
-                      'Address Proof (Utility Bill/Lease)',
-                      'Passport Size Photos (4x4 cm, 6 nos)',
-                      'Caste Certificate (if applicable)',
+                      "Aadhaar Card / PAN Card",
+                      "Passport / Voter ID / Driving License",
+                      "Address Proof (Utility Bill/Lease)",
+                      "Passport Size Photos (4x4 cm, 6 nos)",
+                      "Caste Certificate (if applicable)",
                     ],
                   },
                   {
-                    category: 'Additional Documents',
+                    category: "Additional Documents",
                     items: [
-                      'Sports Certificate (if applicable)',
-                      'Award Certificate (if applicable)',
-                      'Income Certificate (if applicable)',
-                      'Medical Certificate',
-                      'Parental Consent Form',
+                      "Sports Certificate (if applicable)",
+                      "Award Certificate (if applicable)",
+                      "Income Certificate (if applicable)",
+                      "Medical Certificate",
+                      "Parental Consent Form",
                     ],
                   },
                   {
-                    category: 'Banking Documents',
+                    category: "Banking Documents",
                     items: [
-                      'Bank Account Passbook',
-                      'Cancelled Cheque',
-                      'Parent/Guardian ID Proof',
-                      'Fee Proof (after deposit)',
-                      'Hostel Allotment Letter',
+                      "Bank Account Passbook",
+                      "Cancelled Cheque",
+                      "Parent/Guardian ID Proof",
+                      "Fee Proof (after deposit)",
+                      "Hostel Allotment Letter",
                     ],
                   },
                 ].map((doc, index) => (
                   <div key={index}>
-                    <h4 className="font-bold text-foreground mb-4">{doc.category}</h4>
+                    <h4 className="font-bold text-foreground mb-4">
+                      {doc.category}
+                    </h4>
                     <ul className="space-y-2">
                       {doc.items.map((item, itemIndex) => (
-                        <li key={itemIndex} className="flex gap-2 text-muted-foreground text-sm">
+                        <li
+                          key={itemIndex}
+                          className="flex gap-2 text-muted-foreground text-sm"
+                        >
                           <FileText className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
@@ -371,19 +454,26 @@ export default function Admissions() {
       </section>
 
       {/* CTA Section */}
-      <section id="apply-now" className="py-16 bg-primary text-primary-foreground">
+      <section
+        id="apply-now"
+        className="py-16 bg-primary text-primary-foreground"
+      >
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Ready to Apply?</h2>
           <p className="text-lg opacity-95 mb-8 max-w-2xl mx-auto">
-            Start your application now and take the first step towards a successful career
+            Start your application now and take the first step towards a
+            successful career
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <Link href="/admissions/apply">
-                Start Application
-              </Link>
+              <Link href="/admissions/apply">Start Application</Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
+            >
               <Link href="/contact">Contact Admissions</Link>
             </Button>
           </div>
@@ -392,5 +482,5 @@ export default function Admissions() {
 
       <Footer />
     </>
-  )
+  );
 }
