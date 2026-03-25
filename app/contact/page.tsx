@@ -79,204 +79,155 @@ export default function Contact() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="mb-6">
-            <Link
-              href="/"
-              className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit"
-            >
-              ← Back to Home
-            </Link>
-          </div>
-          <div className="max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              Get in Touch
-            </h1>
-            <p className="text-xl opacity-95">
-              We are here to answer your questions and help you with admissions
-              or any other inquiries
-            </p>
-          </div>
+      <section className="relative pt-40 pb-28 overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground">
+        {/* Background glow */}
+        <div className="absolute inset-0">
+          <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-accent/20 blur-[160px] rounded-full"></div>
+          <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-secondary/30 blur-[140px] rounded-full"></div>
         </div>
-      </section>
-      <section className="py-10 sm:py-16 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
-            {/* Form */}
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6">
+          <Link
+            href="/"
+            className="group flex items-center gap-2 text-accent mb-12 w-fit"
+          >
+            <span className="transition group-hover:-translate-x-1">←</span>
+            Back
+          </Link>
+
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* LEFT CONTENT */}
             <div>
-              <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-6 sm:mb-8">
-                Send us a Message
-              </h2>
+              <h1 className="text-6xl font-extrabold leading-tight mb-6 tracking-tight">
+                Let’s create something <br />
+                <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
+                  amazing together
+                </span>
+              </h1>
 
-              <form onSubmit={handleSubmit} className="space-y-4">
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    name="name"
-                    value={formData.name}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent"
-                    placeholder="Your name"
-                  />
+              <p className="text-lg opacity-90 mb-10 max-w-xl">
+                Whether you're applying, exploring, or collaborating — our team
+                is ready to help you move forward.
+              </p>
+
+              {/* Quick contact cards */}
+              <div className="grid sm:grid-cols-2 gap-4">
+                <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:scale-[1.03] transition">
+                  <p className="text-sm opacity-80">Email us</p>
+                  <p className="font-semibold">admissions@kiit.edu</p>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Email *
-                    </label>
-                    <input
-                      type="email"
-                      name="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent"
-                      placeholder="your@email.com"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">
-                      Phone
-                    </label>
-                    <input
-                      type="tel"
-                      name="phone"
-                      value={formData.phone}
-                      onChange={handleChange}
-                      className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent"
-                      placeholder="Your phone number"
-                    />
-                  </div>
+                <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:scale-[1.03] transition">
+                  <p className="text-sm opacity-80">Call us</p>
+                  <p className="font-semibold">+91 XXXXX XXXXX</p>
                 </div>
+              </div>
+            </div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Subject *
-                  </label>
-                  <input
-                    type="text"
-                    name="subject"
-                    value={formData.subject}
-                    onChange={handleChange}
-                    required
-                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent"
-                    placeholder="Inquiry about..."
-                  />
-                </div>
+            {/* FORM CARD */}
+            <div className="relative group">
+              {/* Gradient border glow */}
+              <div className="absolute -inset-[2px] bg-gradient-to-r from-accent via-secondary to-accent rounded-3xl blur opacity-30 group-hover:opacity-60 transition"></div>
 
-                <div>
-                  <label className="block text-sm font-medium mb-2">
-                    Message *
-                  </label>
+              <div className="relative bg-white/85 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/40">
+                <h2 className="text-2xl font-bold mb-6 text-foreground">
+                  Send a message
+                </h2>
+
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  {[
+                    { name: "name", label: "Full Name" },
+                    { name: "email", label: "Email" },
+                    { name: "subject", label: "Subject" },
+                  ].map((field) => (
+                    <div key={field.name} className="relative">
+                      <input
+                        name={field.name}
+                        value={formData[field.name]}
+                        onChange={handleChange}
+                        required
+                        placeholder=" "
+                        className="peer w-full px-4 pt-6 pb-2 rounded-xl border bg-white/70 focus:ring-2 focus:ring-accent outline-none transition"
+                      />
+                      <label
+                        className="absolute left-4 top-2 text-sm text-muted-foreground transition-all
+                  peer-placeholder-shown:top-4 peer-placeholder-shown:text-base
+                  peer-focus:top-2 peer-focus:text-sm"
+                      >
+                        {field.label}
+                      </label>
+                    </div>
+                  ))}
+
                   <textarea
                     name="message"
+                    rows={4}
                     value={formData.message}
                     onChange={handleChange}
                     required
-                    rows={5}
-                    className="w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-accent resize-none"
                     placeholder="Your message..."
-                  ></textarea>
-                </div>
+                    className="w-full px-4 py-3 rounded-xl border bg-white/70 focus:ring-2 focus:ring-accent transition"
+                  />
 
-                <Button
-                  type="submit"
-                  disabled={isSubmitting}
-                  className="w-full flex items-center justify-center gap-2"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <Loader2 className="w-4 h-4 animate-spin" />
-                      Sending...
-                    </>
-                  ) : (
-                    <>
-                      Send Message
-                      <Send className="w-4 h-4" />
-                    </>
-                  )}
-                </Button>
-
-                <p className="text-sm text-muted-foreground">
-                  * Required fields. We will respond within 24 hours.
-                </p>
-              </form>
-            </div>
-
-            {/* Map & Info */}
-            <div>
-              <div className="bg-white rounded-lg border p-6 sm:p-8 h-full flex flex-col justify-between">
-                <div>
-                  <h3 className="text-xl sm:text-2xl font-bold mb-6">
-                    Visit Our Campus
-                  </h3>
-
-                  <div className="space-y-6">
-                    <div>
-                      <h4 className="font-bold mb-2">Main Campus</h4>
-                      <p className="text-sm sm:text-base text-muted-foreground">
-                        Kalam Institute of Innovation and Technology
-                        <br />
-                        Majhgaon, Jharkhand 833214
-                        <br />
-                        Jharkhand - 833214 .
-                        <br />
-                        Country
-                      </p>
-                    </div>
-
-                    <div>
-                      <h4 className="font-bold mb-2">Admission Office</h4>
-                      <p className="text-sm sm:text-base text-muted-foreground">
-                        Building A, Ground Floor
-                        <br />
-                        Near main gate
-                        <br />
-                        Weekdays only
-                      </p>
-                    </div>
-
-                    {/* Responsive Map */}
-                    <div className="w-full h-[250px] sm:h-[350px] lg:h-[400px] rounded-lg overflow-hidden">
-                      <iframe
-                        src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1927.8919667975317!2d85.8781492!3d22.0904362!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1e43e810109cd9%3A0xf96556f30c85347b!2sDr.%20APJ%20Abdul%20Kalam%20Institute%20of%20Innovation%20and%20Technology!5e1!3m2!1sen!2sin!4v1774375327459!5m2!1sen!2sin"
-                        className="w-full h-full border-0"
-                        loading="lazy"
-                        allowFullScreen
-                      ></iframe>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="pt-6 border-t mt-6">
-                  <p className="text-sm text-muted-foreground mb-4">
-                    Need directions? Open in your maps app.
-                  </p>
-
-                  <Button variant="outline" className="w-full" asChild>
-                    <a href="#" target="_blank" rel="noopener noreferrer">
-                      Get Directions
-                    </a>
+                  <Button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-accent to-secondary hover:scale-[1.03] active:scale-[0.97] transition shadow-lg"
+                  >
+                    {isSubmitting ? "Sending..." : "Send Message 🚀"}
                   </Button>
-                </div>
+                </form>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      {/* LOWER SECTION */}
+      <section className="py-24 bg-muted/30">
+        <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16">
+          {/* MAP */}
+          <div className="rounded-3xl overflow-hidden shadow-2xl hover:scale-[1.01] transition">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1927.8919667975317!2d85.8781492!3d22.0904362!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1e43e810109cd9%3A0xf96556f30c85347b!2sDr.%20APJ%20Abdul%20Kalam%20Institute%20of%20Innovation%20and%20Technology!5e1!3m2!1sen!2sin!4v1774375327459!5m2!1sen!2sin"
+              className="w-full h-[420px] border-0"
+              loading="lazy"
+            />
+          </div>
+
+          {/* INFO */}
+          <div className="flex flex-col justify-center space-y-8">
+            <div>
+              <h3 className="text-3xl font-bold mb-3">Visit our campus</h3>
+              <p className="text-muted-foreground">
+                Experience innovation in person. Our campus is open for visits
+                during weekdays.
+              </p>
+            </div>
+
+            <div className="space-y-4 text-muted-foreground">
+              <p>
+                Kalam Institute of Innovation and Technology <br />
+                Majhgaon, Jharkhand 833214 <br />
+                India
+              </p>
+
+              <p>
+                Admission Office <br />
+                Ground Floor, Building A <br />
+                Mon – Fri
+              </p>
+            </div>
+
+            <Button className="w-fit px-6 rounded-xl">Open in Maps 📍</Button>
+          </div>
+        </div>
+      </section>
+
       {/* Contact Info Cards */}
-      <section className="py-16 bg-background">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
+      {/* <section className="py-16 bg-background">
+        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* <div className="grid md:grid-cols-3 gap-8 mb-16">
             <Card className="p-8 border-border bg-white hover:shadow-lg transition-shadow">
               <Phone className="w-12 h-12 text-accent mb-6" />
               <h3 className="text-xl font-bold text-foreground mb-2">Phone</h3>
@@ -323,10 +274,10 @@ export default function Contact() {
                 </span>
               </p>
             </Card>
-          </div>
+          </div> */}
 
-          {/* Office Hours */}
-          <Card className="p-8 border-border bg-muted/30 mb-16">
+      {/* Office Hours */}
+      {/* <Card className="p-8 border-border bg-muted/30 mb-16">
             <div className="flex items-start gap-4">
               <Clock className="w-8 h-8 text-accent flex-shrink-0 mt-1" />
               <div>
@@ -353,14 +304,12 @@ export default function Contact() {
                 </div>
               </div>
             </div>
-          </Card>
-        </div>
-      </section>
-
-      {/* Contact Form & Map */}
+          </Card> */}
+      {/* </div>  */}
+      {/* </section>  */}
 
       {/* FAQ Section */}
-      <section className="py-16 bg-background">
+      {/* <section className="py-16 bg-background">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
             Frequently Asked Questions
@@ -411,7 +360,7 @@ export default function Contact() {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </>
