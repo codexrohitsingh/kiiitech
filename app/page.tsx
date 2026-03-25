@@ -4,7 +4,9 @@ import { Footer } from '@/components/footer'
 import { Button } from '@/components/ui/button'
 import { ProgramCard } from '@/components/program-card'
 import Link from 'next/link'
+import Image from "next/image";
 import { ArrowRight, BookOpen, Users, Building2, TrendingUp, Award, Zap } from 'lucide-react'
+import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
   title: 'KIITECH - Excellence in Technical Education',
@@ -20,14 +22,14 @@ export default function Home() {
   return (
     <>
       <Header />
-      
+
       {/* Hero Section */}
       <section className="pt-32 pb-20 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
-        
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-12">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block bg-accent/20 text-accent px-4 py-2 rounded-full mb-6 text-sm font-semibold">
@@ -37,7 +39,9 @@ export default function Home() {
                 Innovation in Education, Excellence in Practice
               </h1>
               <p className="text-lg opacity-95 mb-8 leading-relaxed max-w-xl">
-                Experience transformative education at KIITECH, where cutting-edge technology meets academic excellence. Join thousands of successful graduates shaping the future.
+                Experience transformative education at KIITECH, where
+                cutting-edge technology meets academic excellence. Join
+                thousands of successful graduates shaping the future.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="secondary" size="lg" asChild>
@@ -46,8 +50,8 @@ export default function Home() {
                     <ArrowRight className="w-5 h-5" />
                   </Link>
                 </Button>
-                <Button variant="outline" size="lg" asChild className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
-                  <Link href="#programs">Explore Programs</Link>
+                <Button variant="secondary" size="lg" asChild className="">
+                  <Link href="#programs">Explore Programs </Link>
                 </Button>
               </div>
               <div className="mt-12 grid grid-cols-3 gap-8">
@@ -66,21 +70,32 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="relative w-full h-96 bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+              <div className="relative w-full aspect-[452/384] bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl overflow-hidden shadow-2xl">
+                <Image
+                  src="/hero3.jpeg"
                   alt="Campus life"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-white p-6 rounded-xl shadow-xl">
-                <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center text-white">
-                    <Award className="w-6 h-6" />
+              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-red-800 via-red-900 to-red-950 p-6 rounded-2xl shadow-2xl border border-yellow-400/30">
+                <div className="flex items-center gap-4">
+                  {/* Icon badge */}
+                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-md">
+                    <Award className="w-6 h-6 text-white" />
                   </div>
-                  <div>
-                    <div className="font-bold text-foreground">Accredited & Recognized</div>
-                    <div className="text-sm text-muted-foreground">International Standards</div>
+
+                  {/* Text content */}
+                  <div className="flex flex-col leading-tight">
+                    {/* Gold badge */}
+                    <div className="inline-block px-5 py-1.5 rounded-full text-xs font-semibold text-yellow-300 bg-yellow-400/10 border border-yellow-400/40 tracking-wide shadow-sm">
+                      Accredited & Recognized
+                    </div>
+
+                    {/* Subtext */}
+                    <div className="text-xs text-yellow-200/80 tracking-wide mt-1">
+                      International Standards
+                    </div>
                   </div>
                 </div>
               </div>
@@ -100,7 +115,8 @@ export default function Home() {
               World-Class Academic Programs
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Choose from our diverse range of programs designed to meet the evolving demands of the industry
+              Choose from our diverse range of programs designed to meet the
+              evolving demands of the industry
             </p>
           </div>
 
@@ -149,7 +165,8 @@ export default function Home() {
               Why Choose KIITECH?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Experience education that transforms lives and creates opportunities
+              Experience education that transforms lives and creates
+              opportunities
             </p>
           </div>
 
@@ -157,38 +174,48 @@ export default function Home() {
             {[
               {
                 icon: <Users className="w-8 h-8 text-accent" />,
-                title: 'Expert Faculty',
-                description: 'Learn from industry professionals with years of practical experience',
+                title: "Expert Faculty",
+                description:
+                  "Learn from industry professionals with years of practical experience",
               },
               {
                 icon: <Building2 className="w-8 h-8 text-accent" />,
-                title: 'Modern Infrastructure',
-                description: 'State-of-the-art labs, libraries, and learning spaces',
+                title: "Modern Infrastructure",
+                description:
+                  "State-of-the-art labs, libraries, and learning spaces",
               },
               {
                 icon: <TrendingUp className="w-8 h-8 text-accent" />,
-                title: '100% Placements',
-                description: 'Guaranteed placement support with top companies',
+                title: "100% Placements",
+                description: "Guaranteed placement support with top companies",
               },
               {
                 icon: <Award className="w-8 h-8 text-accent" />,
-                title: 'Industry Partnerships',
-                description: 'Strong connections with leading global organizations',
+                title: "Industry Partnerships",
+                description:
+                  "Strong connections with leading global organizations",
               },
               {
                 icon: <Zap className="w-8 h-8 text-accent" />,
-                title: 'Innovation Hub',
-                description: 'Cutting-edge research and development opportunities',
+                title: "Innovation Hub",
+                description:
+                  "Cutting-edge research and development opportunities",
               },
               {
                 icon: <BookOpen className="w-8 h-8 text-accent" />,
-                title: 'Holistic Development',
-                description: 'Programs designed for overall personality development',
+                title: "Holistic Development",
+                description:
+                  "Programs designed for overall personality development",
               },
             ].map((feature, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl border border-border hover:shadow-lg transition-shadow">
+              <div
+                key={index}
+                className="bg-white p-8 rounded-xl border border-border hover:shadow-lg transition-shadow"
+              >
                 <div className="mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{feature.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  {feature.title}
+                </h3>
                 <p className="text-muted-foreground">{feature.description}</p>
               </div>
             ))}
@@ -227,11 +254,14 @@ export default function Home() {
             Ready to Transform Your Future?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join KIITECH and become part of a community that values innovation, excellence, and success.
+            Join KIITECH and become part of a community that values innovation,
+            excellence, and success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="default" asChild>
-              <Link href="/admissions">Apply Now</Link>
+            <Button size="lg">
+              <Link href="/admissions/apply">
+                <ApplyNow />
+              </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/contact">Request Information</Link>
@@ -242,5 +272,5 @@ export default function Home() {
 
       <Footer />
     </>
-  )
+  );
 }

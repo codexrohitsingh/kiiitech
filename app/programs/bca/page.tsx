@@ -7,6 +7,7 @@ import { TestimonialCard } from '@/components/testimonial-card'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
+import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
   title: 'BCA Program - KIITECH',
@@ -109,10 +110,13 @@ export default function BCAProgram() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-6">
-            <Link href="/" className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit">
+            <Link
+              href="/"
+              className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit"
+            >
               ← Back to Home
             </Link>
           </div>
@@ -121,7 +125,9 @@ export default function BCAProgram() {
               Bachelor of Computer Applications (BCA)
             </h1>
             <p className="text-xl opacity-95 mb-8">
-              A comprehensive 3-year undergraduate program designed to prepare you for a successful career in software development, IT, and technology innovation.
+              A comprehensive 3-year undergraduate program designed to prepare
+              you for a successful career in software development, IT, and
+              technology innovation.
             </p>
             <div className="flex gap-4 mb-8">
               <div className="flex items-center gap-2">
@@ -138,9 +144,12 @@ export default function BCAProgram() {
               </div>
             </div>
             <Button variant="secondary" size="lg" asChild>
-              <Link href="/admissions" className="flex items-center gap-2">
-                Apply Now
-                <ArrowRight className="w-5 h-5" />
+              <Link
+                href="/admissions/apply"
+                className="flex items-center gap-2"
+              >
+                <ApplyNow />
+                {/* <ArrowRight className="w-5 h-5" /> */}
               </Link>
             </Button>
           </div>
@@ -152,23 +161,31 @@ export default function BCAProgram() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">Program Overview</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-6">
+                Program Overview
+              </h2>
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  The BCA program is designed to equip students with comprehensive knowledge of computer science fundamentals, software development, and emerging technologies. Our curriculum balances theoretical concepts with practical implementation.
+                  The BCA program is designed to equip students with
+                  comprehensive knowledge of computer science fundamentals,
+                  software development, and emerging technologies. Our
+                  curriculum balances theoretical concepts with practical
+                  implementation.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Students learn industry-standard programming languages, web development, database management, and modern frameworks through hands-on projects and real-world case studies.
+                  Students learn industry-standard programming languages, web
+                  development, database management, and modern frameworks
+                  through hands-on projects and real-world case studies.
                 </p>
               </div>
               <div className="mt-8 space-y-3">
                 {[
-                  'Industry-aligned curriculum',
-                  'Expert faculty with 10+ years experience',
-                  'Modern labs and development environment',
-                  'Real-world project exposure',
-                  'Internship opportunities',
-                  'Career guidance and placement support',
+                  "Industry-aligned curriculum",
+                  "Expert faculty with 10+ years experience",
+                  "Modern labs and development environment",
+                  "Real-world project exposure",
+                  "Internship opportunities",
+                  "Career guidance and placement support",
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -192,9 +209,12 @@ export default function BCAProgram() {
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Curriculum</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Curriculum
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive curriculum covering all aspects of computer science and software development
+              Comprehensive curriculum covering all aspects of computer science
+              and software development
             </p>
           </div>
 
@@ -207,39 +227,51 @@ export default function BCAProgram() {
       {/* Career Prospects */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Career Opportunities</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Career Opportunities
+          </h2>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Software Developer',
-                description: 'Develop applications and software solutions for various platforms',
+                title: "Software Developer",
+                description:
+                  "Develop applications and software solutions for various platforms",
               },
               {
-                title: 'Full Stack Developer',
-                description: 'Build end-to-end web applications with modern frameworks',
+                title: "Full Stack Developer",
+                description:
+                  "Build end-to-end web applications with modern frameworks",
               },
               {
-                title: 'Mobile App Developer',
-                description: 'Create native and cross-platform mobile applications',
+                title: "Mobile App Developer",
+                description:
+                  "Create native and cross-platform mobile applications",
               },
               {
-                title: 'Data Scientist',
-                description: 'Analyze data and build machine learning models',
+                title: "Data Scientist",
+                description: "Analyze data and build machine learning models",
               },
               {
-                title: 'DevOps Engineer',
-                description: 'Manage infrastructure and deployment pipelines',
+                title: "DevOps Engineer",
+                description: "Manage infrastructure and deployment pipelines",
               },
               {
-                title: 'Cloud Architect',
-                description: 'Design and implement cloud-based solutions',
+                title: "Cloud Architect",
+                description: "Design and implement cloud-based solutions",
               },
             ].map((career, index) => (
-              <Card key={index} className="p-6 border-border hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="p-6 border-border hover:shadow-lg transition-shadow"
+              >
                 <Briefcase className="w-8 h-8 text-accent mb-4" />
-                <h3 className="font-bold text-foreground mb-2">{career.title}</h3>
-                <p className="text-muted-foreground text-sm">{career.description}</p>
+                <h3 className="font-bold text-foreground mb-2">
+                  {career.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {career.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -249,34 +281,43 @@ export default function BCAProgram() {
       {/* Higher Education Options */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Higher Education Options</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Higher Education Options
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: 'Master of Computer Applications (MCA)',
-                duration: '2 Years',
-                focus: 'Advanced software development and research',
+                title: "Master of Computer Applications (MCA)",
+                duration: "2 Years",
+                focus: "Advanced software development and research",
               },
               {
-                title: 'M.Tech in Computer Science',
-                duration: '2 Years',
-                focus: 'Advanced technology and specializations',
+                title: "M.Tech in Computer Science",
+                duration: "2 Years",
+                focus: "Advanced technology and specializations",
               },
               {
-                title: 'M.Sc in Computer Science',
-                duration: '2 Years',
-                focus: 'Research-oriented advanced studies',
+                title: "M.Sc in Computer Science",
+                duration: "2 Years",
+                focus: "Research-oriented advanced studies",
               },
               {
-                title: 'MBA (Technology Management)',
-                duration: '2 Years',
-                focus: 'Technology leadership and management',
+                title: "MBA (Technology Management)",
+                duration: "2 Years",
+                focus: "Technology leadership and management",
               },
             ].map((option, index) => (
-              <Card key={index} className="p-8 border-border bg-white hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-bold text-foreground mb-2">{option.title}</h3>
-                <p className="text-accent font-semibold mb-3">{option.duration}</p>
+              <Card
+                key={index}
+                className="p-8 border-border bg-white hover:shadow-lg transition-shadow"
+              >
+                <h3 className="text-xl font-bold text-foreground mb-2">
+                  {option.title}
+                </h3>
+                <p className="text-accent font-semibold mb-3">
+                  {option.duration}
+                </p>
                 <p className="text-muted-foreground">{option.focus}</p>
               </Card>
             ))}
@@ -288,8 +329,12 @@ export default function BCAProgram() {
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Student Success Stories</h2>
-            <p className="text-muted-foreground">Hear from our successful graduates</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Student Success Stories
+            </h2>
+            <p className="text-muted-foreground">
+              Hear from our successful graduates
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -303,15 +348,23 @@ export default function BCAProgram() {
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Start Your BCA Journey?</h2>
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Start Your BCA Journey?
+          </h2>
           <p className="text-lg opacity-95 mb-8 max-w-2xl mx-auto">
-            Join hundreds of students who have successfully built their careers through KIITECH's BCA program
+            Join hundreds of students who have successfully built their careers
+            through KIITECH's BCA program
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
               <Link href="/admissions">Apply Now</Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
+            >
               <Link href="/contact">Get More Information</Link>
             </Button>
           </div>
@@ -320,5 +373,5 @@ export default function BCAProgram() {
 
       <Footer />
     </>
-  )
+  );
 }

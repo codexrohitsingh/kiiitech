@@ -7,6 +7,7 @@ import { TestimonialCard } from '@/components/testimonial-card'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
+import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
   title: 'PGDM Program - KIITECH',
@@ -89,10 +90,13 @@ export default function PGDMProgram() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-6">
-            <Link href="/" className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit">
+            <Link
+              href="/"
+              className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit"
+            >
               ← Back to Home
             </Link>
           </div>
@@ -101,7 +105,9 @@ export default function PGDMProgram() {
               PGDM - Post Graduate Diploma in Management
             </h1>
             <p className="text-xl opacity-95 mb-8">
-              A 2-year intensive management program designed for graduates and working professionals seeking rapid career advancement and leadership roles.
+              A 2-year intensive management program designed for graduates and
+              working professionals seeking rapid career advancement and
+              leadership roles.
             </p>
             <div className="flex gap-4 mb-8">
               <div className="flex items-center gap-2">
@@ -119,8 +125,8 @@ export default function PGDMProgram() {
             </div>
             <Button variant="secondary" size="lg" asChild>
               <Link href="/admissions" className="flex items-center gap-2">
-                Apply Now
-                <ArrowRight className="w-5 h-5" />
+                <ApplyNow />
+                {/* <ArrowRight className="w-5 h-5" /> */}
               </Link>
             </Button>
           </div>
@@ -132,23 +138,31 @@ export default function PGDMProgram() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">Program Overview</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-6">
+                Program Overview
+              </h2>
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  The PGDM is a premium alternative to traditional MBA, designed for individuals ready for senior management positions. Our intensive curriculum combines business rigor with practical industry applications.
+                  The PGDM is a premium alternative to traditional MBA, designed
+                  for individuals ready for senior management positions. Our
+                  intensive curriculum combines business rigor with practical
+                  industry applications.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Through expert faculty mentoring, industry partnerships, and international exposure, students develop strategic thinking and leadership competencies required for executive roles in organizations.
+                  Through expert faculty mentoring, industry partnerships, and
+                  international exposure, students develop strategic thinking
+                  and leadership competencies required for executive roles in
+                  organizations.
                 </p>
               </div>
               <div className="mt-8 space-y-3">
                 {[
-                  'Industry-immersed curriculum',
-                  'Senior management-focused content',
-                  'Executive guest lectures',
-                  'Internship with leading companies',
-                  'Global exchange programs',
-                  'Network with industry leaders',
+                  "Industry-immersed curriculum",
+                  "Senior management-focused content",
+                  "Executive guest lectures",
+                  "Internship with leading companies",
+                  "Global exchange programs",
+                  "Network with industry leaders",
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -171,38 +185,50 @@ export default function PGDMProgram() {
       {/* Specializations */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Available Specializations</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Available Specializations
+          </h2>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Finance & Banking',
-                description: 'Investment banking, corporate finance, and risk management',
+                title: "Finance & Banking",
+                description:
+                  "Investment banking, corporate finance, and risk management",
               },
               {
-                title: 'Digital Business',
-                description: 'E-commerce, digital marketing, and technology strategy',
+                title: "Digital Business",
+                description:
+                  "E-commerce, digital marketing, and technology strategy",
               },
               {
-                title: 'Strategic Management',
-                description: 'Corporate strategy, competitive analysis, and growth planning',
+                title: "Strategic Management",
+                description:
+                  "Corporate strategy, competitive analysis, and growth planning",
               },
               {
-                title: 'Supply Chain & Logistics',
-                description: 'Global supply chain, procurement, and distribution networks',
+                title: "Supply Chain & Logistics",
+                description:
+                  "Global supply chain, procurement, and distribution networks",
               },
               {
-                title: 'Healthcare Management',
-                description: 'Healthcare administration, operations, and policy',
+                title: "Healthcare Management",
+                description:
+                  "Healthcare administration, operations, and policy",
               },
               {
-                title: 'Consulting & Analytics',
-                description: 'Management consulting and business analytics',
+                title: "Consulting & Analytics",
+                description: "Management consulting and business analytics",
               },
             ].map((spec, index) => (
-              <Card key={index} className="p-6 border-border bg-white hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="p-6 border-border bg-white hover:shadow-lg transition-shadow"
+              >
                 <h3 className="font-bold text-foreground mb-2">{spec.title}</h3>
-                <p className="text-muted-foreground text-sm">{spec.description}</p>
+                <p className="text-muted-foreground text-sm">
+                  {spec.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -213,9 +239,12 @@ export default function PGDMProgram() {
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Curriculum</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Curriculum
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Intensive management curriculum focusing on strategic thinking and executive leadership
+              Intensive management curriculum focusing on strategic thinking and
+              executive leadership
             </p>
           </div>
 
@@ -228,11 +257,15 @@ export default function PGDMProgram() {
       {/* Admission Criteria */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Eligibility Criteria</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Eligibility Criteria
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
             <Card className="p-8 border-border bg-white">
-              <h3 className="font-bold text-foreground mb-4">Educational Background</h3>
+              <h3 className="font-bold text-foreground mb-4">
+                Educational Background
+              </h3>
               <ul className="space-y-2 text-muted-foreground text-sm">
                 <li className="flex gap-2">
                   <span className="text-accent font-bold">•</span>
@@ -249,7 +282,9 @@ export default function PGDMProgram() {
               </ul>
             </Card>
             <Card className="p-8 border-border bg-white">
-              <h3 className="font-bold text-foreground mb-4">Work Experience</h3>
+              <h3 className="font-bold text-foreground mb-4">
+                Work Experience
+              </h3>
               <ul className="space-y-2 text-muted-foreground text-sm">
                 <li className="flex gap-2">
                   <span className="text-accent font-bold">•</span>
@@ -272,39 +307,49 @@ export default function PGDMProgram() {
       {/* Career Prospects */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Career Opportunities</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Career Opportunities
+          </h2>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Senior Manager',
-                description: 'Lead departments and drive organizational strategy',
+                title: "Senior Manager",
+                description:
+                  "Lead departments and drive organizational strategy",
               },
               {
-                title: 'Business Consultant',
-                description: 'Advise C-suite executives on strategic decisions',
+                title: "Business Consultant",
+                description: "Advise C-suite executives on strategic decisions",
               },
               {
-                title: 'Entrepreneur',
-                description: 'Launch and scale your own venture',
+                title: "Entrepreneur",
+                description: "Launch and scale your own venture",
               },
               {
-                title: 'Investment Banking',
-                description: 'M&A, corporate finance, and advisory roles',
+                title: "Investment Banking",
+                description: "M&A, corporate finance, and advisory roles",
               },
               {
-                title: 'Product Manager',
-                description: 'Lead product strategy and innovation',
+                title: "Product Manager",
+                description: "Lead product strategy and innovation",
               },
               {
-                title: 'Director Level',
-                description: 'Executive positions across industries',
+                title: "Director Level",
+                description: "Executive positions across industries",
               },
             ].map((career, index) => (
-              <Card key={index} className="p-6 border-border hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="p-6 border-border hover:shadow-lg transition-shadow"
+              >
                 <Briefcase className="w-8 h-8 text-accent mb-4" />
-                <h3 className="font-bold text-foreground mb-2">{career.title}</h3>
-                <p className="text-muted-foreground text-sm">{career.description}</p>
+                <h3 className="font-bold text-foreground mb-2">
+                  {career.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {career.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -315,8 +360,12 @@ export default function PGDMProgram() {
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">PGDM Graduate Success Stories</h2>
-            <p className="text-muted-foreground">Hear from our successful PGDM graduates</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              PGDM Graduate Success Stories
+            </h2>
+            <p className="text-muted-foreground">
+              Hear from our successful PGDM graduates
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -330,29 +379,50 @@ export default function PGDMProgram() {
       {/* Comparison Table */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">PGDM vs MBA Comparison</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            PGDM vs MBA Comparison
+          </h2>
+
           <div className="overflow-x-auto">
             <table className="w-full">
               <thead>
                 <tr className="border-b-2 border-border">
-                  <th className="text-left p-4 font-bold text-foreground">Aspect</th>
-                  <th className="text-left p-4 font-bold text-accent">PGDM at KIITECH</th>
-                  <th className="text-left p-4 font-bold text-muted-foreground">Traditional MBA</th>
+                  <th className="text-left p-4 font-bold text-foreground">
+                    Aspect
+                  </th>
+                  <th className="text-left p-4 font-bold text-accent">
+                    PGDM at KIITECH
+                  </th>
+                  <th className="text-left p-4 font-bold text-muted-foreground">
+                    Traditional MBA
+                  </th>
                 </tr>
               </thead>
               <tbody>
                 {[
-                  ['Duration', '2 Years', '2 Years'],
-                  ['Focus', 'Industry-immersed, practical', 'Academic & theoretical'],
-                  ['Delivery', 'Intensive, full-time', 'Full-time or part-time'],
-                  ['Cost', 'Affordable', 'Higher investment'],
-                  ['Placement', '100% assured', 'Competitive placement'],
-                  ['Faculty', 'Industry professionals', 'Academic faculty'],
-                  ['Internship', 'Mandatory', 'Optional'],
+                  ["Duration", "2 Years", "2 Years"],
+                  [
+                    "Focus",
+                    "Industry-immersed, practical",
+                    "Academic & theoretical",
+                  ],
+                  [
+                    "Delivery",
+                    "Intensive, full-time",
+                    "Full-time or part-time",
+                  ],
+                  ["Cost", "Affordable", "Higher investment"],
+                  ["Placement", "100% assured", "Competitive placement"],
+                  ["Faculty", "Industry professionals", "Academic faculty"],
+                  ["Internship", "Mandatory", "Optional"],
                 ].map((row, index) => (
-                  <tr key={index} className="border-b border-border hover:bg-muted/30">
-                    <td className="p-4 font-semibold text-foreground">{row[0]}</td>
+                  <tr
+                    key={index}
+                    className="border-b border-border hover:bg-muted/30"
+                  >
+                    <td className="p-4 font-semibold text-foreground">
+                      {row[0]}
+                    </td>
                     <td className="p-4 text-foreground">{row[1]}</td>
                     <td className="p-4 text-muted-foreground">{row[2]}</td>
                   </tr>
@@ -366,15 +436,23 @@ export default function PGDMProgram() {
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Accelerate Your Career with PGDM</h2>
+          <h2 className="text-4xl font-bold mb-6">
+            Accelerate Your Career with PGDM
+          </h2>
           <p className="text-lg opacity-95 mb-8 max-w-2xl mx-auto">
-            Join industry leaders who have transformed their careers through KIITECH's rigorous PGDM program
+            Join industry leaders who have transformed their careers through
+            KIITECH's rigorous PGDM program
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <Link href="/admissions">Apply Now</Link>
+              <Link href="/admissions/apply">Apply Now</Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
+            >
               <Link href="/contact">Schedule a Consultation</Link>
             </Button>
           </div>
@@ -383,5 +461,5 @@ export default function PGDMProgram() {
 
       <Footer />
     </>
-  )
+  );
 }

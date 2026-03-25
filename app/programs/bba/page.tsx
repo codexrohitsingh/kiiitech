@@ -7,6 +7,7 @@ import { TestimonialCard } from '@/components/testimonial-card'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
+import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
   title: 'BBA Program - KIITECH',
@@ -109,10 +110,13 @@ export default function BBAProgram() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-6">
-            <Link href="/" className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit">
+            <Link
+              href="/"
+              className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit"
+            >
               ← Back to Home
             </Link>
           </div>
@@ -121,7 +125,9 @@ export default function BBAProgram() {
               Bachelor of Business Administration (BBA)
             </h1>
             <p className="text-xl opacity-95 mb-8">
-              A comprehensive 3-year program designed to develop future business leaders with strong management foundations and entrepreneurial mindset.
+              A comprehensive 3-year program designed to develop future business
+              leaders with strong management foundations and entrepreneurial
+              mindset.
             </p>
             <div className="flex gap-4 mb-8">
               <div className="flex items-center gap-2">
@@ -138,9 +144,12 @@ export default function BBAProgram() {
               </div>
             </div>
             <Button variant="secondary" size="lg" asChild>
-              <Link href="/admissions" className="flex items-center gap-2">
-                Apply Now
-                <ArrowRight className="w-5 h-5" />
+              <Link
+                href="/admissions/apply"
+                className="flex items-center gap-2"
+              >
+                <ApplyNow />
+                {/* <ArrowRight className="w-5 h-5" /> */}
               </Link>
             </Button>
           </div>
@@ -152,23 +161,31 @@ export default function BBAProgram() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12">
             <div>
-              <h2 className="text-3xl font-bold text-foreground mb-6">Program Overview</h2>
+              <h2 className="text-3xl font-bold text-foreground mb-6">
+                Program Overview
+              </h2>
               <div className="space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
-                  Our BBA program combines business theory with practical application, preparing students for leadership roles in various industries. The curriculum covers core business functions and emerging business trends.
+                  Our BBA program combines business theory with practical
+                  application, preparing students for leadership roles in
+                  various industries. The curriculum covers core business
+                  functions and emerging business trends.
                 </p>
                 <p className="text-muted-foreground leading-relaxed">
-                  Students develop skills in strategic thinking, financial analysis, marketing innovation, and organizational management. Industry internships and case studies provide real-world exposure.
+                  Students develop skills in strategic thinking, financial
+                  analysis, marketing innovation, and organizational management.
+                  Industry internships and case studies provide real-world
+                  exposure.
                 </p>
               </div>
               <div className="mt-8 space-y-3">
                 {[
-                  'Business-focused curriculum',
-                  'Industry practitioners as guest lecturers',
-                  'Case study methodology',
-                  'Internship programs',
-                  'Business simulations',
-                  'Entrepreneurship support',
+                  "Business-focused curriculum",
+                  "Industry practitioners as guest lecturers",
+                  "Case study methodology",
+                  "Internship programs",
+                  "Business simulations",
+                  "Entrepreneurship support",
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
                     <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
@@ -191,38 +208,51 @@ export default function BBAProgram() {
       {/* Specializations */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Available Specializations</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Available Specializations
+          </h2>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Finance & Accounting',
-                description: 'Corporate finance, investment analysis, and financial planning',
+                title: "Finance & Accounting",
+                description:
+                  "Corporate finance, investment analysis, and financial planning",
               },
               {
-                title: 'Marketing Management',
-                description: 'Digital marketing, brand management, and consumer behavior',
+                title: "Marketing Management",
+                description:
+                  "Digital marketing, brand management, and consumer behavior",
               },
               {
-                title: 'Human Resource Management',
-                description: 'Talent management, organizational development, and HR strategy',
+                title: "Human Resource Management",
+                description:
+                  "Talent management, organizational development, and HR strategy",
               },
               {
-                title: 'Operations & Supply Chain',
-                description: 'Process optimization, logistics, and supply chain management',
+                title: "Operations & Supply Chain",
+                description:
+                  "Process optimization, logistics, and supply chain management",
               },
               {
-                title: 'Entrepreneurship',
-                description: 'Startup development, business planning, and innovation',
+                title: "Entrepreneurship",
+                description:
+                  "Startup development, business planning, and innovation",
               },
               {
-                title: 'International Business',
-                description: 'Global commerce, international trade, and cultural management',
+                title: "International Business",
+                description:
+                  "Global commerce, international trade, and cultural management",
               },
             ].map((spec, index) => (
-              <Card key={index} className="p-6 border-border bg-white hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="p-6 border-border bg-white hover:shadow-lg transition-shadow"
+              >
                 <h3 className="font-bold text-foreground mb-2">{spec.title}</h3>
-                <p className="text-muted-foreground text-sm">{spec.description}</p>
+                <p className="text-muted-foreground text-sm">
+                  {spec.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -233,9 +263,12 @@ export default function BBAProgram() {
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">Curriculum</h2>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              Curriculum
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Comprehensive business curriculum covering management, finance, marketing, and strategy
+              Comprehensive business curriculum covering management, finance,
+              marketing, and strategy
             </p>
           </div>
 
@@ -248,39 +281,53 @@ export default function BBAProgram() {
       {/* Career Prospects */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Career Opportunities</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Career Opportunities
+          </h2>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               {
-                title: 'Management Consultant',
-                description: 'Advise organizations on strategy and operational improvements',
+                title: "Management Consultant",
+                description:
+                  "Advise organizations on strategy and operational improvements",
               },
               {
-                title: 'Finance Manager',
-                description: 'Manage corporate finances and investment portfolios',
+                title: "Finance Manager",
+                description:
+                  "Manage corporate finances and investment portfolios",
               },
               {
-                title: 'Marketing Manager',
-                description: 'Develop and execute marketing strategies and campaigns',
+                title: "Marketing Manager",
+                description:
+                  "Develop and execute marketing strategies and campaigns",
               },
               {
-                title: 'HR Manager',
-                description: 'Lead human resources and talent management functions',
+                title: "HR Manager",
+                description:
+                  "Lead human resources and talent management functions",
               },
               {
-                title: 'Entrepreneur',
-                description: 'Start and manage your own business venture',
+                title: "Entrepreneur",
+                description: "Start and manage your own business venture",
               },
               {
-                title: 'Business Analyst',
-                description: 'Analyze business processes and drive optimization',
+                title: "Business Analyst",
+                description:
+                  "Analyze business processes and drive optimization",
               },
             ].map((career, index) => (
-              <Card key={index} className="p-6 border-border hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="p-6 border-border hover:shadow-lg transition-shadow"
+              >
                 <Briefcase className="w-8 h-8 text-accent mb-4" />
-                <h3 className="font-bold text-foreground mb-2">{career.title}</h3>
-                <p className="text-muted-foreground text-sm">{career.description}</p>
+                <h3 className="font-bold text-foreground mb-2">
+                  {career.title}
+                </h3>
+                <p className="text-muted-foreground text-sm">
+                  {career.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -290,34 +337,43 @@ export default function BBAProgram() {
       {/* Higher Education Options */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">Further Education Pathways</h2>
-          
+          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
+            Further Education Pathways
+          </h2>
+
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: 'MBA (Master of Business Administration)',
-                duration: '2 Years',
-                focus: 'Advanced management and business strategy',
+                title: "MBA (Master of Business Administration)",
+                duration: "2 Years",
+                focus: "Advanced management and business strategy",
               },
               {
-                title: 'CA/CMA (Chartered/Cost Accountant)',
-                duration: '4.5 Years',
-                focus: 'Professional accounting credentials',
+                title: "CA/CMA (Chartered/Cost Accountant)",
+                duration: "4.5 Years",
+                focus: "Professional accounting credentials",
               },
               {
-                title: 'M.Com (Master of Commerce)',
-                duration: '2 Years',
-                focus: 'Advanced commerce and accounting',
+                title: "M.Com (Master of Commerce)",
+                duration: "2 Years",
+                focus: "Advanced commerce and accounting",
               },
               {
-                title: 'Executive Programs',
-                duration: '1-2 Years',
-                focus: 'Specialized management certifications',
+                title: "Executive Programs",
+                duration: "1-2 Years",
+                focus: "Specialized management certifications",
               },
             ].map((option, index) => (
-              <Card key={index} className="p-8 border-border bg-white hover:shadow-lg transition-shadow">
-                <h3 className="text-xl font-bold text-foreground mb-2">{option.title}</h3>
-                <p className="text-accent font-semibold mb-3">{option.duration}</p>
+              <Card
+                key={index}
+                className="p-8 border-border bg-white hover:shadow-lg transition-shadow"
+              >
+                <h3 className="text-xl font-bold text-foreground mb-2">
+                  {option.title}
+                </h3>
+                <p className="text-accent font-semibold mb-3">
+                  {option.duration}
+                </p>
                 <p className="text-muted-foreground">{option.focus}</p>
               </Card>
             ))}
@@ -329,8 +385,12 @@ export default function BBAProgram() {
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-foreground mb-4">BBA Graduate Success Stories</h2>
-            <p className="text-muted-foreground">Hear from our successful BBA graduates</p>
+            <h2 className="text-3xl font-bold text-foreground mb-4">
+              BBA Graduate Success Stories
+            </h2>
+            <p className="text-muted-foreground">
+              Hear from our successful BBA graduates
+            </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
@@ -344,15 +404,23 @@ export default function BBAProgram() {
       {/* CTA Section */}
       <section className="py-16 bg-primary text-primary-foreground">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-6">Ready to Become a Business Leader?</h2>
+          <h2 className="text-4xl font-bold mb-6">
+            Ready to Become a Business Leader?
+          </h2>
           <p className="text-lg opacity-95 mb-8 max-w-2xl mx-auto">
-            Join KIITECH's BBA program and develop the skills needed to lead organizations in the modern business landscape
+            Join KIITECH's BBA program and develop the skills needed to lead
+            organizations in the modern business landscape
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <Link href="/admissions">Apply Now</Link>
+              <Link href="/admissions">App</Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
+            <Button
+              variant="outline"
+              size="lg"
+              asChild
+              className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
+            >
               <Link href="/contact">Request Information</Link>
             </Button>
           </div>
@@ -361,5 +429,5 @@ export default function BBAProgram() {
 
       <Footer />
     </>
-  )
+  );
 }

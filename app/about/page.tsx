@@ -310,7 +310,7 @@ export default function About() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <Link href="/admissions">Apply Now</Link>
+              <Link href="/admissions/apply">Apply Now</Link>
             </Button>
             <Button variant="outline" size="lg" asChild className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
               <Link href="/contact">Get in Touch</Link>

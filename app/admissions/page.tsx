@@ -379,9 +379,9 @@ export default function Admissions() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <a href="https://admissions.kiitech.edu" target="_blank" rel="noopener noreferrer">
+              <Link href="/admissions/apply">
                 Start Application
-              </a>
+              </Link>
             </Button>
             <Button variant="outline" size="lg" asChild className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
               <Link href="/contact">Contact Admissions</Link>
