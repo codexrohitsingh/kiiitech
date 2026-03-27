@@ -459,7 +459,7 @@ export default function Admissions() {
               variant="outline"
               size="lg"
               asChild
-              className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
+              className="text-white bg-black border-primary-foreground hover:bg-primary-foreground/10"
             >
               <Link href="/contact">Contact Admissions</Link>
             </Button>

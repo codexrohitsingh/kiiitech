@@ -262,10 +262,10 @@ export default function Home() {
             excellence, and success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg">
+
               {/* <ApplyNow /> */}
               <NewApplyNow />
-            </Button>
+
             <Button size="lg" variant="outline" asChild>
               <Link href="/contact">Request Information</Link>
             </Button>
