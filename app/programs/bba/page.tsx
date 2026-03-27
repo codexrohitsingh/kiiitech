@@ -12,11 +12,10 @@ import { NewApplyNow } from '@/components/apply'
 
 
 export const metadata: Metadata = {
-  title:
-    'BBA Course in Jharkhand | Best BBA College in Majhgaon - KIITECH',
-  
+  title: "BBA Course in Jharkhand | Best BBA College in Majhgaon - KIITECH",
+
   description:
-    'Join the BBA (Bachelor of Business Administration) program at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Learn business management, entrepreneurship, finance, marketing, and leadership skills with 100% placement support.',
+    "Join the BBA (Bachelor of Business Administration) program at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Learn business management, entrepreneurship, finance, marketing, and leadership skills with 100% placement support.",
 
   keywords: [
     "BBA course in Jharkhand",
@@ -34,36 +33,36 @@ export const metadata: Metadata = {
     "best college for BBA near me",
     "career in business management India",
     "BBA program with placement support",
+    "",
   ],
 
   openGraph: {
-    title:
-      'BBA Program at KIITECH | Best Management Course in Jharkhand',
+    title: "BBA Program at KIITECH | Best Management Course in Jharkhand",
     description:
-      'Explore KIITECH’s BBA program designed for future business leaders. Industry-focused curriculum, expert faculty, and strong placement support.',
-    url: 'https://kiitech.org/programs/bba',
-    siteName: 'KIITECH',
-    type: 'website',
+      "Explore KIITECH’s BBA program designed for future business leaders. Industry-focused curriculum, expert faculty, and strong placement support.",
+    url: "https://kiitech.org/programs/bba",
+    siteName: "KIITECH",
+    type: "website",
     images: [
       {
-        url: 'https://kiitech.org/bba-og.jpg',
+        url: "https://kiitech.org/bba-og.jpg",
         width: 1200,
         height: 630,
-        alt: 'BBA Program at KIITECH',
+        alt: "BBA Program at KIITECH",
       },
     ],
   },
 
   twitter: {
-    card: 'summary_large_image',
-    title: 'BBA Course at KIITECH - Build Your Business Career',
+    card: "summary_large_image",
+    title: "BBA Course at KIITECH - Build Your Business Career",
     description:
-      'Enroll in KIITECH’s BBA program and develop leadership, management, and entrepreneurial skills.',
-    images: ['https://kiitech.org/bba-og.jpg'],
+      "Enroll in KIITECH’s BBA program and develop leadership, management, and entrepreneurial skills.",
+    images: ["https://kiitech.org/bba-og.jpg"],
   },
 
   alternates: {
-    canonical: 'https://kiitech.org/programs/bba',
+    canonical: "https://kiitech.org/programs/bba",
   },
 
   robots: {
