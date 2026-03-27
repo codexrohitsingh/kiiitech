@@ -6,7 +6,8 @@ import { ProgramCard } from '@/components/program-card'
 import Link from 'next/link'
 import Image from "next/image";
 import { ArrowRight, BookOpen, Users, Building2, TrendingUp, Award, Zap } from 'lucide-react'
-import { ApplyNow } from "@/components/apply";
+import { NewApplyNow } from '@/components/apply'
+// import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
   title: 'KIITECH - Excellence in Technical Education',
@@ -260,7 +261,8 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg">
               <Link href="/admissions/apply">
-                <ApplyNow />
+                {/* <ApplyNow /> */}
+                <NewApplyNow />
               </Link>
             </Button>
             <Button size="lg" variant="outline" asChild>
