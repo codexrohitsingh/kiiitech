@@ -7,9 +7,50 @@ import Link from 'next/link'
 import { ArrowRight, Award, Users, Building2, Globe, BookOpen } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About KIITECH - Our Mission & Vision',
-  description: 'Learn about KIITECH - a leading technical institute committed to excellence in education, innovation, and student success.',
-  keywords: ['About KIITECH', 'Mission', 'Vision', 'Our Story'],
+  title:
+    'KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology | Best College in Majhgaon, Jharkhand',
+  
+  description:
+    'KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology is a leading private college in Majhgaon, Jharkhand, India offering BBA, BCA, PGDM, Diploma and industry-focused programs with 100% placement support.',
+
+  keywords: [
+    'KIITech',
+    'kiitech',
+    'KIITech college',
+    'Dr APJ Abdul Kalam Institute of Innovation and Technology',
+    'college in Majhgaon Jharkhand',
+    'private college Jharkhand',
+    'BBA college Jharkhand',
+    'BCA college Jharkhand',
+    'PGDM college India',
+    'Diploma college Jharkhand',
+  ],
+
+  authors: [{ name: 'KIITech' }],
+
+  creator: 'KIITech',
+
+  openGraph: {
+    title:
+      'KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology',
+    description:
+      'Top private college in Majhgaon, Jharkhand offering BBA, BCA, PGDM & Diploma programs with excellent placements.',
+    url: 'https://www.kiitech.org',
+    siteName: 'KIITech',
+    locale: 'en_IN',
+    type: 'website',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'KIITech - Best College in Jharkhand',
+    description:
+      'Join KIITech for BBA, BCA, PGDM & Diploma programs with industry-ready curriculum.',
+  },
+
+  alternates: {
+    canonical: 'https://www.kiitech.org/about',
+  },
 }
 
 export default function About() {

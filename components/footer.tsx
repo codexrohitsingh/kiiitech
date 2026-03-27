@@ -1,8 +1,16 @@
-import Link from 'next/link'
-import { Mail, Phone, MapPin, Facebook, Linkedin, Instagram, Twitter } from 'lucide-react'
+import Link from "next/link";
+import {
+  Mail,
+  Phone,
+  MapPin,
+  Facebook,
+  Linkedin,
+  Instagram,
+  Youtube,
+} from "lucide-react";
 
 export function Footer() {
-  const currentYear = new Date().getFullYear()
+  const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-primary text-primary-foreground">
@@ -12,24 +20,54 @@ export function Footer() {
           {/* About */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-primary text-sm font-bold">K</div>
+              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-primary text-sm font-bold">
+                K
+              </div>
               <h3 className="font-bold text-lg">KIITECH</h3>
             </div>
             <p className="text-sm opacity-90 mb-4">
-              Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology - Excellence in Technical Education
+              Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology -
+              Excellence in Technical Education
             </p>
-            <div className="flex gap-3">
-              <a href="#" className="hover:text-accent transition-colors">
-                <Facebook className="w-5 h-5" />
+            <div className="flex gap-4">
+              {/* Facebook */}
+              <a
+                href="https://www.facebook.com/kiitech.org"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#1877F2] hover:scale-110 transition"
+              >
+                <Facebook className="w-6 h-6" />
               </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                <Linkedin className="w-5 h-5" />
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/company/kiitech/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#0A66C2] hover:scale-110 transition"
+              >
+                <Linkedin className="w-6 h-6" />
               </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                <Instagram className="w-5 h-5" />
+
+              {/* Instagram */}
+              <a
+                href="https://www.instagram.com/kiitech.org_/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-pink-500 hover:scale-110 transition"
+              >
+                <Instagram className="w-6 h-6" />
               </a>
-              <a href="#" className="hover:text-accent transition-colors">
-                <Twitter className="w-5 h-5" />
+
+              {/* YouTube */}
+              <a
+                href="https://www.youtube.com/@KIITech"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[#FF0000] hover:scale-110 transition"
+              >
+                <Youtube className="w-6 h-6" />
               </a>
             </div>
           </div>
@@ -39,22 +77,34 @@ export function Footer() {
             <h4 className="font-bold text-sm mb-4">PROGRAMS</h4>
             <ul className="space-y-2 text-sm opacity-90">
               <li>
-                <Link href="/programs/bca" className="hover:text-accent transition-colors">
+                <Link
+                  href="/programs/bca"
+                  className="hover:text-accent transition-colors"
+                >
                   BCA Degree
                 </Link>
               </li>
               <li>
-                <Link href="/programs/diploma" className="hover:text-accent transition-colors">
+                <Link
+                  href="/programs/diploma"
+                  className="hover:text-accent transition-colors"
+                >
                   Diploma Programs
                 </Link>
               </li>
               <li>
-                <Link href="/programs/bba" className="hover:text-accent transition-colors">
+                <Link
+                  href="/programs/bba"
+                  className="hover:text-accent transition-colors"
+                >
                   BBA Program
                 </Link>
               </li>
               <li>
-                <Link href="/programs/pgdm" className="hover:text-accent transition-colors">
+                <Link
+                  href="/programs/pgdm"
+                  className="hover:text-accent transition-colors"
+                >
                   PGDM
                 </Link>
               </li>
@@ -66,22 +116,34 @@ export function Footer() {
             <h4 className="font-bold text-sm mb-4">LINKS</h4>
             <ul className="space-y-2 text-sm opacity-90">
               <li>
-                <Link href="/about" className="hover:text-accent transition-colors">
+                <Link
+                  href="/about"
+                  className="hover:text-accent transition-colors"
+                >
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/faculty" className="hover:text-accent transition-colors">
+                <Link
+                  href="/faculty"
+                  className="hover:text-accent transition-colors"
+                >
                   Faculty
                 </Link>
               </li>
               <li>
-                <Link href="/placements" className="hover:text-accent transition-colors">
+                <Link
+                  href="/placements"
+                  className="hover:text-accent transition-colors"
+                >
                   Placements
                 </Link>
               </li>
               <li>
-                <Link href="/admissions" className="hover:text-accent transition-colors">
+                <Link
+                  href="/admissions"
+                  className="hover:text-accent transition-colors"
+                >
                   Admissions
                 </Link>
               </li>
@@ -94,18 +156,24 @@ export function Footer() {
             <ul className="space-y-3 text-sm opacity-90">
               <li className="flex gap-2">
                 <MapPin className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <span>Campus Address, City, Country</span>
+                <span>Majhgaon - 833214, West Singhbhum, Jharkhand, India</span>
               </li>
               <li className="flex gap-2">
                 <Phone className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <a href="tel:+1234567890" className="hover:text-accent transition-colors">
-                  +1 (234) 567-890
+                <a
+                  href="tel:+91 9337736501"
+                  className="hover:text-accent transition-colors"
+                >
+                  +91 9337736501
                 </a>
               </li>
               <li className="flex gap-2">
                 <Mail className="w-4 h-4 mt-0.5 flex-shrink-0" />
-                <a href="mailto:info@kiitech.edu" className="hover:text-accent transition-colors">
-                  info@kiitech.edu
+                <a
+                  href="mailto:office@kiitech.org"
+                  className="hover:text-accent transition-colors"
+                >
+                  office@kiitech.org
                 </a>
               </li>
             </ul>
@@ -117,7 +185,8 @@ export function Footer() {
           {/* Bottom Footer */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm opacity-75">
-              &copy; {currentYear} KIITECH - Dr. A.P.J. Abdul Kalam Institute. All rights reserved.
+              &copy; {currentYear} KIITech - Dr. A.P.J. Abdul Kalam Institute of
+              Innovation and Technology. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm opacity-75">
               <Link href="#" className="hover:text-accent transition-colors">
@@ -134,5 +203,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }
