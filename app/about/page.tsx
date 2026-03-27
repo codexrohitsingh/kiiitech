@@ -61,10 +61,13 @@ export default function About() {
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="mb-6">
-            <Link href="/" className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit">
+            <Link
+              href="/"
+              className="text-accent hover:underline text-sm font-semibold flex items-center gap-1 w-fit"
+            >
               ← Back to Home
             </Link>
           </div>
@@ -73,7 +76,8 @@ export default function About() {
               About KIITECH
             </h1>
             <p className="text-xl opacity-95">
-              Leading the future of technical education with innovation, excellence, and student-centric learning
+              Leading the future of technical education with innovation,
+              excellence, and student-centric learning
             </p>
           </div>
         </div>
@@ -84,16 +88,29 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
-              <h2 className="text-4xl font-bold text-foreground mb-6">Our Story</h2>
+              <h2 className="text-4xl font-bold text-foreground mb-6">
+                Our Story
+              </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Founded in 1998, KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology - has been at the forefront of technical education excellence for over 25 years. Our journey began with a mission to provide world-class education that combines academic rigor with practical industry relevance.
+                  Founded in 1998, KIITECH - Dr. A.P.J. Abdul Kalam Institute of
+                  Innovation and Technology - has been at the forefront of
+                  technical education excellence for over 25 years. Our journey
+                  began with a mission to provide world-class education that
+                  combines academic rigor with practical industry relevance.
                 </p>
                 <p>
-                  Named after Dr. Abdul Kalam, the visionary scientist and former President of India, our institute embodies his philosophy of innovation, excellence, and nation-building through education. We have grown from a small institution to one of the most respected technical colleges in the region.
+                  Named after Dr. Abdul Kalam, the visionary scientist and
+                  former President of India, our institute embodies his
+                  philosophy of innovation, excellence, and nation-building
+                  through education. We have grown from a small institution to
+                  one of the most respected technical colleges in the region.
                 </p>
                 <p>
-                  Today, KIITECH stands as a beacon of excellence, producing graduates who are sought after by leading global organizations. Our commitment to quality education, industry partnerships, and student success remains unwavering.
+                  Today, KIITECH stands as a beacon of excellence, producing
+                  graduates who are sought after by leading global
+                  organizations. Our commitment to quality education, industry
+                  partnerships, and student success remains unwavering.
                 </p>
               </div>
             </div>
@@ -114,19 +131,30 @@ export default function About() {
           <div className="grid md:grid-cols-2 gap-12">
             <Card className="p-8 border-border bg-white hover:shadow-lg transition-shadow">
               <Award className="w-12 h-12 text-accent mb-6" />
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Mission</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Our Mission
+              </h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                To provide innovative, industry-aligned technical education that empowers students with knowledge, skills, and values to excel as professionals, entrepreneurs, and responsible citizens in a rapidly evolving global landscape.
+                To provide innovative, industry-aligned technical education that
+                empowers students with knowledge, skills, and values to excel as
+                professionals, entrepreneurs, and responsible citizens in a
+                rapidly evolving global landscape.
               </p>
               <p className="text-muted-foreground text-sm italic">
-                We are committed to fostering a culture of continuous learning, innovation, and excellence.
+                We are committed to fostering a culture of continuous learning,
+                innovation, and excellence.
               </p>
             </Card>
             <Card className="p-8 border-border bg-white hover:shadow-lg transition-shadow">
               <Globe className="w-12 h-12 text-accent mb-6" />
-              <h3 className="text-2xl font-bold text-foreground mb-4">Our Vision</h3>
+              <h3 className="text-2xl font-bold text-foreground mb-4">
+                Our Vision
+              </h3>
               <p className="text-muted-foreground leading-relaxed mb-4">
-                To be recognized globally as a premier institution of technical excellence that creates opportunities for all stakeholders through cutting-edge research, innovative teaching, and transformative education.
+                To be recognized globally as a premier institution of technical
+                excellence that creates opportunities for all stakeholders
+                through cutting-edge research, innovative teaching, and
+                transformative education.
               </p>
               <p className="text-muted-foreground text-sm italic">
                 Building the leaders and innovators of tomorrow.
@@ -140,7 +168,9 @@ export default function About() {
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Our Core Values</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Our Core Values
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
               The principles that guide every decision and action at KIITECH
             </p>
@@ -149,41 +179,55 @@ export default function About() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                title: 'Excellence',
-                description: 'Pursuing the highest standards in everything we do',
+                title: "Excellence",
+                description:
+                  "Pursuing the highest standards in everything we do",
               },
               {
-                title: 'Innovation',
-                description: 'Encouraging creative thinking and entrepreneurial spirit',
+                title: "Innovation",
+                description:
+                  "Encouraging creative thinking and entrepreneurial spirit",
               },
               {
-                title: 'Integrity',
-                description: 'Maintaining honesty, transparency, and ethical behavior',
+                title: "Integrity",
+                description:
+                  "Maintaining honesty, transparency, and ethical behavior",
               },
               {
-                title: 'Inclusivity',
-                description: 'Creating opportunities for all regardless of background',
+                title: "Inclusivity",
+                description:
+                  "Creating opportunities for all regardless of background",
               },
               {
-                title: 'Industry Relevance',
-                description: 'Bridging education with real-world industry needs',
+                title: "Industry Relevance",
+                description:
+                  "Bridging education with real-world industry needs",
               },
               {
-                title: 'Student-Centric',
-                description: 'Focusing on individual growth and success of every student',
+                title: "Student-Centric",
+                description:
+                  "Focusing on individual growth and success of every student",
               },
               {
-                title: 'Sustainability',
-                description: 'Promoting environmental and social responsibility',
+                title: "Sustainability",
+                description:
+                  "Promoting environmental and social responsibility",
               },
               {
-                title: 'Global Perspective',
-                description: 'Preparing students for international careers',
+                title: "Global Perspective",
+                description: "Preparing students for international careers",
               },
             ].map((value, index) => (
-              <Card key={index} className="p-6 border-border bg-white hover:shadow-lg transition-shadow">
-                <h4 className="font-bold text-foreground mb-2 text-lg">{value.title}</h4>
-                <p className="text-muted-foreground text-sm">{value.description}</p>
+              <Card
+                key={index}
+                className="p-6 border-border bg-white hover:shadow-lg transition-shadow"
+              >
+                <h4 className="font-bold text-foreground mb-2 text-lg">
+                  {value.title}
+                </h4>
+                <p className="text-muted-foreground text-sm">
+                  {value.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -193,44 +237,54 @@ export default function About() {
       {/* Highlights */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-4xl font-bold text-foreground mb-12 text-center">Why Choose KIITECH?</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-12 text-center">
+            Why Choose KIITECH?
+          </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
                 icon: <Award className="w-8 h-8" />,
-                title: '25+ Years of Excellence',
-                description: 'Established legacy of academic and professional excellence',
+                title: "25+ Years of Excellence",
+                description:
+                  "Established legacy of academic and professional excellence",
               },
               {
                 icon: <Users className="w-8 h-8" />,
-                title: 'Expert Faculty',
-                description: 'Experienced educators with industry backgrounds',
+                title: "Expert Faculty",
+                description: "Experienced educators with industry backgrounds",
               },
               {
                 icon: <Building2 className="w-8 h-8" />,
-                title: 'Modern Infrastructure',
-                description: 'State-of-the-art labs, libraries, and learning spaces',
+                title: "Modern Infrastructure",
+                description:
+                  "State-of-the-art labs, libraries, and learning spaces",
               },
               {
                 icon: <Globe className="w-8 h-8" />,
-                title: 'Global Partnerships',
-                description: 'Collaborations with international institutions',
+                title: "Global Partnerships",
+                description: "Collaborations with international institutions",
               },
               {
                 icon: <BookOpen className="w-8 h-8" />,
-                title: 'Industry-Aligned Curriculum',
-                description: 'Programs designed in consultation with industry leaders',
+                title: "Industry-Aligned Curriculum",
+                description:
+                  "Programs designed in consultation with industry leaders",
               },
               {
                 icon: <Award className="w-8 h-8" />,
-                title: '100% Placements',
-                description: 'Guaranteed career placements with top companies',
+                title: "100% Placements",
+                description: "Guaranteed career placements with top companies",
               },
             ].map((highlight, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl border border-border hover:shadow-lg transition-shadow">
+              <div
+                key={index}
+                className="bg-white p-8 rounded-xl border border-border hover:shadow-lg transition-shadow"
+              >
                 <div className="text-accent mb-4">{highlight.icon}</div>
-                <h3 className="text-xl font-bold text-foreground mb-3">{highlight.title}</h3>
+                <h3 className="text-xl font-bold text-foreground mb-3">
+                  {highlight.title}
+                </h3>
                 <p className="text-muted-foreground">{highlight.description}</p>
               </div>
             ))}
@@ -242,56 +296,67 @@ export default function About() {
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Notable Achievements</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Notable Achievements
+            </h2>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                number: '25+',
-                label: 'Years of Excellence',
-                description: 'Serving students since 1998',
+                number: "25+",
+                label: "Years of Excellence",
+                description: "Serving students since 1998",
               },
               {
-                number: '15K+',
-                label: 'Graduates',
-                description: 'Placed in leading companies worldwide',
+                number: "15K+",
+                label: "Graduates",
+                description: "Placed in leading companies worldwide",
               },
               {
-                number: '50+',
-                label: 'Industry Partners',
-                description: 'Collaborating organizations',
+                number: "50+",
+                label: "Industry Partners",
+                description: "Collaborating organizations",
               },
               {
-                number: '100%',
-                label: 'Placement Rate',
-                description: 'Guaranteed job opportunities',
+                number: "100%",
+                label: "Placement Rate",
+                description: "Guaranteed job opportunities",
               },
               {
-                number: '500+',
-                label: 'Faculty Members',
-                description: 'Dedicated educators and mentors',
+                number: "500+",
+                label: "Faculty Members",
+                description: "Dedicated educators and mentors",
               },
               {
-                number: '50K+',
-                label: 'Alumni Network',
-                description: 'Globally connected success stories',
+                number: "50K+",
+                label: "Alumni Network",
+                description: "Globally connected success stories",
               },
               {
-                number: '100+',
-                label: 'Research Projects',
-                description: 'Active research initiatives',
+                number: "100+",
+                label: "Research Projects",
+                description: "Active research initiatives",
               },
               {
-                number: '10+',
-                label: 'Accreditations',
-                description: 'National and international recognitions',
+                number: "10+",
+                label: "Accreditations",
+                description: "National and international recognitions",
               },
             ].map((achievement, index) => (
-              <Card key={index} className="p-6 border-border bg-white text-center hover:shadow-lg transition-shadow">
-                <div className="text-4xl font-bold text-accent mb-2">{achievement.number}</div>
-                <h4 className="font-bold text-foreground mb-1">{achievement.label}</h4>
-                <p className="text-sm text-muted-foreground">{achievement.description}</p>
+              <Card
+                key={index}
+                className="p-6 border-border bg-white text-center hover:shadow-lg transition-shadow"
+              >
+                <div className="text-4xl font-bold text-accent mb-2">
+                  {achievement.number}
+                </div>
+                <h4 className="font-bold text-foreground mb-1">
+                  {achievement.label}
+                </h4>
+                <p className="text-sm text-muted-foreground">
+                  {achievement.description}
+                </p>
               </Card>
             ))}
           </div>
@@ -302,39 +367,52 @@ export default function About() {
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-foreground mb-4">Leadership Team</h2>
+            <h2 className="text-4xl font-bold text-foreground mb-4">
+              Leadership Team
+            </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Visionary leaders committed to excellence in education and innovation
+              Visionary leaders committed to excellence in education and
+              innovation
             </p>
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
             {[
               {
-                name: 'Dr. Rajesh Kumar',
-                position: 'Chancellor',
-                image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+                name: "Dr. Rajesh Kumar",
+                position: "Chancellor",
+                image:
+                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
               },
               {
-                name: 'Prof. Neha Sharma',
-                position: 'Vice Chancellor',
-                image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+                name: "Prof. Neha Sharma",
+                position: "Vice Chancellor",
+                image:
+                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
               },
               {
-                name: 'Dr. Amit Patel',
-                position: 'Academic Director',
-                image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
+                name: "Dr. Amit Patel",
+                position: "Academic Director",
+                image:
+                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
               },
             ].map((leader, index) => (
-              <Card key={index} className="border-border overflow-hidden hover:shadow-lg transition-shadow">
+              <Card
+                key={index}
+                className="border-border overflow-hidden hover:shadow-lg transition-shadow"
+              >
                 <img
                   src={leader.image}
                   alt={leader.name}
                   className="w-full h-64 object-cover"
                 />
                 <div className="p-6">
-                  <h4 className="font-bold text-foreground text-lg mb-1">{leader.name}</h4>
-                  <p className="text-accent font-semibold text-sm">{leader.position}</p>
+                  <h4 className="font-bold text-foreground text-lg mb-1">
+                    {leader.name}
+                  </h4>
+                  <p className="text-accent font-semibold text-sm">
+                    {leader.position}
+                  </p>
                 </div>
               </Card>
             ))}
@@ -347,13 +425,19 @@ export default function About() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-4xl font-bold mb-6">Join the KIITECH Family</h2>
           <p className="text-lg opacity-95 mb-8 max-w-2xl mx-auto">
-            Be part of an institution that believes in transforming lives through quality education and innovation
+            Be part of an institution that believes in transforming lives
+            through quality education and innovation
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
               <Link href="/admissions/apply">Apply Now</Link>
             </Button>
-            <Button variant="outline" size="lg" asChild className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10">
+            <Button
+              variant="secondary"
+              size="lg"
+              asChild
+              // className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
+            >
               <Link href="/contact">Get in Touch</Link>
             </Button>
           </div>
@@ -362,5 +446,5 @@ export default function About() {
 
       <Footer />
     </>
-  )
+  );
 }
