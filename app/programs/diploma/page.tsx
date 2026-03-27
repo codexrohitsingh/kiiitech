@@ -11,10 +11,66 @@ import { NewApplyNow } from '@/components/apply'
 // import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
-  title: 'Diploma Programs - KIITECH',
-  description: 'Advanced technical diploma programs in Engineering and Technology with practical hands-on training and industry placements at KIITECH.',
-  keywords: ['Diploma', 'Engineering', 'Technical Education'],
-}
+  title:
+    'Diploma Polytechnic in Jharkhand | Mechanical, Electrical, Civil, AI & ML - KIITECH',
+
+  description:
+    'Apply for Diploma (Polytechnic) courses at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Choose from Mechanical Engineering (120 seats), Electrical Engineering (120 seats), Civil Engineering (60 seats), and Artificial Intelligence & Machine Learning (60 seats). Industry-focused curriculum with strong placement support.',
+
+  keywords: [
+    "Diploma course in Jharkhand",
+    "Polytechnic college in Jharkhand",
+    "best diploma engineering college Jharkhand",
+    "Mechanical engineering diploma Jharkhand",
+    "Electrical engineering diploma Jharkhand",
+    "Civil engineering diploma Jharkhand",
+    "AI ML diploma course India",
+    "polytechnic admission 2026 Jharkhand",
+    "KIITECH diploma courses",
+    "diploma after 10th engineering",
+    "top private polytechnic college Jharkhand",
+    "engineering diploma with placement",
+    "polytechnic college in Majhgaon",
+    "diploma engineering fees Jharkhand",
+    "career after diploma engineering India",
+  ],
+
+  openGraph: {
+    title:
+      'Diploma Polytechnic Courses at KIITECH | Engineering & AI Programs',
+    description:
+      'Join KIITECH Diploma programs in Mechanical, Electrical, Civil, and AI & ML. Limited seats with industry-ready training and placement support.',
+    url: 'https://kiitech.org/programs/diploma',
+    siteName: 'KIITECH',
+    type: 'website',
+    images: [
+      {
+        url: 'https://kiitech.org/diploma-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Diploma Polytechnic Courses at KIITECH',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title:
+      'Diploma Polytechnic at KIITECH - Engineering & AI Courses',
+    description:
+      'Enroll in Mechanical, Electrical, Civil, and AI & ML diploma programs with strong placement opportunities.',
+    images: ['https://kiitech.org/diploma-og.jpg'],
+  },
+
+  alternates: {
+    canonical: 'https://kiitech.org/programs/diploma',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function DiplomaProgram() {
   const curriculum = [
@@ -120,7 +176,7 @@ export default function DiplomaProgram() {
               </div>
               <div className="flex items-center gap-2">
                 <BookOpen className="w-5 h-5" />
-                <span>100+ Credits</span>
+                <span>75+ Credits</span>
               </div>
             </div>
             <Button variant="secondary" size="lg" asChild>

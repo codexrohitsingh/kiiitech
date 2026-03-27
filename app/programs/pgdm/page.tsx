@@ -11,10 +11,66 @@ import { NewApplyNow } from '@/components/apply'
 // import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
-  title: 'PGDM Program - KIITECH',
-  description: 'Post Graduate Diploma in Management for working professionals and graduates seeking career advancement at KIITECH.',
-  keywords: ['PGDM', 'Management', 'Post Graduate', 'MBA Alternative'],
-}
+  title:
+    'PGDM Course in Jharkhand | Best PGDM College in Majhgaon - KIITECH',
+
+  description:
+    'Apply for PGDM (Post Graduate Diploma in Management) at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Total 360 seats including PGDM (General) 180 seats, Business Administration 60 seats, Human Resources Management 60 seats, and Marketing & Finance 60 seats. Industry-focused curriculum with strong placement support.',
+
+  keywords: [
+    "PGDM course in Jharkhand",
+    "best PGDM college in Jharkhand",
+    "PGDM college in Majhgaon",
+    "KIITECH PGDM program",
+    "Post Graduate Diploma in Management India",
+    "MBA alternative PGDM India",
+    "PGDM admission 2026 Jharkhand",
+    "PGDM Business Administration course",
+    "PGDM HR course India",
+    "PGDM Marketing and Finance course",
+    "management course after graduation",
+    "top private college Jharkhand PGDM",
+    "PGDM placements college Jharkhand",
+    "PGDM fees and admission KIITECH",
+    "career in management India",
+    "PGDM with specialization India",
+  ],
+
+  openGraph: {
+    title:
+      'PGDM Program at KIITECH | Business, HR & Marketing Specializations',
+    description:
+      'Explore PGDM programs at KIITECH with specializations in Business Administration, HR, and Marketing & Finance. Limited seats with strong placement support.',
+    url: 'https://kiitech.org/programs/pgdm',
+    siteName: 'KIITECH',
+    type: 'website',
+    images: [
+      {
+        url: 'https://kiitech.org/pgdm-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'PGDM Program at KIITECH',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PGDM Course at KIITECH - Advance Your Management Career',
+    description:
+      'Enroll in KIITECH’s PGDM program with Business, HR, and Marketing specializations and strong placement support.',
+    images: ['https://kiitech.org/pgdm-og.jpg'],
+  },
+
+  alternates: {
+    canonical: 'https://kiitech.org/programs/pgdm',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function PGDMProgram() {
   const curriculum = [
