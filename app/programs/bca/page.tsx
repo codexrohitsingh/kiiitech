@@ -1,20 +1,26 @@
-import { Metadata } from 'next'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { Button } from '@/components/ui/button'
-import { CurriculumAccordion } from '@/components/curriculum-accordion'
-import { TestimonialCard } from '@/components/testimonial-card'
-import { Card } from '@/components/ui/card'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
-import { NewApplyNow } from '@/components/apply'
+import { Metadata } from "next";
+import { Header } from "@/components/header";
+import { Footer } from "@/components/footer";
+import { Button } from "@/components/ui/button";
+import { CurriculumAccordion } from "@/components/curriculum-accordion";
+import { TestimonialCard } from "@/components/testimonial-card";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import {
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  Users,
+  BookOpen,
+  Briefcase,
+} from "lucide-react";
+import { NewApplyNow } from "@/components/apply";
 // import { ApplyNow } from "@/components/apply";
 export const metadata: Metadata = {
-  title:
-    'BCA Course in Jharkhand | Best BCA College in Majhgaon - KIITECH',
+  title: "BCA Course in Jharkhand | Best BCA College in Majhgaon - KIITECH",
 
   description:
-    'Join the BCA (Bachelor of Computer Applications) program at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Learn programming, software development, web development, AI basics, and data science with industry-focused curriculum and 100% placement support.',
+    "Join the BCA (Bachelor of Computer Applications) program at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Learn programming, software development, web development, AI basics, and data science with industry-focused curriculum and 100% placement support.",
 
   keywords: [
     "BCA course in Jharkhand",
@@ -35,33 +41,32 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title:
-      'BCA Program at KIITECH | Best Computer Course in Jharkhand',
+    title: "BCA Program at KIITECH | Best Computer Course in Jharkhand",
     description:
-      'Explore KIITECH’s BCA program designed for future IT professionals. Learn programming, web development, and software skills with strong placement support.',
-    url: 'https://kiitech.org/programs/bca',
-    siteName: 'KIITECH',
-    type: 'website',
+      "Explore KIITECH’s BCA program designed for future IT professionals. Learn programming, web development, and software skills with strong placement support.",
+    url: "https://kiitech.org/programs/bca",
+    siteName: "KIITECH",
+    type: "website",
     images: [
       {
-        url: 'https://kiitech.org/bca-og.jpg',
+        url: "https://kiitech.org/bca-og.jpg",
         width: 1200,
         height: 630,
-        alt: 'BCA Program at KIITECH',
+        alt: "BCA Program at KIITECH",
       },
     ],
   },
 
   twitter: {
-    card: 'summary_large_image',
-    title: 'BCA Course at KIITECH - Start Your IT Career',
+    card: "summary_large_image",
+    title: "BCA Course at KIITECH - Start Your IT Career",
     description:
-      'Enroll in KIITECH’s BCA program and build skills in programming, software development, and IT careers.',
-    images: ['https://kiitech.org/bca-og.jpg'],
+      "Enroll in KIITECH’s BCA program and build skills in programming, software development, and IT careers.",
+    images: ["https://kiitech.org/bca-og.jpg"],
   },
 
   alternates: {
-    canonical: 'https://kiitech.org/programs/bca',
+    canonical: "https://kiitech.org/programs/bca",
   },
 
   robots: {
@@ -73,90 +78,96 @@ export const metadata: Metadata = {
 export default function BCAProgram() {
   const curriculum = [
     {
-      title: 'Semester 1',
+      title: "Semester 1",
       subjects: [
-        { name: 'Fundamentals of Computing', credits: 4 },
-        { name: 'Mathematics-I', credits: 4 },
-        { name: 'Programming Fundamentals (C)', credits: 4 },
-        { name: 'Digital Logic Design', credits: 4 },
-        { name: 'Communication Skills', credits: 2 },
+        { name: "Fundamentals of Computing", credits: 4 },
+        { name: "Mathematics-I", credits: 4 },
+        { name: "Programming Fundamentals (C)", credits: 4 },
+        { name: "Digital Logic Design", credits: 4 },
+        { name: "Communication Skills", credits: 2 },
       ],
     },
     {
-      title: 'Semester 2',
+      title: "Semester 2",
       subjects: [
-        { name: 'Object Oriented Programming (Java)', credits: 4 },
-        { name: 'Mathematics-II', credits: 4 },
-        { name: 'Database Management Systems', credits: 4 },
-        { name: 'Web Development Basics', credits: 4 },
-        { name: 'Professional Ethics', credits: 2 },
+        { name: "Object Oriented Programming (Java)", credits: 4 },
+        { name: "Mathematics-II", credits: 4 },
+        { name: "Database Management Systems", credits: 4 },
+        { name: "Web Development Basics", credits: 4 },
+        { name: "Professional Ethics", credits: 2 },
       ],
     },
     {
-      title: 'Semester 3',
+      title: "Semester 3",
       subjects: [
-        { name: 'Data Structures & Algorithms', credits: 4 },
-        { name: 'Operating Systems', credits: 4 },
-        { name: 'Computer Networks', credits: 4 },
-        { name: 'Advance Web Technologies', credits: 4 },
-        { name: 'Software Engineering', credits: 3 },
+        { name: "Data Structures & Algorithms", credits: 4 },
+        { name: "Operating Systems", credits: 4 },
+        { name: "Computer Networks", credits: 4 },
+        { name: "Advance Web Technologies", credits: 4 },
+        { name: "Software Engineering", credits: 3 },
       ],
     },
     {
-      title: 'Semester 4',
+      title: "Semester 4",
       subjects: [
-        { name: 'Database Design & Implementation', credits: 4 },
-        { name: 'Enterprise Application Development', credits: 4 },
-        { name: 'Mobile App Development', credits: 4 },
-        { name: 'Cloud Computing Basics', credits: 4 },
-        { name: 'Internship/Project', credits: 4 },
+        { name: "Database Design & Implementation", credits: 4 },
+        { name: "Enterprise Application Development", credits: 4 },
+        { name: "Mobile App Development", credits: 4 },
+        { name: "Cloud Computing Basics", credits: 4 },
+        { name: "Internship/Project", credits: 4 },
       ],
     },
     {
-      title: 'Semester 5',
+      title: "Semester 5",
       subjects: [
-        { name: 'Artificial Intelligence & ML', credits: 4 },
-        { name: 'Information Security', credits: 4 },
-        { name: 'DevOps & CI/CD', credits: 4 },
-        { name: 'Advanced Database Systems', credits: 4 },
-        { name: 'Elective-I', credits: 3 },
+        { name: "Artificial Intelligence & ML", credits: 4 },
+        { name: "Information Security", credits: 4 },
+        { name: "DevOps & CI/CD", credits: 4 },
+        { name: "Advanced Database Systems", credits: 4 },
+        { name: "Elective-I", credits: 3 },
       ],
     },
     {
-      title: 'Semester 6',
+      title: "Semester 6",
       subjects: [
-        { name: 'Big Data Analytics', credits: 4 },
-        { name: 'Blockchain Technology', credits: 4 },
-        { name: 'IoT & Embedded Systems', credits: 4 },
-        { name: 'Capstone Project', credits: 6 },
-        { name: 'Elective-II', credits: 3 },
+        { name: "Big Data Analytics", credits: 4 },
+        { name: "Blockchain Technology", credits: 4 },
+        { name: "IoT & Embedded Systems", credits: 4 },
+        { name: "Capstone Project", credits: 6 },
+        { name: "Elective-II", credits: 3 },
       ],
     },
-  ]
+  ];
 
   const testimonials = [
     {
-      name: 'Rajesh Kumar',
-      title: 'Senior Software Engineer',
-      company: 'TCS',
-      testimonial: 'The BCA program at KIITECH provided me with strong fundamentals and practical skills that directly helped in my career at TCS.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+      name: "Rajesh Kumar",
+      title: "Senior Software Engineer",
+      company: "TCS",
+      testimonial:
+        "The BCA program at KIITECH provided me with strong fundamentals and practical skills that directly helped in my career at TCS.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
     },
     {
-      name: 'Priya Sharma',
-      title: 'Full Stack Developer',
-      company: 'Infosys',
-      testimonial: 'Excellent curriculum and industry-focused teaching made my transition to professional work seamless.',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+      name: "Priya Sharma",
+      title: "Full Stack Developer",
+      company: "Infosys",
+      testimonial:
+        "Excellent curriculum and industry-focused teaching made my transition to professional work seamless.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
     },
     {
-      name: 'Amit Patel',
-      title: 'Product Manager',
-      company: 'Google',
-      testimonial: 'KIITECH shaped my technical foundation and taught me the importance of continuous learning.',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
+      name: "Amit Patel",
+      title: "Product Manager",
+      company: "Google",
+      testimonial:
+        "KIITECH shaped my technical foundation and taught me the importance of continuous learning.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
     },
-  ]
+  ];
 
   return (
     <>
@@ -410,12 +421,18 @@ export default function BCAProgram() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <NewApplyNow />
             <Button
-              variant="secondary"
               size="lg"
               asChild
-              className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
+              className="
+    px-8 py-3 rounded-full font-semibold text-white
+    bg-gradient-to-r from-[#00319c] via-[#0053d9] to-[#0062da]
+    shadow-[0_0_20px_rgba(59,130,246,0.6)]
+    hover:scale-105 hover:shadow-[0_0_35px_rgba(59,130,246,0.9)]
+    active:scale-95
+    transition-all duration-300
+  "
             >
-              <Link href="/contact">Get More Information</Link>
+              <Link href="/contact">Schedule a Consultation</Link>
             </Button>
           </div>
         </div>

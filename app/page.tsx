@@ -8,6 +8,14 @@ import Image from "next/image";
 import { ArrowRight, BookOpen, Users, Building2, TrendingUp, Award, Zap } from 'lucide-react'
 import { NewApplyNow } from '@/components/apply'
 // import { ApplyNow } from "@/components/apply";
+import { Phone, Mail } from "lucide-react"
+import {
+  FaWhatsapp,
+  FaFacebookF,
+  FaInstagram,
+  FaLinkedinIn,
+  FaYoutube
+} from "react-icons/fa"
 
 export const metadata: Metadata = {
   title: 'KIITECH - Excellence in Technical Education',
@@ -100,6 +108,7 @@ export default function Home() {
                     <div className="text-xs text-yellow-200/80 tracking-wide mt-1">
                       International Standards
                     </div>
+   
                   </div>
                 </div>
               </div>
