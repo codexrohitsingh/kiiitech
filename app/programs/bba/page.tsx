@@ -110,7 +110,7 @@ export default function BBAProgram() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
+      <section className="pt-32 pb-16 bg-linear-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -191,7 +191,7 @@ export default function BBAProgram() {
                   "Entrepreneurship support",
                 ].map((item, index) => (
                   <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                    <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                     <span className="text-foreground">{item}</span>
                   </div>
                 ))}

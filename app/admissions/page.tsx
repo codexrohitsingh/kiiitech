@@ -18,7 +18,7 @@ export default function Admissions() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
+      <section className="pt-32 pb-16 bg-linear-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -39,11 +39,11 @@ export default function Admissions() {
               Simple application process, transparent criteria, guaranteed
               opportunity.
             </p>
-            <Button variant="secondary" size="lg" asChild>
+            {/* <Button variant="secondary" size="lg" asChild>
               <a href="#apply-now" className="flex items-center gap-2">
                 Apply Now
               </a>
-            </Button>
+            </Button> */}
           </div>
         </div>
       </section>
@@ -162,7 +162,7 @@ export default function Admissions() {
                 <ul className="space-y-3">
                   {eligibility.criteria.map((item, itemIndex) => (
                     <li key={itemIndex} className="flex gap-3">
-                      <CheckCircle className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
+                      <CheckCircle className="w-5 h-5 text-accent shrink-0 mt-0.5" />
                       <span className="text-muted-foreground text-sm">
                         {item}
                       </span>
@@ -229,7 +229,7 @@ export default function Admissions() {
               ].map((item, index) => (
                 <div key={index} className="flex gap-6">
                   <div className="relative">
-                    <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center font-bold flex-shrink-0">
+                    <div className="w-12 h-12 bg-accent text-white rounded-full flex items-center justify-center font-bold shrink-0">
                       {item.step}
                     </div>
                     {index !== 5 && (
@@ -427,7 +427,7 @@ export default function Admissions() {
                           key={itemIndex}
                           className="flex gap-2 text-muted-foreground text-sm"
                         >
-                          <FileText className="w-4 h-4 text-accent flex-shrink-0 mt-0.5" />
+                          <FileText className="w-4 h-4 text-accent shrink-0 mt-0.5" />
                           <span>{item}</span>
                         </li>
                       ))}

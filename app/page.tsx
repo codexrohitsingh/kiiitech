@@ -25,7 +25,7 @@ export default function Home() {
       <Header />
 
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
+      <section className="pt-32 pb-20 bg-linear-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -71,7 +71,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="relative w-full aspect-[452/384] bg-gradient-to-br from-accent/20 to-primary/20 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative w-full aspect-452/384 bg-linear-to-br from-accent/20 to-primary/20 rounded-2xl overflow-hidden shadow-2xl">
                 <Image
                   src="/hero3.jpeg"
                   alt="Campus life"
@@ -79,10 +79,10 @@ export default function Home() {
                   className="object-cover"
                 />
               </div>
-              <div className="absolute -bottom-6 -left-6 bg-gradient-to-br from-red-800 via-red-900 to-red-950 p-6 rounded-2xl shadow-2xl border border-yellow-400/30">
+              <div className="absolute -bottom-6 -left-6 bg-linear-to-br from-red-800 via-red-900 to-red-950 p-6 rounded-2xl shadow-2xl border border-yellow-400/30">
                 <div className="flex items-center gap-4">
                   {/* Icon badge */}
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-md">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-yellow-400 to-yellow-600 flex items-center justify-center shadow-md">
                     <Award className="w-6 h-6 text-white" />
                   </div>
 

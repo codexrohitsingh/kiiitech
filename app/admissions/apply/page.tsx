@@ -85,7 +85,7 @@ export default function ApplyNow() {
     <>
       <Header />
 
-      <main className="pt-24 pb-16 min-h-screen bg-gradient-to-br from-[#3b0000] via-[#7a0000] to-[#1a0000]">
+      <main className="pt-24 pb-16 min-h-screen bg-linear-to-br from-[#3b0000] via-[#7a0000] to-[#1a0000]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
           <div className="mb-10 text-start">
@@ -96,7 +96,7 @@ export default function ApplyNow() {
               ← Back to Admissions
             </Link>
 
-            <h1 className="text-5xl font-extrabold mt-4 bg-gradient-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">
+            <h1 className="text-5xl font-extrabold mt-4 bg-linear-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">
               Admission Application
             </h1>
 
@@ -106,7 +106,7 @@ export default function ApplyNow() {
           </div>
 
           {/* Card */}
-          <div className="relative rounded-2xl p-[2px] bg-gradient-to-r from-yellow-500 via-yellow-300 to-yellow-500 shadow-2xl">
+          <div className="relative rounded-2xl p-0.5 bg-linear-to-r from-yellow-500 via-yellow-300 to-yellow-500 shadow-2xl">
             <div className="bg-[#2b0000]/90 backdrop-blur-xl rounded-2xl p-8">
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
@@ -279,7 +279,7 @@ export default function ApplyNow() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-4 text-lg font-bold rounded-xl bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-black shadow-lg hover:scale-[1.02]"
+                    className="w-full py-4 text-lg font-bold rounded-xl bg-linear-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-black shadow-lg hover:scale-[1.02]"
                   >
                     {isSubmitting ? "Processing..." : "Submit Application"}
                   </button>
