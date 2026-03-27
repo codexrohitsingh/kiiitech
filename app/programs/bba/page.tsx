@@ -146,14 +146,9 @@ export default function BBAProgram() {
               </div>
             </div>
             <Button variant="secondary" size="lg" asChild>
-              <Link
-                href="/admissions/apply"
-                className="flex items-center gap-2"
-              >
-                {/* <ApplyNow /> */}
-                <NewApplyNow />
-                {/* <ArrowRight className="w-5 h-5" /> */}
-              </Link>
+              {/* <ApplyNow /> */}
+              <NewApplyNow />
+              {/* <ArrowRight className="w-5 h-5" /> */}
             </Button>
           </div>
         </div>
