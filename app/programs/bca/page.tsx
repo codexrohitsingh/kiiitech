@@ -9,12 +9,66 @@ import Link from 'next/link'
 import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
 import { NewApplyNow } from '@/components/apply'
 // import { ApplyNow } from "@/components/apply";
-
 export const metadata: Metadata = {
-  title: 'BCA Program - KIITECH',
-  description: 'Bachelor of Computer Applications program with industry-focused curriculum, expert faculty, and 100% placement support at KIITECH.',
-  keywords: ['BCA', 'Bachelor of Computer Applications', 'Computer Science'],
-}
+  title:
+    'BCA Course in Jharkhand | Best BCA College in Majhgaon - KIITECH',
+
+  description:
+    'Join the BCA (Bachelor of Computer Applications) program at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Learn programming, software development, web development, AI basics, and data science with industry-focused curriculum and 100% placement support.',
+
+  keywords: [
+    "BCA course in Jharkhand",
+    "best BCA college in Jharkhand",
+    "BCA college in Majhgaon",
+    "KIITECH BCA program",
+    "Bachelor of Computer Applications India",
+    "top private college Jharkhand BCA",
+    "computer course after 12th",
+    "BCA admission 2026 Jharkhand",
+    "software development course India",
+    "web development course after 12th",
+    "BCA placements college Jharkhand",
+    "BCA fees and admission KIITECH",
+    "best college for BCA near me",
+    "career in IT after BCA",
+    "BCA program with placement support",
+  ],
+
+  openGraph: {
+    title:
+      'BCA Program at KIITECH | Best Computer Course in Jharkhand',
+    description:
+      'Explore KIITECH’s BCA program designed for future IT professionals. Learn programming, web development, and software skills with strong placement support.',
+    url: 'https://kiitech.org/programs/bca',
+    siteName: 'KIITECH',
+    type: 'website',
+    images: [
+      {
+        url: 'https://kiitech.org/bca-og.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'BCA Program at KIITECH',
+      },
+    ],
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BCA Course at KIITECH - Start Your IT Career',
+    description:
+      'Enroll in KIITECH’s BCA program and build skills in programming, software development, and IT careers.',
+    images: ['https://kiitech.org/bca-og.jpg'],
+  },
+
+  alternates: {
+    canonical: 'https://kiitech.org/programs/bca',
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
 export default function BCAProgram() {
   const curriculum = [
@@ -137,11 +191,11 @@ export default function BCAProgram() {
               </div>
               <div className="flex items-center gap-2">
                 <Users className="w-5 h-5" />
-                <span>12 Semesters</span>
+                <span>6 Semesters</span>
               </div>
               <div className="flex items-center gap-2">
                 <BookOpen className="w-5 h-5" />
-                <span>144 Credits</span>
+                <span>115 Credits</span>
               </div>
             </div>
             <Button variant="secondary" size="lg" asChild>
