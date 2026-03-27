@@ -9,42 +9,60 @@ import { Mail, Phone, MapPin, Clock, Send, Loader2 } from "lucide-react";
 import { useState } from 'react'
 import { useToast } from "@/hooks/use-toast";
 
+// ✅ TYPE FIX
+type FormDataType = {
+  name: string;
+  email: string;
+  phone: string;
+  subject: string;
+  message: string;
+};
+
 export default function Contact() {
   const { toast } = useToast();
-  const [formData, setFormData] = useState<Record<string, string>>({
+
+  const [formData, setFormData] = useState<FormDataType>({
     name: '',
     email: '',
     phone: '',
     subject: '',
     message: '',
-  })
-  const [isSubmitting, setIsSubmitting] = useState(false)
+  });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    })
-  }
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
+  // ✅ safer typing
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  // ✅ typed fields
+  const fields: { name: keyof FormDataType; label: string }[] = [
+    { name: "name", label: "Full Name" },
+    { name: "email", label: "Email" },
+    { name: "phone", label: "number" },
+    { name: "subject", label: "Subject" },
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    setIsSubmitting(true)
-    
+    e.preventDefault();
+    setIsSubmitting(true);
+
     try {
-      /**
-       * IMPORTANT:
-       * 1. Deploy the Apps Script from /scripts/contact-form-handler.gs as a Web App.
-       * 2. Replace the URL below with your deployed Web App URL.
-       */
       const SCRIPT_URL =
         "https://script.google.com/macros/s/AKfycbyBV6RpQpqawhaZ-alX5fnvUfpZFXZbmJmXgDtQRbwIdI1CrD4QZ8QqIcY7ZdyzIYZ8sQ/exec";
+
       const params = new URLSearchParams();
       Object.entries(formData).forEach(([key, value]) => {
         params.append(key, value.toString());
       });
-
-      console.log("Sending contact form data to:", SCRIPT_URL);
 
       await fetch(SCRIPT_URL, {
         method: "POST",
@@ -61,7 +79,13 @@ export default function Contact() {
           "Thank you for reaching out! We will get back to you soon.",
       });
 
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+      setFormData({
+        name: "",
+        email: "",
+        phone: "",
+        subject: "",
+        message: "",
+      });
     } catch (error) {
       toast({
         title: "Submission Failed",
@@ -72,15 +96,13 @@ export default function Contact() {
     } finally {
       setIsSubmitting(false);
     }
-  }
+  };
 
   return (
     <>
       <Header />
 
-      {/* Hero Section */}
       <section className="relative pt-40 pb-28 overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground">
-        {/* Background glow */}
         <div className="absolute inset-0">
           <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-accent/20 blur-[160px] rounded-full"></div>
           <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-secondary/30 blur-[140px] rounded-full"></div>
@@ -96,7 +118,6 @@ export default function Contact() {
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* LEFT CONTENT */}
             <div>
               <h1 className="text-6xl font-extrabold leading-tight mb-6 tracking-tight">
                 Let’s create something <br />
@@ -110,24 +131,21 @@ export default function Contact() {
                 is ready to help you move forward.
               </p>
 
-              {/* Quick contact cards */}
               <div className="grid sm:grid-cols-2 gap-4">
-                <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:scale-[1.03] transition">
+                <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
                   <p className="text-sm opacity-80">Email us</p>
                   <p className="font-semibold">admissions@kiit.edu</p>
                 </div>
 
-                <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20 hover:scale-[1.03] transition">
+                <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
                   <p className="text-sm opacity-80">Call us</p>
                   <p className="font-semibold">+91 XXXXX XXXXX</p>
                 </div>
               </div>
             </div>
 
-            {/* FORM CARD */}
             <div className="relative group">
-              {/* Gradient border glow */}
-              <div className="absolute -inset-[2px] bg-gradient-to-r from-accent via-secondary to-accent rounded-3xl blur opacity-30 group-hover:opacity-60 transition"></div>
+              <div className="absolute -inset-[2px] bg-gradient-to-r from-accent via-secondary to-accent rounded-3xl blur opacity-30"></div>
 
               <div className="relative bg-white/85 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/40">
                 <h2 className="text-2xl font-bold mb-6 text-foreground">
@@ -135,12 +153,7 @@ export default function Contact() {
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
-                  {[
-                    { name: "name", label: "Full Name" },
-                    { name: "email", label: "Email" },
-                    { name: "phone", label: "number" },
-                    { name: "subject", label: "Subject" },
-                  ].map((field) => (
+                  {fields.map((field) => (
                     <div key={field.name} className="relative">
                       <input
                         name={field.name}
@@ -150,11 +163,9 @@ export default function Contact() {
                         placeholder=" "
                         className="peer w-full px-4 pt-6 pb-2 rounded-xl border bg-white/70 focus:ring-2 text-black focus:ring-accent outline-none transition"
                       />
-                      <label
-                        className="absolute left-4 top-2 text-sm text-muted-foreground transition-all
-                  peer-placeholder-shown:top-4 peer-placeholder-shown:text-base
-                  peer-focus:top-2 peer-focus:text-sm"
-                      >
+                      <label className="absolute left-4 top-2 text-sm text-muted-foreground transition-all
+                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-base
+                        peer-focus:top-2 peer-focus:text-sm">
                         {field.label}
                       </label>
                     </div>
@@ -173,9 +184,9 @@ export default function Contact() {
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-accent to-secondary hover:scale-[1.03] active:scale-[0.97] transition shadow-lg"
+                    className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-accent to-secondary"
                   >
-                    {isSubmitting ? "Sending..." : "Send Message "}
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </div>

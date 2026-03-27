@@ -34,7 +34,7 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block bg-accent/20 text-accent px-4 py-2 rounded-full mb-6 text-sm font-semibold">
-                Premier Technical Institute
+               <h1>KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology</h1>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-balance">
                 Innovation in Education, Excellence in Practice
@@ -163,7 +163,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
-              Why Choose KIITECH?
+              Why Choose KIITech?
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
               Experience education that transforms lives and creates
@@ -255,7 +255,7 @@ export default function Home() {
             Ready to Transform Your Future?
           </h2>
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join KIITECH and become part of a community that values innovation,
+            Join KIITech and become part of a community that values innovation,
             excellence, and success.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">

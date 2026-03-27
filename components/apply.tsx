@@ -1,23 +1,33 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-export function NewApplyNow() {
+export function ApplyNow() {
   return (
     <div className="hidden md:flex">
       <Button
-        asChild
         className="
-    relative px-6 py-2 text-sm font-semibold rounded-md text-white
-    bg-linear-to-r from-[#B30000] via-[#E3A008] to-[#B30000]
-    bg-size:200%_200%]
-    animate-gradient-x
-    transition-all duration-300 ease-out
-    hover:scale-105 active:scale-95
-    hover:shadow-[0_0_20px_rgba(227,160,8,0.6)]
-    overflow-hidden
-  "
+      relative px-7 py-3 text-sm font-bold text-white rounded-xl
+      bg-gradient-to-r from-red-600 via-yellow-500 to-red-600
+      bg-[length:200%_200%] animate-[gradientMove_3s_linear_infinite]
+
+      shadow-lg shadow-red-500/30
+      hover:shadow-yellow-400/50
+      hover:scale-110 active:scale-95
+
+      transition-all duration-300 overflow-hidden
+    "
+        asChild
       >
-        <Link href="/admissions/apply">Apply Now</Link>
+        <Link
+          href="/admissions/apply"
+          className="relative z-10 flex items-center gap-2"
+        >
+          Apply Now
+          {/* Shine effect */}
+          <span className="absolute inset-0 overflow-hidden rounded-xl">
+            <span className="absolute -left-20 top-0 h-full w-20 bg-white/30 blur-md rotate-12 animate-shine"></span>
+          </span>
+        </Link>
       </Button>
     </div>
   );
