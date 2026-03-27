@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 
 export default function Contact() {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<Record<string, string>>({
     name: '',
     email: '',
     phone: '',
@@ -193,6 +193,7 @@ export default function Contact() {
               src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1927.8919667975317!2d85.8781492!3d22.0904362!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a1e43e810109cd9%3A0xf96556f30c85347b!2sDr.%20APJ%20Abdul%20Kalam%20Institute%20of%20Innovation%20and%20Technology!5e1!3m2!1sen!2sin!4v1774375327459!5m2!1sen!2sin"
               className="w-full h-[420px] border-0"
               loading="lazy"
+              title="Campus Map"
             />
           </div>
 
@@ -219,149 +220,9 @@ export default function Contact() {
                 Mon – Fri
               </p>
             </div>
-
-            {/* <Button className="w-fit px-6 rounded-xl">Open in Maps </Button> */}
           </div>
         </div>
       </section>
-
-      {/* Contact Info Cards */}
-      {/* <section className="py-16 bg-background">
-        {/* <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <Card className="p-8 border-border bg-white hover:shadow-lg transition-shadow">
-              <Phone className="w-12 h-12 text-accent mb-6" />
-              <h3 className="text-xl font-bold text-foreground mb-2">Phone</h3>
-              <p className="text-muted-foreground mb-4">
-                Reach us via phone during office hours
-              </p>
-              <a
-                href="tel:+1234567890"
-                className="text-accent font-semibold hover:text-primary"
-              >
-                +1 (234) 567-890
-              </a>
-              <p className="text-sm text-muted-foreground mt-2">
-                +1 (234) 567-891
-              </p>
-            </Card>
-            <Card className="p-8 border-border bg-white hover:shadow-lg transition-shadow">
-              <Mail className="w-12 h-12 text-accent mb-6" />
-              <h3 className="text-xl font-bold text-foreground mb-2">Email</h3>
-              <p className="text-muted-foreground mb-4">
-                Send us an email anytime
-              </p>
-              <a
-                href="mailto:info@kiitech.edu"
-                className="text-accent font-semibold hover:text-primary"
-              >
-                info@kiitech.edu
-              </a>
-              <p className="text-sm text-muted-foreground mt-2">
-                admissions@kiitech.edu
-              </p>
-            </Card>
-            <Card className="p-8 border-border bg-white hover:shadow-lg transition-shadow">
-              <MapPin className="w-12 h-12 text-accent mb-6" />
-              <h3 className="text-xl font-bold text-foreground mb-2">
-                Location
-              </h3>
-              <p className="text-muted-foreground mb-4">Visit our campus</p>
-              <p className="font-semibold text-foreground">
-                KIITECH Campus
-                <br />
-                <span className="text-sm text-muted-foreground">
-                  City, State - Postal Code
-                </span>
-              </p>
-            </Card>
-          </div> */}
-
-      {/* Office Hours */}
-      {/* <Card className="p-8 border-border bg-muted/30 mb-16">
-            <div className="flex items-start gap-4">
-              <Clock className="w-8 h-8 text-accent flex-shrink-0 mt-1" />
-              <div>
-                <h3 className="text-xl font-bold text-foreground mb-4">
-                  Office Hours
-                </h3>
-                <div className="grid md:grid-cols-3 gap-8">
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">
-                      Monday - Friday
-                    </p>
-                    <p className="text-muted-foreground">9:00 AM - 6:00 PM</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">
-                      Saturday
-                    </p>
-                    <p className="text-muted-foreground">10:00 AM - 4:00 PM</p>
-                  </div>
-                  <div>
-                    <p className="font-semibold text-foreground mb-2">Sunday</p>
-                    <p className="text-muted-foreground">Closed</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Card> */}
-      {/* </div>  */}
-      {/* </section>  */}
-
-      {/* FAQ Section */}
-      {/* <section className="py-16 bg-background">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-foreground mb-12 text-center">
-            Frequently Asked Questions
-          </h2>
-
-          <div className="space-y-4">
-            {[
-              {
-                question: "How do I apply for admission?",
-                answer:
-                  "You can apply through our online admission portal or visit the admission office. Check the Admissions page for detailed information about eligibility and application process.",
-              },
-              {
-                question: "What are the eligibility criteria?",
-                answer:
-                  "Eligibility varies by program. Please visit the specific program page or contact our admissions office for detailed requirements.",
-              },
-              {
-                question: "Is there a campus tour available?",
-                answer:
-                  "Yes! We offer campus tours. Contact our admissions office to schedule a visit.",
-              },
-              {
-                question: "What is the average placement rate?",
-                answer:
-                  "KIITECH has a 100% placement rate with average package of Rs. 8-10 LPA depending on the program.",
-              },
-              {
-                question: "Are scholarship programs available?",
-                answer:
-                  "Yes, we offer merit-based and need-based scholarships. Contact the admissions office for details.",
-              },
-              {
-                question: "What is the hostel facility like?",
-                answer:
-                  "We have modern hostel facilities with all amenities. Contact us for detailed information about hostel accommodation.",
-              },
-            ].map((faq, index) => (
-              <Card
-                key={index}
-                className="p-6 border-border bg-white hover:shadow-lg transition-shadow"
-              >
-                <h4 className="font-bold text-foreground mb-2">
-                  {faq.question}
-                </h4>
-                <p className="text-muted-foreground text-sm">{faq.answer}</p>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section> */}
 
       <Footer />
     </>

@@ -2,8 +2,8 @@
 
 import { useState } from 'react'
 import { Header } from '@/components/header'
-import { Footer } from "@/components/footer";
-import Link from "next/link";
+import { Footer } from '@/components/footer'
+import Link from 'next/link'
 import { useToast } from '@/hooks/use-toast'
 
 export default function ApplyNow() {
