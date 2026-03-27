@@ -7,7 +7,8 @@ import { TestimonialCard } from '@/components/testimonial-card'
 import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
-import { ApplyNow } from "@/components/apply";
+import { NewApplyNow } from '@/components/apply'
+// import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
   title: 'Diploma Programs - KIITECH',
@@ -124,7 +125,8 @@ export default function DiplomaProgram() {
             </div>
             <Button variant="secondary" size="lg" asChild>
               <Link href="/admissions" className="flex items-center gap-2">
-                <ApplyNow />
+                {/* <ApplyNow /> */}
+                <NewApplyNow />
                 {/* <ArrowRight className="w-5 h-5" /> */}
               </Link>
             </Button>
