@@ -8,7 +8,7 @@ import { Card } from '@/components/ui/card'
 import Link from 'next/link'
 import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
 import { NewApplyNow } from '@/components/apply'
-// import { newApplyNow } from "@/components/apply";
+// import { ApplyNow } from "@/components/apply";
 
 
 export const metadata: Metadata = {
@@ -150,7 +150,7 @@ export default function BBAProgram() {
                 href="/admissions/apply"
                 className="flex items-center gap-2"
               >
-                {/* <newApplyNow /> */}
+                {/* <ApplyNow /> */}
                 <NewApplyNow />
                 {/* <ArrowRight className="w-5 h-5" /> */}
               </Link>

@@ -1,14 +1,14 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-export function ApplyNow() {
+export function NewApplyNow() {
   return (
     <div className="hidden md:flex">
       <Button
         className="
       relative px-7 py-3 text-sm font-bold text-white rounded-xl
-      bg-gradient-to-r from-red-600 via-yellow-500 to-red-600
-      bg-[length:200%_200%] animate-[gradientMove_3s_linear_infinite]
+      bg-linear-to-r from-red-600 via-yellow-500 to-red-600
+      bg-size:200%_200% animate-[gradientMove_3s_linear_infinite]
 
       shadow-lg shadow-red-500/30
       hover:shadow-yellow-400/50

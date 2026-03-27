@@ -5,6 +5,7 @@ import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { NewApplyNow } from "./apply";
 export function Header() {
   const [isOpen, setIsOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState(null);
@@ -17,40 +18,34 @@ export function Header() {
     <header className="fixed top-0 left-0 right-0 z-50 bg-yellow-400 border-b border-[#ff0000] shadow-lg">
       {/* NAVBAR */}
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 py-5">
-  <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between">
+          {/* LOGO + NAME */}
+          <Link href="/" className="flex items-center gap-3">
+            {/* Logo */}
+            <Image
+              src="/icon.svg"
+              alt="KIITech Logo"
+              width={50}
+              height={50}
+              className="object-contain"
+            />
 
-    {/* LOGO + NAME */}
-    <Link href="/" className="flex items-center gap-3">
-
-      {/* Logo */}
-      <Image
-        src="/icon.svg"
-        alt="KIITech Logo"
-        width={50}
-        height={50}
-        className="object-contain"
-      />
-
-      {/* College Name */}
-      <div className="leading-tight">
-        <p className="text-l font-black text-[#000080]">
-         KIITech - Dr. A.P.J. Abdul Kalam
-        </p>
-        <p className="text-l font-black text-[#000080]">
-          Institute of Innovation and Technology
-        </p>
-      </div>
-
-    </Link>
+            {/* College Name */}
+            <div className="leading-tight">
+              <p className="text-l font-black text-[#000080]">
+                KIITech - Dr. A.P.J. Abdul Kalam
+              </p>
+              <p className="text-l font-black text-[#000080]">
+                Institute of Innovation and Technology
+              </p>
+            </div>
+          </Link>
 
           {/* RIGHT SIDE */}
           <div className="ml-auto flex items-center gap-8">
             {/* DESKTOP MENU */}
             <div className="hidden md:flex items-center gap-8">
-              <Link
-                href="/"
-                className="text-black hover:text-white font-bold"
-              >
+              <Link href="/" className="text-black hover:text-white font-bold">
                 Home
               </Link>
 
@@ -122,33 +117,7 @@ export function Header() {
             </div>
 
             {/* CTA BUTTON */}
-            <div className="hidden md:flex">
-              <Button
-                className="
-      relative px-7 py-3 text-sm font-bold text-white rounded-xl
-      bg-gradient-to-r from-red-600 via-yellow-500 to-red-600
-      bg-[length:200%_200%] animate-[gradientMove_3s_linear_infinite]
-
-      shadow-lg shadow-red-500/30
-      hover:shadow-yellow-400/50
-      hover:scale-110 active:scale-95
-
-      transition-all duration-300 overflow-hidden
-    "
-                asChild
-              >
-                <Link
-                  href="/admissions/apply"
-                  className="relative z-10 flex items-center gap-2"
-                >
-                  Apply Now
-                  {/* Shine effect */}
-                  <span className="absolute inset-0 overflow-hidden rounded-xl">
-                    <span className="absolute -left-20 top-0 h-full w-20 bg-white/30 blur-md rotate-12 animate-shine"></span>
-                  </span>
-                </Link>
-              </Button>
-            </div>
+            <NewApplyNow />
 
             {/* MOBILE BUTTON */}
             <button
@@ -270,32 +239,8 @@ export function Header() {
           </Link>
 
           {/* MOBILE CTA */}
-    
-              <Button
-                className="
-      relative px-7 py-3 text-sm font-bold text-white rounded-xl
-      bg-gradient-to-r from-red-600 via-yellow-500 to-red-600
-      bg-[length:200%_200%] animate-[gradientMove_3s_linear_infinite]
 
-      shadow-lg shadow-red-500/30
-      hover:shadow-yellow-400/50
-      hover:scale-110 active:scale-95
-
-      transition-all duration-300 overflow-hidden
-    "
-                asChild
-              >
-                <Link
-                  href="/admissions/apply"
-                  className="relative z-10 flex items-center gap-2"
-                >
-                  Apply Now
-                  {/* Shine effect */}
-                  <span className="absolute inset-0 overflow-hidden rounded-xl">
-                    <span className="absolute -left-20 top-0 h-full w-20 bg-white/30 blur-md rotate-12 animate-shine"></span>
-                  </span>
-                </Link>
-              </Button>
+          <NewApplyNow />
         </div>
       )}
     </header>

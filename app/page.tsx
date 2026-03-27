@@ -34,7 +34,10 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <div className="inline-block bg-accent/20 text-accent px-4 py-2 rounded-full mb-6 text-sm font-semibold">
-               <h1>KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology</h1>
+                <h1>
+                  KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and
+                  Technology
+                </h1>
               </div>
               <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight text-balance">
                 Innovation in Education, Excellence in Practice
@@ -260,10 +263,8 @@ export default function Home() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button size="lg">
-              <Link href="/admissions/apply">
-                {/* <ApplyNow /> */}
-                <NewApplyNow />
-              </Link>
+              {/* <ApplyNow /> */}
+              <NewApplyNow />
             </Button>
             <Button size="lg" variant="outline" asChild>
               <Link href="/contact">Request Information</Link>
