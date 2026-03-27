@@ -415,11 +415,9 @@ export default function BBAProgram() {
             organizations in the modern business landscape
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <Link href="/admissions">App</Link>
-            </Button>
+            <NewApplyNow />
             <Button
-              variant="outline"
+              variant="secondary"
               size="lg"
               asChild
               className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"

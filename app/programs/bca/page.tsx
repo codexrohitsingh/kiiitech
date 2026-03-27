@@ -145,15 +145,10 @@ export default function BCAProgram() {
               </div>
             </div>
             <Button variant="secondary" size="lg" asChild>
-              <Link
-                href="/admissions/apply"
-                className="flex items-center gap-2"
-              >
-                {/* <ApplyNow />
-                 */}
-                <NewApplyNow />
-                {/* <ArrowRight className="w-5 h-5" /> */}
-              </Link>
+              {/* <ApplyNow />
+               */}
+              <NewApplyNow />
+              {/* <ArrowRight className="w-5 h-5" /> */}
             </Button>
           </div>
         </div>
@@ -359,11 +354,9 @@ export default function BCAProgram() {
             through KIITECH's BCA program
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button variant="secondary" size="lg" asChild>
-              <Link href="/admissions">Apply Now</Link>
-            </Button>
+            <NewApplyNow />
             <Button
-              variant="outline"
+              variant="secondary"
               size="lg"
               asChild
               className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
