@@ -37,13 +37,11 @@ export default function Admissions() {
       {/* Programs Section */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4">
-
           <h2 className="text-3xl font-bold text-center mb-12">
             Our Programs & Courses
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-
             {/* BCA */}
             <Card className="p-6">
               <h3 className="text-xl font-bold mb-4">
@@ -56,9 +54,15 @@ export default function Admissions() {
               </p>
 
               <ul className="text-sm space-y-2">
-                <li><strong>Duration:</strong> 3 Years (6 Semesters)</li>
-                <li><strong>Eligibility:</strong> 12th Pass</li>
-                <li><strong>Semester Fee:</strong> ₹25,000</li>
+                <li>
+                  <strong>Duration:</strong> 3 Years (6 Semesters)
+                </li>
+                <li>
+                  <strong>Eligibility:</strong> 12th Pass
+                </li>
+                <li>
+                  <strong>Semester Fee:</strong> ₹25,000
+                </li>
               </ul>
             </Card>
 
@@ -69,44 +73,50 @@ export default function Admissions() {
               </h3>
 
               <p className="text-sm text-muted-foreground mb-3">
-                Develop business knowledge, management skills,
-                and leadership qualities.
+                Develop business knowledge, management skills, and leadership
+                qualities.
               </p>
 
               <ul className="text-sm space-y-2">
-                <li><strong>Duration:</strong> 3 Years (6 Semesters)</li>
-                <li><strong>Eligibility:</strong> 12th Pass</li>
-                <li><strong>Semester Fee:</strong> ₹25,000</li>
+                <li>
+                  <strong>Duration:</strong> 3 Years (6 Semesters)
+                </li>
+                <li>
+                  <strong>Eligibility:</strong> 12th Pass
+                </li>
+                <li>
+                  <strong>Semester Fee:</strong> ₹25,000
+                </li>
               </ul>
             </Card>
 
             {/* Diploma */}
             <Card className="p-6">
-              <h3 className="text-xl font-bold mb-4">
-                Diploma in Engineering
-              </h3>
+              <h3 className="text-xl font-bold mb-4">Diploma in Engineering</h3>
 
               <p className="text-sm text-muted-foreground mb-3">
                 Skill-based technical education with industry-ready training.
               </p>
 
-              <p className="font-semibold mb-2">
-                Available Branches:
-              </p>
+              <p className="font-semibold mb-2">Available Branches:</p>
 
               <ul className="list-disc list-inside text-sm mb-3 space-y-1">
                 <li>Diploma in Mechanical Engineering</li>
                 <li>Diploma in Electrical Engineering</li>
                 <li>Diploma in Civil Engineering</li>
-                <li>
-                  Diploma in Artificial Intelligence and Machine Learning
-                </li>
+                <li>Diploma in Artificial Intelligence and Machine Learning</li>
               </ul>
 
               <ul className="text-sm space-y-2">
-                <li><strong>Duration:</strong> 2–3 Years</li>
-                <li><strong>Eligibility:</strong> 10th Pass</li>
-                <li><strong>Semester Fee:</strong> ₹25,000</li>
+                <li>
+                  <strong>Duration:</strong> 2–3 Years
+                </li>
+                <li>
+                  <strong>Eligibility:</strong> 10th Pass
+                </li>
+                <li>
+                  <strong>Semester Fee:</strong> ₹25,000
+                </li>
               </ul>
             </Card>
 
@@ -117,13 +127,11 @@ export default function Admissions() {
               </h3>
 
               <p className="text-sm text-muted-foreground mb-3">
-                Advanced management education designed to prepare students
-                for leadership roles.
+                Advanced management education designed to prepare students for
+                leadership roles.
               </p>
 
-              <p className="font-semibold mb-2">
-                Specializations:
-              </p>
+              <p className="font-semibold mb-2">Specializations:</p>
 
               <ul className="list-disc list-inside text-sm mb-3 space-y-1">
                 <li>PGDM in Business Administration</li>
@@ -132,12 +140,17 @@ export default function Admissions() {
               </ul>
 
               <ul className="text-sm space-y-2">
-                <li><strong>Duration:</strong> 2 Years (4 Semesters)</li>
-                <li><strong>Eligibility:</strong> Bachelor Degree</li>
-                <li><strong>Semester Fee:</strong> ₹35,000</li>
+                <li>
+                  <strong>Duration:</strong> 2 Years (4 Semesters)
+                </li>
+                <li>
+                  <strong>Eligibility:</strong> Bachelor Degree
+                </li>
+                <li>
+                  <strong>Semester Fee:</strong> ₹35,000
+                </li>
               </ul>
             </Card>
-
           </div>
         </div>
       </section>
@@ -145,15 +158,12 @@ export default function Admissions() {
       {/* Fee Structure */}
       <section className="py-16 bg-muted/30">
         <div className="max-w-7xl mx-auto px-4">
-
           <h2 className="text-3xl font-bold text-center mb-12">
             Course Fee Structure (Per Semester)
           </h2>
 
           <div className="max-w-4xl mx-auto overflow-x-auto">
-
             <table className="w-full border border-border">
-
               <thead className="bg-muted/30">
                 <tr>
                   <th className="p-4 text-left">Course</th>
@@ -163,7 +173,6 @@ export default function Admissions() {
               </thead>
 
               <tbody>
-
                 <tr className="border-t">
                   <td className="p-4">
                     BCA (Bachelor of Computer Applications)
@@ -185,9 +194,7 @@ export default function Admissions() {
                 </tr>
 
                 <tr className="border-t">
-                  <td className="p-4">
-                    Diploma Engineering (All Branches)
-                  </td>
+                  <td className="p-4">Diploma Engineering (All Branches)</td>
                   <td className="p-4">2–3 Years</td>
                   <td className="p-4 font-semibold text-accent">
                     ₹20,000
@@ -195,19 +202,12 @@ export default function Admissions() {
                 </tr>
 
                 <tr className="border-t">
-                  <td className="p-4">
-                    PGDM (All Specializations)
-                  </td>
+                  <td className="p-4">PGDM (All Specializations)</td>
                   <td className="p-4">2 Years</td>
-                  <td className="p-4 font-semibold text-accent">
-                    ₹35,000
-                  </td>
+                  <td className="p-4 font-semibold text-accent">₹35,000</td>
                 </tr>
-
               </tbody>
-
             </table>
-
           </div>
         </div>
       </section>
@@ -215,19 +215,14 @@ export default function Admissions() {
       {/* Required Documents */}
       <section className="py-16 bg-background">
         <div className="max-w-7xl mx-auto px-4">
-
           <h2 className="text-3xl font-bold text-center mb-12">
             Required Documents
           </h2>
 
           <Card className="p-8 max-w-4xl mx-auto">
-
             <div className="grid md:grid-cols-2 gap-8">
-
               <div>
-                <h4 className="font-bold mb-4">
-                  Educational Documents
-                </h4>
+                <h4 className="font-bold mb-4">Educational Documents</h4>
 
                 <ul className="space-y-2 text-sm">
                   <li className="flex gap-2">
@@ -248,9 +243,7 @@ export default function Admissions() {
               </div>
 
               <div>
-                <h4 className="font-bold mb-4">
-                  Personal Documents
-                </h4>
+                <h4 className="font-bold mb-4">Personal Documents</h4>
 
                 <ul className="space-y-2 text-sm">
                   <li className="flex gap-2">
@@ -269,41 +262,28 @@ export default function Admissions() {
                   </li>
                 </ul>
               </div>
-
             </div>
-
           </Card>
-
         </div>
       </section>
 
       {/* CTA */}
       <section className="py-16 bg-primary text-white text-center">
-
-        <h2 className="text-4xl font-bold mb-6">
-          Ready to Apply?
-        </h2>
+        <h2 className="text-4xl font-bold mb-6">Ready to Apply?</h2>
 
         <p className="mb-8">
           Start your application today and secure your future.
         </p>
 
         <div className="flex justify-center gap-4">
+          <Button variant="secondary" size="lg" asChild>
+            <Link href="/admissions/apply">Start Application</Link>
+          </Button>
 
           <Button variant="secondary" size="lg" asChild>
-            <Link href="/admissions/apply">
-              Start Application
-            </Link>
+            <Link href="/contact">Contact Admissions</Link>
           </Button>
-
-          <Button variant="outline" size="lg" asChild>
-            <Link href="/contact">
-              Contact Admissions
-            </Link>
-          </Button>
-
         </div>
-
       </section>
     </>
   );

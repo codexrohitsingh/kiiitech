@@ -127,7 +127,7 @@ export default function PGDMProgram() {
       testimonial:
         "The PGDM program accelerated my career progression. The practical focus and industry connections are invaluable.",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+        "https://plus.unsplash.com/premium_photo-1682433074878-6db0ca7d3f67?w=400&h=400&fit=crop",
     },
     {
       name: "Priya Bansal",
@@ -136,7 +136,7 @@ export default function PGDMProgram() {
       testimonial:
         "Perfect blend of theory and practice. The PGDM curriculum is very relevant to current market demands.",
       image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1573496799822-b0557c9e2f41?w=400&h=400&fit=crop",
     },
     {
       name: "Rajesh Iyer",
@@ -145,7 +145,7 @@ export default function PGDMProgram() {
       testimonial:
         "Great mentoring and networking opportunities. PGDM is an excellent alternative to traditional MBA.",
       image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1686984197046-1925353b0ace?w=400&h=400&fit=crop",
     },
   ];
 
@@ -509,10 +509,16 @@ export default function PGDMProgram() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <NewApplyNow />
             <Button
-              variant="secondary"
               size="lg"
               asChild
-              className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
+              className="
+    px-8 py-3 rounded-full font-semibold text-white
+    bg-gradient-to-r from-[#00319c] via-[#0053d9] to-[#0062da]
+    shadow-[0_0_20px_rgba(59,130,246,0.6)]
+    hover:scale-105 hover:shadow-[0_0_35px_rgba(59,130,246,0.9)]
+    active:scale-95
+    transition-all duration-300
+  "
             >
               <Link href="/contact">Schedule a Consultation</Link>
             </Button>
