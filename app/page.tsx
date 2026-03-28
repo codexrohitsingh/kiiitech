@@ -135,7 +135,7 @@ export default function Home() {
               title="BCA Program"
               description="Bachelor of Computer Applications with industry-focused curriculum"
               duration="3 Years"
-              image="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop"
+              image="/bca.png"
               href="/programs/bca"
               icon={<BookOpen className="w-6 h-6 text-primary" />}
             />
@@ -143,7 +143,7 @@ export default function Home() {
               title="Diploma Programs"
               description="Advanced technical diplomas in various engineering fields"
               duration="2-3 Years"
-              image="https://images.unsplash.com/photo-1516321318423-f06b85d504b6?w=400&h=300&fit=crop"
+              image="/diploma.png"
               href="/programs/diploma"
               icon={<Building2 className="w-6 h-6 text-primary" />}
             />
@@ -151,7 +151,7 @@ export default function Home() {
               title="BBA Program"
               description="Bachelor of Business Administration for future business leaders"
               duration="3 Years"
-              image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+              image="/bba.png"
               href="/programs/bba"
               icon={<TrendingUp className="w-6 h-6 text-primary" />}
             />
@@ -159,7 +159,7 @@ export default function Home() {
               title="PGDM Program"
               description="Post Graduate Diploma in Management for career advancement"
               duration="2 Years"
-              image="https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=300&fit=crop"
+              image="/pgdm.png"
               href="/programs/pgdm"
               icon={<Zap className="w-6 h-6 text-primary" />}
             />

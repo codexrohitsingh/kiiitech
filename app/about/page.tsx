@@ -76,7 +76,7 @@ export default function About() {
           </div>
           <div className="max-w-3xl">
             <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-              About KIITECH
+              About KIITech
             </h1>
             <p className="text-xl opacity-95">
               Leading the future of technical education with innovation,
@@ -96,31 +96,42 @@ export default function About() {
               </h2>
               <div className="space-y-4 text-muted-foreground leading-relaxed">
                 <p>
-                  Founded in 1998, KIITECH - Dr. A.P.J. Abdul Kalam Institute of
-                  Innovation and Technology - has been at the forefront of
-                  technical education excellence for over 25 years. Our journey
-                  began with a mission to provide world-class education that
-                  combines academic rigor with practical industry relevance.
+                  Founded in 2026, KIITECH - Dr. A.P.J. Abdul Kalam Institute of
+                  Innovation and Technology - is a modern institution built on a
+                  strong foundation of academic excellence and industry
+                  experience. While newly established, our institute is driven
+                  by a team of highly experienced educators and professionals
+                  who bring years of expertise from reputed institutions and
+                  technical universities.
                 </p>
+
                 <p>
-                  Named after Dr. Abdul Kalam, the visionary scientist and
-                  former President of India, our institute embodies his
-                  philosophy of innovation, excellence, and nation-building
-                  through education. We have grown from a small institution to
-                  one of the most respected technical colleges in the region.
+                  With academic association and experience aligned with
+                  Jharkhand University of Technology, KIITECH follows a
+                  structured and industry-relevant curriculum designed to meet
+                  evolving technological and professional standards. Named after
+                  Dr. A.P.J. Abdul Kalam, the visionary scientist and former
+                  President of India, our institute reflects his ideals of
+                  innovation, knowledge, and nation-building through quality
+                  education.
                 </p>
+
                 <p>
-                  Today, KIITECH stands as a beacon of excellence, producing
-                  graduates who are sought after by leading global
-                  organizations. Our commitment to quality education, industry
-                  partnerships, and student success remains unwavering.
+                  From the very beginning, KIITECH has focused on delivering
+                  practical, skill-based learning combined with strong academic
+                  foundations. Today, the institute is rapidly growing as a
+                  promising center for technical and management education,
+                  committed to shaping future-ready professionals and leaders
+                  who can excel in global industries. Our dedication to quality
+                  education, industry exposure, and student success continues to
+                  drive our journey forward.
                 </p>
               </div>
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
-                alt="KIITECH Campus"
+                src="/about.png"
+                alt="KIITech Campus"
                 className="w-full h-96 object-cover rounded-2xl shadow-lg"
               />
             </div>
