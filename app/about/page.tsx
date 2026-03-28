@@ -2,6 +2,7 @@ import { Metadata } from "next";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import Link from "next/link";
+import Image from "next/image";
 import {
   ArrowRight,
   Award,
@@ -62,7 +63,7 @@ export default function About() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
+      <section className="pt-12 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -259,9 +260,9 @@ export default function About() {
             {[
               {
                 icon: <Award className="w-8 h-8" />,
-                title: "25+ Years of Excellence",
+                title: "Innovative Learning",
                 description:
-                  "Established legacy of academic and professional excellence",
+                  "A modern institution fostering creativity, critical thinking, and practical skills from day one",
               },
               {
                 icon: <Users className="w-8 h-8" />,
@@ -272,23 +273,25 @@ export default function About() {
                 icon: <Building2 className="w-8 h-8" />,
                 title: "Modern Infrastructure",
                 description:
-                  "State-of-the-art labs, libraries, and learning spaces",
+                  "Well-equipped classrooms, labs, and collaborative spaces for hands-on learning",
               },
               {
                 icon: <Globe className="w-8 h-8" />,
                 title: "Global Partnerships",
-                description: "Collaborations with international institutions",
+                description:
+                  "Collaborations with international institutions for exposure and learning",
               },
               {
                 icon: <BookOpen className="w-8 h-8" />,
                 title: "Industry-Aligned Curriculum",
                 description:
-                  "Programs designed in consultation with industry leaders",
+                  "Programs designed in consultation with industry leaders to make students future-ready",
               },
               {
                 icon: <Award className="w-8 h-8" />,
                 title: "100% Placements",
-                description: "Guaranteed career placements with top companies",
+                description:
+                  "Guaranteed career placements with top companies and guidance for internships",
               },
             ].map((highlight, index) => (
               <div
@@ -313,49 +316,61 @@ export default function About() {
             <h2 className="text-4xl font-bold text-foreground mb-4">
               Notable Achievements
             </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              In collaboration with{" "}
+              <strong>Jharkhand University of Technology (JUT)</strong>, Ranchi,
+              our college delivers quality technical education, industry
+              exposure, and strong placement support for future careers.
+            </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {[
               {
-                number: "25+",
-                label: "Years of Excellence",
-                description: "Serving students since 1998",
+                number: "2011",
+                label: "Established (JUT)",
+                description:
+                  "Jharkhand University of Technology founded by state act",
               },
               {
-                number: "15K+",
-                label: "Graduates",
-                description: "Placed in leading companies worldwide",
+                number: "10,000+",
+                label: "Students",
+                description:
+                  "Undergraduate and postgraduate scholars across disciplines",
               },
               {
-                number: "50+",
-                label: "Industry Partners",
-                description: "Collaborating organizations",
+                number: "360+",
+                label: "Academic Staff",
+                description: "Experienced faculty shaping technical education",
+              },
+              {
+                number: "UG, PG, PhD",
+                label: "Programs Offered",
+                description:
+                  "Wide range of undergraduate, postgraduate, and doctoral programs affiliated with JUT",
               },
               {
                 number: "100%",
                 label: "Placement Rate",
-                description: "Guaranteed job opportunities",
+                description: "Strong campus placements with leading companies",
               },
               {
-                number: "500+",
-                label: "Faculty Members",
-                description: "Dedicated educators and mentors",
+                number: "INR 28 LPA",
+                label: "Highest Package",
+                description:
+                  "Top salary offered to JUT students in recent placement cycle",
               },
               {
-                number: "50K+",
-                label: "Alumni Network",
-                description: "Globally connected success stories",
+                number: "AICTE & UGC",
+                label: "Accreditations",
+                description:
+                  "Approved by All India Council for Technical Education and University Grants Commission",
               },
               {
                 number: "100+",
-                label: "Research Projects",
-                description: "Active research initiatives",
-              },
-              {
-                number: "10+",
-                label: "Accreditations",
-                description: "National and international recognitions",
+                label: "Recruiting Companies",
+                description:
+                  "Top industry names like Samsung, Infosys, TCS visit campus",
               },
             ].map((achievement, index) => (
               <Card
@@ -390,47 +405,52 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                name: "Dr. Rajesh Kumar",
-                position: "Chancellor",
-                image:
-                  "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
-              },
-              {
-                name: "Prof. Neha Sharma",
-                position: "Vice Chancellor",
-                image:
-                  "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
-              },
-              {
-                name: "Dr. Amit Patel",
-                position: "Academic Director",
-                image:
-                  "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
-              },
-            ].map((leader, index) => (
-              <Card
-                key={index}
-                className="border-border overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <img
-                  src={leader.image}
-                  alt={leader.name}
-                  className="w-full h-64 object-cover"
-                />
-                <div className="p-6">
-                  <h4 className="font-bold text-foreground text-lg mb-1">
-                    {leader.name}
-                  </h4>
-                  <p className="text-accent font-semibold text-sm">
-                    {leader.position}
-                  </p>
-                </div>
-              </Card>
-            ))}
-          </div>
+<div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+  {[
+    {
+      name: "Er. Sohail Khan",
+      position: "Founder",
+      image: "/founder.jpeg",
+    },
+    {
+      name: "Dr. Chandrabhanu Malla",
+      position: "Advisor",
+      image: "/advisor.jpeg",
+    },
+  ].map((leader, index) => (
+    <Card
+      key={index}
+      className="p-8 text-center border border-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-white"
+    >
+      {/* Profile Image */}
+      <div className="flex justify-center mb-6">
+        <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-accent/20 shadow-md">
+          <Image
+            src={leader.image}
+            alt={leader.name}
+            fill
+            className="object-cover"
+            sizes="160px"
+            priority={index === 0}
+          />
+        </div>
+      </div>
+
+      {/* Name */}
+      <h4 className="font-bold text-foreground text-xl mb-2">
+        {leader.name}
+      </h4>
+
+      {/* Position */}
+      <p className="text-accent font-semibold text-sm tracking-wide uppercase">
+        {leader.position}
+      </p>
+
+      {/* Decorative Line */}
+      <div className="w-12 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+    </Card>
+  ))}
+</div>
         </div>
       </section>
 

@@ -97,7 +97,7 @@ export default function Contact() {
 
   return (
     <>
-      <section className="relative pt-40 pb-28 overflow-hidden bg-[#0b1633] text-white">
+      <section className="relative pt-8 pb-28 overflow-hidden bg-[#0b1633] text-white">
         {/* Background glow */}
         <div className="absolute inset-0">
           <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-accent/20 text-accent blur-[160px] rounded-full"></div>
@@ -118,27 +118,29 @@ export default function Contact() {
             {/* LEFT CONTENT */}
             <div>
               <h1 className="text-6xl font-extrabold leading-tight mb-6 tracking-tight">
-                Let’s create something <br />
+                Where questions turn into <br />
                 <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
-                  amazing together
+                  opportunities
                 </span>
               </h1>
-
               <p className="text-lg text-white/80 mb-10 max-w-xl">
-                Whether you're applying, exploring, or collaborating — our team
-                is ready to help you move forward.
+                Whether you're planning to apply, exploring our programs, or
+                seeking guidance for your academic journey, our team at KIITECH
+                is here to support you at every step. From admissions and course
+                selection to career opportunities, we are committed to helping
+                you make the right decisions for a successful future.
               </p>
 
               {/* Info Cards */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
                   <p className="text-sm text-white/60">Email us</p>
-                  <p className="font-semibold">admissions@kiit.edu</p>
+                  <p className="font-semibold">office@kiitech.org</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
                   <p className="text-sm text-white/60">Call us</p>
-                  <p className="font-semibold">+91 XXXXX XXXXX</p>
+                  <p className="font-semibold">+91 9337736501</p>
                 </div>
               </div>
             </div>
@@ -151,7 +153,7 @@ export default function Contact() {
               {/* Form Card */}
               <div className="relative bg-white/10 backdrop-blur-2xl rounded-3xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/20">
                 <h2 className="text-2xl font-bold mb-6 text-white">
-                  Send a message
+                  Start Your Admission Inquiry
                 </h2>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
@@ -215,24 +217,29 @@ export default function Contact() {
           {/* INFO */}
           <div className="flex flex-col justify-center space-y-8">
             <div>
-              <h3 className="text-3xl font-bold mb-3">Visit our campus</h3>
+              <h3 className="text-3xl font-bold mb-3">Visit Our Campus</h3>
               <p className="text-muted-foreground">
-                Experience innovation in person. Our campus is open for visits
-                during weekdays.
+                Experience the vibrant learning environment at KIITech, where
+                innovation, discipline, and practical education come together.
+                Explore our modern classrooms, well-equipped library, and our
+                unique 9-hour learning model designed to shape industry-ready
+                professionals. We welcome you to visit us on weekdays and
+                discover your future with us.
               </p>
             </div>
 
             <div className="space-y-4 text-muted-foreground">
               <p>
-                Kalam Institute of Innovation and Technology <br />
-                Majhgaon, Jharkhand 833214 <br />
-                India
+                Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology
+                (KIITech) <br />
+                Majhgaon, West Singhbhum, <br />
+                Jharkhand – 833214, India
               </p>
 
               <p>
                 Admission Office <br />
-                Ground Floor, Building A <br />
-                Mon – Fri
+                Open: Monday – Friday <br />
+                Time: 10:00 AM – 5:00 PM
               </p>
             </div>
           </div>
