@@ -205,10 +205,38 @@ export default function ApplyNow() {
                       className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
                     >
                       <option value="">Select Course</option>
-                      <option value="bca">BCA</option>
-                      <option value="bba">BBA</option>
-                      <option value="diploma">Diploma Engineering</option>
-                      <option value="pgdm">PGDM</option>
+                      <option value="bca">
+                        BCA (Bachelor of Computer Applications)
+                      </option>
+                      <option value="bba">
+                        BBA (Bachelor of Business Administration)
+                      </option>
+
+                      <option value="diploma_mechanical">
+                        Diploma in Mechanical Engineering
+                      </option>
+                      <option value="diploma_electrical">
+                        Diploma in Electrical Engineering
+                      </option>
+                      <option value="diploma_civil">
+                        Diploma in Civil Engineering
+                      </option>
+                      <option value="diploma_ai_ml">
+                        Diploma in Artificial Intelligence and Machine Learning
+                      </option>
+
+                      <option value="pgdm">
+                        PGDM (Post Graduate Diploma in Management)
+                      </option>
+                      <option value="pgdm_ba">
+                        PGDM in Business Administration
+                      </option>
+                      <option value="pgdm_hr">
+                        PGDM in Human Resource Management
+                      </option>
+                      <option value="pgdm_mf">
+                        PGDM in Marketing and Finance
+                      </option>
                     </select>
                   </div>
 
