@@ -257,7 +257,7 @@ export default function ApplyNow() {
                   </div>
 
                   {/* Passing Year */}
-                  <div className="space-y-2">
+                  {/* <div className="space-y-2">
                     <label className="text-yellow-300 text-sm font-semibold">
                       Year of Passing *
                     </label>
@@ -269,7 +269,7 @@ export default function ApplyNow() {
                       onChange={handleChange}
                       className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
                     />
-                  </div>
+                  </div> */}
 
                   {/* Marks */}
                   <div className="space-y-2">
