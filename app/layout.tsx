@@ -5,8 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
 
 // 👉 Import your components
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 import FloatingSocialBar from "@/components/FloatingSocialBar";
 import ScrollingBar from "@/components/ScrollingBar";
 
