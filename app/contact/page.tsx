@@ -100,8 +100,8 @@ export default function Contact() {
       <section className="relative pt-40 pb-28 overflow-hidden bg-[#0b1633] text-white">
         {/* Background glow */}
         <div className="absolute inset-0">
-          <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-blue-500/20 blur-[160px] rounded-full"></div>
-          <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-yellow-500/20 blur-[140px] rounded-full"></div>
+          <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-accent/20 text-accent blur-[160px] rounded-full"></div>
+          <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px]  blur-[140px] rounded-full"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
