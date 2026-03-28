@@ -49,9 +49,11 @@ export default function Home() {
                 Innovation in Education, Excellence in Practice
               </h1>
               <p className="text-lg opacity-95 mb-8 leading-relaxed max-w-xl">
-                Experience transformative education at KIITECH, where
-                cutting-edge technology meets academic excellence. Join
-                thousands of successful graduates shaping the future.
+                At KIITECH, we provide a transformative learning experience that
+                blends academic excellence with practical skill development. Our
+                modern campus, expert faculty, and industry-focused programs
+                empower students to excel in their careers, embrace innovation,
+                and become leaders in their chosen fields.
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Button variant="secondary" size="lg" asChild>
@@ -70,11 +72,11 @@ export default function Home() {
                   <div className="text-sm opacity-90">Placement Rate</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold mb-2">15K+</div>
+                  <div className="text-3xl font-bold mb-2">10K+</div>
                   <div className="text-sm opacity-90">Graduates</div>
                 </div>
                 <div>
-                  <div className="text-3xl font-bold mb-2">50+</div>
+                  <div className="text-3xl font-bold mb-2">100+</div>
                   <div className="text-sm opacity-90">Industry Partners</div>
                 </div>
               </div>

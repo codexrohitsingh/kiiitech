@@ -76,7 +76,7 @@ export default function Placements() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
+      <section className="pt-12 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -120,13 +120,13 @@ export default function Placements() {
               {
                 icon: <Users className="w-8 h-8" />,
                 label: "Total Placements",
-                value: "15K+",
+                value: "10K+",
                 description: "Successful placements",
               },
               {
                 icon: <Briefcase className="w-8 h-8" />,
                 label: "Top Recruiters",
-                value: "50+",
+                value: "100+",
                 description: "Leading companies",
               },
             ].map((stat, index) => (
@@ -179,7 +179,7 @@ export default function Placements() {
               </thead>
               <tbody>
                 {[
-                  ["BCA", "₹7-9 LPA", "₹25 LPA", "100%"],
+                  ["BCA", "₹7-9 LPA", "₹28 LPA", "100%"],
                   ["Diploma", "₹4-6 LPA", "₹12 LPA", "100%"],
                   ["BBA", "₹6-8 LPA", "₹18 LPA", "100%"],
                   ["PGDM", "₹12-15 LPA", "₹35 LPA", "100%"],
