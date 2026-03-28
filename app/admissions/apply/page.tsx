@@ -38,26 +38,21 @@ export default function ApplyNow() {
     setIsSubmitting(true);
 
     try {
-      const SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbxTixTHH07NqeVXW9ZoyeIfRHsNLOsWQQd1FGlNDjdHV-Ieik-imi5R_L1A9jcvlU8/exec";
-
-      const params = new URLSearchParams();
-      Object.entries(formData).forEach(([key, value]) => {
-        params.append(key, value.toString());
-      });
-
-      await fetch(SCRIPT_URL, {
+      const response = await fetch("/api/admissions", {
         method: "POST",
-        mode: "no-cors",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
-        body: params,
+        body: JSON.stringify(formData),
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
 
       toast({
         title: "Application Submitted Successfully!",
-        description: "Your data has been sent to the Google Sheet.",
+        description: "An email with your QR code has been sent.",
       });
 
       setFormData({
