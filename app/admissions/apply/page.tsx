@@ -52,7 +52,7 @@ export default function ApplyNow() {
 
       toast({
         title: "Application Submitted Successfully!",
-        description: "An email with your QR code has been sent.",
+        description: "An email conformation has been sent.",
       });
 
       setFormData({
