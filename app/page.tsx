@@ -240,11 +240,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-5xl font-bold mb-2">25+</div>
+              <div className="text-5xl font-bold mb-2">15+</div>
               <div className="text-lg opacity-90">Years of Excellence</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">15K+</div>
+              <div className="text-5xl font-bold mb-2">10K+</div>
               <div className="text-lg opacity-90">Successful Graduates</div>
             </div>
             <div>
@@ -252,7 +252,7 @@ export default function Home() {
               <div className="text-lg opacity-90">Placement Rate</div>
             </div>
             <div>
-              <div className="text-5xl font-bold mb-2">50+</div>
+              <div className="text-5xl font-bold mb-2">100+</div>
               <div className="text-lg opacity-90">Corporate Partners</div>
             </div>
           </div>

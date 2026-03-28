@@ -438,12 +438,18 @@ export default function DiplomaProgram() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <NewApplyNow />
             <Button
-              variant="secondary"
               size="lg"
               asChild
-              className="text-primary-foreground border-primary-foreground hover:bg-primary-foreground/10"
+              className="
+    px-8 py-3 rounded-full font-semibold text-white
+    bg-gradient-to-r from-[#00319c] via-[#0053d9] to-[#0062da]
+    shadow-[0_0_20px_rgba(59,130,246,0.6)]
+    hover:scale-105 hover:shadow-[0_0_35px_rgba(59,130,246,0.9)]
+    active:scale-95
+    transition-all duration-300
+  "
             >
-              <Link href="/contact">Contact Admissions</Link>
+              <Link href="/contact">Schedule a Consultation</Link>
             </Button>
           </div>
         </div>
