@@ -61,7 +61,7 @@ export default function Admissions() {
                   <strong>Eligibility:</strong> 12th Pass
                 </li>
                 <li>
-                  <strong>Semester Fee:</strong> ₹25,000
+                  <strong>Semester Fee:</strong> ₹20,000
                 </li>
               </ul>
             </Card>
@@ -85,7 +85,7 @@ export default function Admissions() {
                   <strong>Eligibility:</strong> 12th Pass
                 </li>
                 <li>
-                  <strong>Semester Fee:</strong> ₹25,000
+                  <strong>Semester Fee:</strong> ₹20,000
                 </li>
               </ul>
             </Card>
@@ -115,7 +115,7 @@ export default function Admissions() {
                   <strong>Eligibility:</strong> 10th Pass
                 </li>
                 <li>
-                  <strong>Semester Fee:</strong> ₹25,000
+                  <strong>Semester Fee:</strong> ₹20,000
                 </li>
               </ul>
             </Card>
@@ -178,9 +178,7 @@ export default function Admissions() {
                     BCA (Bachelor of Computer Applications)
                   </td>
                   <td className="p-4">3 Years</td>
-                  <td className="p-4 font-semibold text-accent">
-                    ₹20,000
-                  </td>
+                  <td className="p-4 font-semibold text-accent">₹20,000</td>
                 </tr>
 
                 <tr className="border-t">
@@ -188,17 +186,13 @@ export default function Admissions() {
                     BBA (Bachelor of Business Administration)
                   </td>
                   <td className="p-4">3 Years</td>
-                  <td className="p-4 font-semibold text-accent">
-                    ₹20,000
-                  </td>
+                  <td className="p-4 font-semibold text-accent">₹20,000</td>
                 </tr>
 
                 <tr className="border-t">
                   <td className="p-4">Diploma Engineering (All Branches)</td>
                   <td className="p-4">2–3 Years</td>
-                  <td className="p-4 font-semibold text-accent">
-                    ₹20,000
-                  </td>
+                  <td className="p-4 font-semibold text-accent">₹20,000</td>
                 </tr>
 
                 <tr className="border-t">
