@@ -16,29 +16,29 @@ export default function Placements() {
     {
       name: "Rajesh Kumar",
       title: "Senior Software Engineer",
-      company: "Google",
+      company: "TCS",
       testimonial:
-        "KIITECH provided me with a strong foundation. The training and mentoring helped me excel at Google.",
+        "KIITECH provided me with a strong foundation. The training and mentoring helped me excel at TCS.",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1513258496099-48168024aec0?w=400&h=400&fit=crop",
     },
     {
       name: "Priya Sharma",
       title: "Product Manager",
-      company: "Microsoft",
+      company: "WIPRO",
       testimonial:
-        "The curriculum and industry exposure at KIITECH were instrumental in my career at Microsoft.",
+        "The curriculum and industry exposure at KIITECH were instrumental in my career at WIPRO.",
       image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1592188657297-c6473609e988?w=400&h=400&fit=crop",
     },
     {
       name: "Amit Patel",
       title: "Consultant",
-      company: "McKinsey",
+      company: "INFOSYS",
       testimonial:
         "KIITECH shaped my analytical and leadership skills which are crucial for consulting.",
       image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+        "https://plus.unsplash.com/premium_photo-1682089877310-b2308b0dc719?w=400&h=400&fit=crop",
     },
     {
       name: "Neha Gupta",
@@ -47,7 +47,7 @@ export default function Placements() {
       testimonial:
         "Great preparation and placement support made my transition to Amazon seamless.",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+        "https://plus.unsplash.com/premium_photo-1664372145541-4556b409492e?w=400&h=400&fit=crop",
     },
   ];
 

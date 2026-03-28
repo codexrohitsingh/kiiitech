@@ -38,26 +38,21 @@ export default function ApplyNow() {
     setIsSubmitting(true);
 
     try {
-      const SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbxTixTHH07NqeVXW9ZoyeIfRHsNLOsWQQd1FGlNDjdHV-Ieik-imi5R_L1A9jcvlU8/exec";
-
-      const params = new URLSearchParams();
-      Object.entries(formData).forEach(([key, value]) => {
-        params.append(key, value.toString());
-      });
-
-      await fetch(SCRIPT_URL, {
+      const response = await fetch("/api/admissions", {
         method: "POST",
-        mode: "no-cors",
         headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
+          "Content-Type": "application/json",
         },
-        body: params,
+        body: JSON.stringify(formData),
       });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit");
+      }
 
       toast({
         title: "Application Submitted Successfully!",
-        description: "Your data has been sent to the Google Sheet.",
+        description: "An email conformation has been sent.",
       });
 
       setFormData({
@@ -137,7 +132,7 @@ export default function ApplyNow() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="rs21rohit@gmail.com"
+                      placeholder="office@kiitech.org"
                       className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
                     />
                   </div>
@@ -205,36 +200,36 @@ export default function ApplyNow() {
                       className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
                     >
                       <option value="">Select Course</option>
-                      <option value="bca">
+                      <option value="Bachelor of Computer Applications">
                         BCA (Bachelor of Computer Applications)
                       </option>
-                      <option value="bba">
+                      <option value="Bachelor of Business Administration">
                         BBA (Bachelor of Business Administration)
                       </option>
 
-                      <option value="diploma_mechanical">
+                      <option value="Diploma in Mechanical Engineering">
                         Diploma in Mechanical Engineering
                       </option>
-                      <option value="diploma_electrical">
+                      <option value=" Diploma in Electrical Engineering">
                         Diploma in Electrical Engineering
                       </option>
-                      <option value="diploma_civil">
+                      <option value=" Diploma in Civil Engineering">
                         Diploma in Civil Engineering
                       </option>
-                      <option value="diploma_ai_ml">
+                      <option value="Diploma in Artificial Intelligence and Machine Learning">
                         Diploma in Artificial Intelligence and Machine Learning
                       </option>
 
-                      <option value="pgdm">
+                      <option value="Post Graduate Diploma in Management">
                         PGDM (Post Graduate Diploma in Management)
                       </option>
-                      <option value="pgdm_ba">
+                      <option value="PGDM in Business Administration">
                         PGDM in Business Administration
                       </option>
-                      <option value="pgdm_hr">
+                      <option value="PGDM in Human Resource Management">
                         PGDM in Human Resource Management
                       </option>
-                      <option value="pgdm_mf">
+                      <option value=" PGDM in Marketing and Finance">
                         PGDM in Marketing and Finance
                       </option>
                     </select>

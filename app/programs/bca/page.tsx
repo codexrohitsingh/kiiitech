@@ -145,7 +145,7 @@ export default function BCAProgram() {
       testimonial:
         "The BCA program at KIITECH provided me with strong fundamentals and practical skills that directly helped in my career at TCS.",
       image:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1601655781320-205e34c94eb1?w=400&h=400&fit=crop",
     },
     {
       name: "Priya Sharma",
@@ -154,7 +154,7 @@ export default function BCAProgram() {
       testimonial:
         "Excellent curriculum and industry-focused teaching made my transition to professional work seamless.",
       image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1580894732444-8ecded7900cd?w=400&h=400&fit=crop",
     },
     {
       name: "Amit Patel",
@@ -163,7 +163,7 @@ export default function BCAProgram() {
       testimonial:
         "KIITECH shaped my technical foundation and taught me the importance of continuous learning.",
       image:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+        "https://images.unsplash.com/photo-1573166364524-d9dbfd8bbf83?w=400&h=400&fit=crop",
     },
   ];
 
