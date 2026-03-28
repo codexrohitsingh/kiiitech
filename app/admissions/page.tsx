@@ -170,7 +170,7 @@ export default function Admissions() {
                   </td>
                   <td className="p-4">3 Years</td>
                   <td className="p-4 font-semibold text-accent">
-                    ₹25,000
+                    ₹20,000
                   </td>
                 </tr>
 
@@ -180,7 +180,7 @@ export default function Admissions() {
                   </td>
                   <td className="p-4">3 Years</td>
                   <td className="p-4 font-semibold text-accent">
-                    ₹25,000
+                    ₹20,000
                   </td>
                 </tr>
 
@@ -190,7 +190,7 @@ export default function Admissions() {
                   </td>
                   <td className="p-4">2–3 Years</td>
                   <td className="p-4 font-semibold text-accent">
-                    ₹25,000
+                    ₹20,000
                   </td>
                 </tr>
 
