@@ -24,20 +24,22 @@ if (fs.existsSync(sentFile)) {
 
 // Configure Nodemailer
 const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    auth: {
-        user: 'rs21rohit@gmail.com',
-        pass: 'ekyu nfbc cycc zjlz' // Use app password if 2FA enabled
-    }
+  host: "smtp.hostinger.com",
+  port: 465,
+  secure: true, // true for 465
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
 });
 
 // Function to send HTML email
 async function sendEmail(to, subject, htmlContent) {
     const mailOptions = {
-        from: '"Kalam Institute" <rs21rohit@gmail.com>',
-        to,
-        subject,
-        html: htmlContent,
+      from: '"Kalam Institute" <office@kiitech.org>',
+      to,
+      subject,
+      html: htmlContent,
     };
 
     await transporter.sendMail(mailOptions);

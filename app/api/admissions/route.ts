@@ -4,10 +4,12 @@ import nodemailer from "nodemailer";
 // hi
 // Configure Nodemailer
 const transporter = nodemailer.createTransport({
-  service: "gmail",
+  host: "smtp.hostinger.com",
+  port: 465,
+  secure: true, // true for 465
   auth: {
     user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS, // Use app password if 2FA enabled
+    pass: process.env.EMAIL_PASS,
   },
 });
 
@@ -59,9 +61,10 @@ export async function POST(req: NextRequest) {
      <!-- Top Banner --> 
      <div style="background:#141a26; border-radius:10px 10px 0 0; margin-top:24px;"> 
        <div style="padding:22px 0 18px 0; text-align:center;"> 
-         <div style="color:#f8b851; font-weight:600; font-size:19px; letter-spacing:0.05em;">KALAM INSTITUTE OF TECHNOLOGY</div> 
+         <div style="color:#f8b851; font-weight:600; font-size:19px; letter-spacing:0.05em;">KIITech - Dr. A.P.J. Abdul Kalam
+  Institute of Innovation and Technology</div> 
          <div style="color:#cfcfcf; font-size:11.5px; margin-top:2px;"> 
-           Admissions 2026-27 · Jamshedpur 
+           Admissions 2026-27 · Majhgoan
          </div> 
        </div> 
        <div style="background:#191f29; padding:12px 0 14px 0;"> 
@@ -79,7 +82,7 @@ export async function POST(req: NextRequest) {
          Dear <b>${fullName}</b>, 
        </div> 
        <div style="color:#f4f1ed; font-size:14.1px; margin-bottom:17px;"> 
-         Thanks for applying to <span style="color:#ffdb94; font-weight:600;">Kalam Institute</span>. Below are your application details. 
+         Thanks for applying to <span style="color:#ffdb94; font-weight:600;">KIITech</span>. Below are your application details. 
        </div> 
        <div style="display:flex; gap:23px; margin-bottom:18px; align-items:flex-start;"> 
          <!-- Application Details Card --> 
@@ -97,7 +100,7 @@ export async function POST(req: NextRequest) {
              <b>Email:</b> <span style="color:#a6cdfd; font-weight:400; text-decoration:none;">${email}</span> 
            </div> 
            <div style="color:#888; font-size:11.2px; margin-top:11px;"> 
-             Our admissions team will contact you shortly on ${phone} for further steps. 
+             Our admissions team will reach out within 48 working hours shortly on ${phone} for further steps. 
            </div> 
          </div> 
        </div> 
@@ -110,14 +113,15 @@ export async function POST(req: NextRequest) {
        </div> 
        <!-- Footer Details --> 
        <div style="padding-top:24px;"> 
-         <div style="color:#ffcc7c; font-weight:700; font-size:12.5px;">Kalam Institute of Technology</div> 
+         <div style="color:#ffcc7c; font-weight:700; font-size:12.5px;">KIITech - Dr. A.P.J. Abdul Kalam
+  Institute of Innovation and Technology</div> 
          <div style="color:#d8d6cf; font-size:12px;"> 
-           Jamshedpur, Jharkhand 
+      Majhgaon, West Singhbhum, Jharkhand – 833214, India
          </div> 
        </div> 
        <div style="color:#ffd27a; margin-top:18px; font-size:13.2px;"> 
-         Admissions Team · Organized by School of Engineering & IT<br> 
-         <span style="color:#ffe3a3;">Email:</span> admissions@kalaminstitute.edu.in · <span style="color:#ffe3a3;">Phone:</span> +91-87098 25596 
+         Admissions Team · <br> 
+         <span style="color:#ffe3a3;">Email:</span> office@kiitech.org · <span style="color:#ffe3a3;">Phone:</span> +91 9337736501
        </div> 
      </div> 
    </div> 
@@ -126,7 +130,7 @@ export async function POST(req: NextRequest) {
  `;
 
     const mailOptions = {
-      from: '"Kalam Institute Admissions" <rs21rohit@gmail.com>',
+      from: '"Kalam Institute Admissions" <office@kiitech.org>',
       to: email,
       subject: "Admission Application Received - Kalam Institute",
       html: htmlBody,
