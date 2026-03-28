@@ -1,6 +1,4 @@
 import { Metadata } from "next";
-import { Header } from "@/components/header";
-import { Footer } from "@/components/footer";
 import { Button } from "@/components/ui/button";
 import { CurriculumAccordion } from "@/components/curriculum-accordion";
 import { TestimonialCard } from "@/components/testimonial-card";
@@ -171,8 +169,6 @@ export default function BCAProgram() {
 
   return (
     <>
-      <Header />
-
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -437,8 +433,6 @@ export default function BCAProgram() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }

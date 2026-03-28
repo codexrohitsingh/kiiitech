@@ -1,15 +1,19 @@
-import { Metadata } from 'next'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { Button } from '@/components/ui/button'
-import { CurriculumAccordion } from '@/components/curriculum-accordion'
-import { TestimonialCard } from '@/components/testimonial-card'
-import { Card } from '@/components/ui/card'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
-import { NewApplyNow } from '@/components/apply'
+import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { CurriculumAccordion } from "@/components/curriculum-accordion";
+import { TestimonialCard } from "@/components/testimonial-card";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import {
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  Users,
+  BookOpen,
+  Briefcase,
+} from "lucide-react";
+import { NewApplyNow } from "@/components/apply";
 // import { ApplyNow } from "@/components/apply";
-
 
 export const metadata: Metadata = {
   title: "BBA Course in Jharkhand | Best BBA College in Majhgaon - KIITECH",
@@ -74,95 +78,99 @@ export const metadata: Metadata = {
 export default function BBAProgram() {
   const curriculum = [
     {
-      title: 'Semester 1',
+      title: "Semester 1",
       subjects: [
-        { name: 'Business Economics', credits: 4 },
-        { name: 'Financial Accounting', credits: 4 },
-        { name: 'Organizational Behavior', credits: 4 },
-        { name: 'Business Communication', credits: 4 },
-        { name: 'Mathematics for Business', credits: 3 },
+        { name: "Business Economics", credits: 4 },
+        { name: "Financial Accounting", credits: 4 },
+        { name: "Organizational Behavior", credits: 4 },
+        { name: "Business Communication", credits: 4 },
+        { name: "Mathematics for Business", credits: 3 },
       ],
     },
     {
-      title: 'Semester 2',
+      title: "Semester 2",
       subjects: [
-        { name: 'Management Principles', credits: 4 },
-        { name: 'Managerial Accounting', credits: 4 },
-        { name: 'Business Law', credits: 4 },
-        { name: 'Business Statistics', credits: 4 },
-        { name: 'Information Systems', credits: 3 },
+        { name: "Management Principles", credits: 4 },
+        { name: "Managerial Accounting", credits: 4 },
+        { name: "Business Law", credits: 4 },
+        { name: "Business Statistics", credits: 4 },
+        { name: "Information Systems", credits: 3 },
       ],
     },
     {
-      title: 'Semester 3',
+      title: "Semester 3",
       subjects: [
-        { name: 'Marketing Management', credits: 4 },
-        { name: 'Human Resource Management', credits: 4 },
-        { name: 'Financial Management', credits: 4 },
-        { name: 'Operations Management', credits: 4 },
-        { name: 'Business Research Methods', credits: 3 },
+        { name: "Marketing Management", credits: 4 },
+        { name: "Human Resource Management", credits: 4 },
+        { name: "Financial Management", credits: 4 },
+        { name: "Operations Management", credits: 4 },
+        { name: "Business Research Methods", credits: 3 },
       ],
     },
     {
-      title: 'Semester 4',
+      title: "Semester 4",
       subjects: [
-        { name: 'Strategic Management', credits: 4 },
-        { name: 'International Business', credits: 4 },
-        { name: 'Project Management', credits: 4 },
-        { name: 'Entrepreneurship', credits: 4 },
-        { name: 'Internship', credits: 4 },
+        { name: "Strategic Management", credits: 4 },
+        { name: "International Business", credits: 4 },
+        { name: "Project Management", credits: 4 },
+        { name: "Entrepreneurship", credits: 4 },
+        { name: "Internship", credits: 4 },
       ],
     },
     {
-      title: 'Semester 5',
+      title: "Semester 5",
       subjects: [
-        { name: 'Supply Chain Management', credits: 4 },
-        { name: 'E-Commerce & Digital Marketing', credits: 4 },
-        { name: 'Corporate Governance', credits: 4 },
-        { name: 'Investment Management', credits: 4 },
-        { name: 'Elective-I', credits: 3 },
+        { name: "Supply Chain Management", credits: 4 },
+        { name: "E-Commerce & Digital Marketing", credits: 4 },
+        { name: "Corporate Governance", credits: 4 },
+        { name: "Investment Management", credits: 4 },
+        { name: "Elective-I", credits: 3 },
       ],
     },
     {
-      title: 'Semester 6',
+      title: "Semester 6",
       subjects: [
-        { name: 'Business Ethics & CSR', credits: 4 },
-        { name: 'Mergers & Acquisitions', credits: 4 },
-        { name: 'Business Analytics', credits: 4 },
-        { name: 'Capstone Project', credits: 6 },
-        { name: 'Elective-II', credits: 3 },
+        { name: "Business Ethics & CSR", credits: 4 },
+        { name: "Mergers & Acquisitions", credits: 4 },
+        { name: "Business Analytics", credits: 4 },
+        { name: "Capstone Project", credits: 6 },
+        { name: "Elective-II", credits: 3 },
       ],
     },
-  ]
+  ];
 
   const testimonials = [
     {
-      name: 'Aishwarya Desai',
-      title: 'Management Consultant',
-      company: 'McKinsey',
-      testimonial: 'The BBA program provided me with strong business acumen and leadership skills that are crucial at McKinsey.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+      name: "Aishwarya Desai",
+      title: "Management Consultant",
+      company: "McKinsey",
+      testimonial:
+        "The BBA program provided me with strong business acumen and leadership skills that are crucial at McKinsey.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
     },
     {
-      name: 'Rohit Malhotra',
-      title: 'Startup Founder',
-      company: 'TechVenture Co',
-      testimonial: 'The entrepreneurship focus and business fundamentals helped me launch my own successful startup.',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+      name: "Rohit Malhotra",
+      title: "Startup Founder",
+      company: "TechVenture Co",
+      testimonial:
+        "The entrepreneurship focus and business fundamentals helped me launch my own successful startup.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
     },
     {
-      name: 'Divya Nair',
-      title: 'Marketing Director',
-      company: 'Nestlé',
-      testimonial: 'Excellent curriculum that covers all aspects of modern business management and marketing.',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
+      name: "Divya Nair",
+      title: "Marketing Director",
+      company: "Nestlé",
+      testimonial:
+        "Excellent curriculum that covers all aspects of modern business management and marketing.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
     },
-  ]
+  ];
 
   return (
     <>
-      <Header />
-
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-linear-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -476,8 +484,6 @@ export default function BBAProgram() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }

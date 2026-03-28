@@ -1,39 +1,37 @@
-import { Metadata } from 'next'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { Button } from '@/components/ui/button'
-import { ProgramCard } from '@/components/program-card'
-import Link from 'next/link'
+import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { ProgramCard } from "@/components/program-card";
+import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, BookOpen, Users, Building2, TrendingUp, Award, Zap } from 'lucide-react'
-import { NewApplyNow } from '@/components/apply'
-// import { ApplyNow } from "@/components/apply";
-import { Phone, Mail } from "lucide-react"
 import {
-  FaWhatsapp,
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedinIn,
-  FaYoutube
-} from "react-icons/fa"
+  ArrowRight,
+  BookOpen,
+  Users,
+  Building2,
+  TrendingUp,
+  Award,
+  Zap,
+} from "lucide-react";
+import { NewApplyNow } from "@/components/apply";
+// import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
-  title: 'KIITECH - Excellence in Technical Education',
-  description: 'Discover world-class BCA, Diploma, BBA, and PGDM programs at KIITECH. Industry-focused education with 100% placement support.',
+  title: "KIITECH - Excellence in Technical Education",
+  description:
+    "Discover world-class BCA, Diploma, BBA, and PGDM programs at KIITECH. Industry-focused education with 100% placement support.",
   openGraph: {
-    title: 'KIITECH - Excellence in Technical Education',
-    description: 'Discover world-class BCA, Diploma, BBA, and PGDM programs at KIITECH',
-    type: 'website',
+    title: "KIITECH - Excellence in Technical Education",
+    description:
+      "Discover world-class BCA, Diploma, BBA, and PGDM programs at KIITECH",
+    type: "website",
   },
-}
+};
 
 export default function Home() {
   return (
     <>
-      <Header />
-
       {/* Hero Section */}
-      <section className="pt-32 pb-20 bg-linear-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
+      <section className="pt-10 pb-20 bg-linear-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
@@ -82,7 +80,7 @@ export default function Home() {
               </div>
             </div>
             <div className="relative">
-              <div className="relative w-full aspect-452/384 bg-linear-to-br from-accent/20 to-primary/20 rounded-2xl overflow-hidden shadow-2xl">
+              <div className="relative w-full aspect-462/384 bg-linear-to-br from-accent/20 to-primary/20 rounded-xl overflow-hidden shadow-2xl">
                 <Image
                   src="/hero3.jpeg"
                   alt="Campus life"
@@ -108,7 +106,6 @@ export default function Home() {
                     <div className="text-xs text-yellow-200/80 tracking-wide mt-1">
                       International Standards
                     </div>
-   
                   </div>
                 </div>
               </div>
@@ -281,7 +278,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 }

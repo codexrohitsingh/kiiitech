@@ -15,7 +15,7 @@ export function Header() {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-yellow-400 border-b border-[#ff0000] shadow-lg">
+    <header className="sticky top-0 left-0 right-0 z-50 bg-yellow-400 border-b border-[#ff0000] shadow-lg">
       {/* NAVBAR */}
       <nav className="max-w-7xl mx-auto px-6 lg:px-10 py-5">
         <div className="flex items-center justify-between">
@@ -213,14 +213,14 @@ export function Header() {
           >
             Admissions
           </Link>
-
+          {/* 
           <Link
             href="/faculty"
             className="block text-black font-semibold"
             onClick={() => setIsOpen(false)}
           >
             Faculty
-          </Link>
+          </Link> */}
 
           <Link
             href="/placements"
@@ -246,3 +246,4 @@ export function Header() {
     </header>
   );
 }
+export default Header;

@@ -1,21 +1,26 @@
-import { Metadata } from 'next'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { Button } from '@/components/ui/button'
-import { CurriculumAccordion } from '@/components/curriculum-accordion'
-import { TestimonialCard } from '@/components/testimonial-card'
-import { Card } from '@/components/ui/card'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
-import { NewApplyNow } from '@/components/apply'
+import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { CurriculumAccordion } from "@/components/curriculum-accordion";
+import { TestimonialCard } from "@/components/testimonial-card";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import {
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  Users,
+  BookOpen,
+  Briefcase,
+} from "lucide-react";
+import { NewApplyNow } from "@/components/apply";
 // import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
   title:
-    'Diploma Polytechnic in Jharkhand | Mechanical, Electrical, Civil, AI & ML - KIITECH',
+    "Diploma Polytechnic in Jharkhand | Mechanical, Electrical, Civil, AI & ML - KIITECH",
 
   description:
-    'Apply for Diploma (Polytechnic) courses at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Choose from Mechanical Engineering (120 seats), Electrical Engineering (120 seats), Civil Engineering (60 seats), and Artificial Intelligence & Machine Learning (60 seats). Industry-focused curriculum with strong placement support.',
+    "Apply for Diploma (Polytechnic) courses at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Choose from Mechanical Engineering (120 seats), Electrical Engineering (120 seats), Civil Engineering (60 seats), and Artificial Intelligence & Machine Learning (60 seats). Industry-focused curriculum with strong placement support.",
 
   keywords: [
     "Diploma course in Jharkhand",
@@ -36,34 +41,32 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title:
-      'Diploma Polytechnic Courses at KIITECH | Engineering & AI Programs',
+    title: "Diploma Polytechnic Courses at KIITECH | Engineering & AI Programs",
     description:
-      'Join KIITECH Diploma programs in Mechanical, Electrical, Civil, and AI & ML. Limited seats with industry-ready training and placement support.',
-    url: 'https://kiitech.org/programs/diploma',
-    siteName: 'KIITECH',
-    type: 'website',
+      "Join KIITECH Diploma programs in Mechanical, Electrical, Civil, and AI & ML. Limited seats with industry-ready training and placement support.",
+    url: "https://kiitech.org/programs/diploma",
+    siteName: "KIITECH",
+    type: "website",
     images: [
       {
-        url: 'https://kiitech.org/diploma-og.jpg',
+        url: "https://kiitech.org/diploma-og.jpg",
         width: 1200,
         height: 630,
-        alt: 'Diploma Polytechnic Courses at KIITECH',
+        alt: "Diploma Polytechnic Courses at KIITECH",
       },
     ],
   },
 
   twitter: {
-    card: 'summary_large_image',
-    title:
-      'Diploma Polytechnic at KIITECH - Engineering & AI Courses',
+    card: "summary_large_image",
+    title: "Diploma Polytechnic at KIITECH - Engineering & AI Courses",
     description:
-      'Enroll in Mechanical, Electrical, Civil, and AI & ML diploma programs with strong placement opportunities.',
-    images: ['https://kiitech.org/diploma-og.jpg'],
+      "Enroll in Mechanical, Electrical, Civil, and AI & ML diploma programs with strong placement opportunities.",
+    images: ["https://kiitech.org/diploma-og.jpg"],
   },
 
   alternates: {
-    canonical: 'https://kiitech.org/programs/diploma',
+    canonical: "https://kiitech.org/programs/diploma",
   },
 
   robots: {
@@ -75,75 +78,79 @@ export const metadata: Metadata = {
 export default function DiplomaProgram() {
   const curriculum = [
     {
-      title: 'Semester 1',
+      title: "Semester 1",
       subjects: [
-        { name: 'Engineering Mathematics-I', credits: 4 },
-        { name: 'Applied Physics', credits: 4 },
-        { name: 'Engineering Chemistry', credits: 4 },
-        { name: 'Engineering Graphics', credits: 4 },
-        { name: 'Communication Skills', credits: 2 },
+        { name: "Engineering Mathematics-I", credits: 4 },
+        { name: "Applied Physics", credits: 4 },
+        { name: "Engineering Chemistry", credits: 4 },
+        { name: "Engineering Graphics", credits: 4 },
+        { name: "Communication Skills", credits: 2 },
       ],
     },
     {
-      title: 'Semester 2',
+      title: "Semester 2",
       subjects: [
-        { name: 'Engineering Mathematics-II', credits: 4 },
-        { name: 'Mechanics of Solids', credits: 4 },
-        { name: 'Thermodynamics', credits: 4 },
-        { name: 'Electrical Engineering Basics', credits: 4 },
-        { name: 'Workshop Practice', credits: 2 },
+        { name: "Engineering Mathematics-II", credits: 4 },
+        { name: "Mechanics of Solids", credits: 4 },
+        { name: "Thermodynamics", credits: 4 },
+        { name: "Electrical Engineering Basics", credits: 4 },
+        { name: "Workshop Practice", credits: 2 },
       ],
     },
     {
-      title: 'Semester 3',
+      title: "Semester 3",
       subjects: [
-        { name: 'Fluid Mechanics', credits: 4 },
-        { name: 'Machine Design', credits: 4 },
-        { name: 'Industrial Electronics', credits: 4 },
-        { name: 'Manufacturing Technology', credits: 4 },
-        { name: 'Technical Report Writing', credits: 2 },
+        { name: "Fluid Mechanics", credits: 4 },
+        { name: "Machine Design", credits: 4 },
+        { name: "Industrial Electronics", credits: 4 },
+        { name: "Manufacturing Technology", credits: 4 },
+        { name: "Technical Report Writing", credits: 2 },
       ],
     },
     {
-      title: 'Semester 4',
+      title: "Semester 4",
       subjects: [
-        { name: 'Heat Transfer', credits: 4 },
-        { name: 'Power Plant Engineering', credits: 4 },
-        { name: 'Automation & Control', credits: 4 },
-        { name: 'Internship', credits: 6 },
-        { name: 'Project Work', credits: 4 },
+        { name: "Heat Transfer", credits: 4 },
+        { name: "Power Plant Engineering", credits: 4 },
+        { name: "Automation & Control", credits: 4 },
+        { name: "Internship", credits: 6 },
+        { name: "Project Work", credits: 4 },
       ],
     },
-  ]
+  ];
 
   const testimonials = [
     {
-      name: 'Vikram Singh',
-      title: 'Manufacturing Engineer',
-      company: 'Bajaj Auto',
-      testimonial: 'The diploma program gave me hands-on experience that was invaluable. I started working with Bajaj right after graduation.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+      name: "Vikram Singh",
+      title: "Manufacturing Engineer",
+      company: "Bajaj Auto",
+      testimonial:
+        "The diploma program gave me hands-on experience that was invaluable. I started working with Bajaj right after graduation.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
     },
     {
-      name: 'Neha Gupta',
-      title: 'Senior Technician',
-      company: 'Siemens',
-      testimonial: 'Practical training and industry connections made my transition smooth. Highly recommend this program.',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+      name: "Neha Gupta",
+      title: "Senior Technician",
+      company: "Siemens",
+      testimonial:
+        "Practical training and industry connections made my transition smooth. Highly recommend this program.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
     },
     {
-      name: 'Suresh Kumar',
-      title: 'Plant Manager',
-      company: 'NTPC',
-      testimonial: 'The curriculum perfectly aligns with industry requirements. Great labaratories and experienced faculty.',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
+      name: "Suresh Kumar",
+      title: "Plant Manager",
+      company: "NTPC",
+      testimonial:
+        "The curriculum perfectly aligns with industry requirements. Great labaratories and experienced faculty.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
     },
-  ]
+  ];
 
   return (
     <>
-      <Header />
-
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -441,8 +448,6 @@ export default function DiplomaProgram() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }

@@ -1,10 +1,8 @@
-'use client'
+"use client";
 
-import { useState } from 'react'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import Link from 'next/link'
-import { useToast } from '@/hooks/use-toast'
+import { useState } from "react";
+import Link from "next/link";
+import { useToast } from "@/hooks/use-toast";
 
 export default function ApplyNow() {
   const { toast } = useToast();
@@ -23,7 +21,11 @@ export default function ApplyNow() {
     address: "",
   });
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
     const { name, value } = e.target;
     setFormData({
       ...formData,
@@ -83,8 +85,6 @@ export default function ApplyNow() {
 
   return (
     <>
-      <Header />
-
       <main className="pt-24 pb-16 min-h-screen bg-linear-to-br from-[#3b0000] via-[#7a0000] to-[#1a0000]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
@@ -289,8 +289,6 @@ export default function ApplyNow() {
           </div>
         </div>
       </main>
-
-      <Footer />
     </>
   );
 }

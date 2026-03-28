@@ -8,7 +8,7 @@ import {
   Instagram,
   Youtube,
 } from "lucide-react";
-
+import { FaWhatsapp } from "react-icons/fa";
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
@@ -29,7 +29,33 @@ export function Footer() {
               Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology -
               Excellence in Technical Education
             </p>
-            <div className="flex gap-4">
+            <div className="flex gap-3">
+              {/* WhatsApp */}
+              <a
+                href="https://wa.me/919337736501"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-500 hover:scale-110 transition"
+              >
+                <FaWhatsapp className="w-6 h-6" />
+              </a>
+
+              {/* Call */}
+              <a
+                href="tel:+919337736501"
+                className="text-blue-500 hover:scale-110 transition"
+              >
+                <Phone className="w-6 h-6" />
+              </a>
+
+              {/* Mail */}
+              <a
+                href="mailto:office@kiitech.org"
+                className="text-red-500 hover:scale-110 transition"
+              >
+                <Mail className="w-6 h-6" />
+              </a>
+
               {/* Facebook */}
               <a
                 href="https://www.facebook.com/kiitech.org"
@@ -203,5 +229,7 @@ export function Footer() {
         </div>
       </div>
     </footer>
+
   );
 }
+export default Footer;

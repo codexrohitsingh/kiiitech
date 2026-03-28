@@ -131,3 +131,20 @@
     transform: translateX(100%);
   }
 }
+
+
+/* Scroling bar */
+@keyframes simpleMarquee {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.animate-simple-marquee {
+  white-space: nowrap;
+  display: inline-block;
+  animation: simpleMarquee 40s linear infinite;
+}

@@ -3,11 +3,19 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "@/components/ui/toaster";
 import "./globals.css";
+
+// 👉 Import your components
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 import FloatingSocialBar from "@/components/FloatingSocialBar";
+import ScrollingBar from "@/components/ScrollingBar";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
 
+/* =========================
+   🔥 SEO METADATA (HIGH LEVEL)
+========================= */
 export const metadata: Metadata = {
   metadataBase: new URL("https://kiitech.org"),
 
@@ -18,55 +26,25 @@ export const metadata: Metadata = {
   },
 
   description:
-    "KIITech is a top private college in Majhgaon, Jharkhand, India offering BBA, BCA, PGDM and Diploma programs with industry-focused curriculum, modern infrastructure and placement support.",
+    "KIITech is a top private college in Majhgaon, Jharkhand offering BBA, BCA, PGDM and Diploma programs with industry-focused curriculum, modern infrastructure and strong placement support.",
 
   keywords: [
     "KIITech",
     "kiitech",
-    "KIITech college",
     "Dr APJ Abdul Kalam Institute of Innovation and Technology",
-    "APJ Abdul Kalam institute Jharkhand",
-
-    // 📍 Location based
     "college in Majhgaon Jharkhand",
-    "college in Jharkhand",
+    "best college Jharkhand",
     "private college Jharkhand",
-    "top college in Jharkhand",
-    "best college in Jharkhand",
-    "college near Raurkela",
-    "college near Odisha Jharkhand border",
-
-    // 🎓 Courses
-    "BCA college in Jharkhand",
-    "best BCA college Jharkhand",
-    "BBA college in Jharkhand",
-    "best BBA college Jharkhand",
+    "BCA college Jharkhand",
+    "BBA college Jharkhand",
     "PGDM college India",
-    "PGDM college Jharkhand",
-    "Diploma college Jharkhand",
-    "computer application courses Jharkhand",
-    "management courses Jharkhand",
-
-    // 💼 Career / placement
-    "college with placement in Jharkhand",
-    "top placement college Jharkhand",
-    "job oriented courses in Jharkhand",
-    "industry focused education India",
-
-    // 🏫 Branding + intent
-    "best private college India",
-    "modern college infrastructure India",
-    "career focused education institute",
-    "innovation and technology college India",
-    "top institute for BBA BCA PGDM",
-
-    // 🎯 Admission intent
-    "apply for BCA college Jharkhand",
-    "admission open college Jharkhand",
-    "BBA admission Jharkhand",
-    "PGDM admission India",
-    "diploma admission Jharkhand",
+    "Diploma Polytechnic Jharkhand",
+    "top college near Raurkela",
+    "placement college Jharkhand",
+    "AI ML diploma India",
+    "technical institute Jharkhand",
   ],
+
   authors: [{ name: "KIITech" }],
   creator: "KIITech",
   publisher: "KIITech",
@@ -79,10 +57,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_IN",
     url: "https://kiitech.org",
-    title:
-      "KIITech | Leading Private College in Majhgaon, Jharkhand for BBA, BCA & PGDM",
+    title: "KIITech | Best Private College in Jharkhand",
     description:
-      "Discover KIITech – Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology. Offering industry-focused BBA, BCA, PGDM and Diploma programs with modern learning and strong placement support.",
+      "Join KIITech for BBA, BCA, PGDM and Diploma programs with industry-ready curriculum and strong placement support.",
     siteName: "KIITech",
     images: [
       {
@@ -105,7 +82,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    nocache: false,
     googleBot: {
       index: true,
       follow: true,
@@ -118,23 +94,16 @@ export const metadata: Metadata = {
 
   icons: {
     icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
+      { url: "/icon.svg", type: "image/svg+xml" },
+      { url: "/icon-light-32x32.png" },
     ],
     apple: "/apple-icon.png",
   },
 };
 
+/* =========================
+   📱 VIEWPORT
+========================= */
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
@@ -142,6 +111,9 @@ export const viewport: Viewport = {
   themeColor: "#000080",
 };
 
+/* =========================
+   🧠 ROOT LAYOUT
+========================= */
 export default function RootLayout({
   children,
 }: {
@@ -152,7 +124,7 @@ export default function RootLayout({
       <body
         className={`${geist.variable} ${geistMono.variable} font-sans antialiased bg-background text-foreground`}
       >
-        {/* 🔥 ADVANCED STRUCTURED DATA (HIGH SEO IMPACT) */}
+        {/* 🔥 STRUCTURED DATA (VERY IMPORTANT FOR SEO) */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -176,14 +148,8 @@ export default function RootLayout({
                 "@type": "PostalAddress",
                 streetAddress: "Majhgaon",
                 addressLocality: "Majhgaon",
-                postalCode: "833214",
-                district: "West Singhbhum",
-                block: "Majhgaon",
-                policestation: "Majhgaon Police Station",
-                postoffice: "Majhgaon",
-                panchayat: "Majhgaon Panchayat",
-                state: "Jharkhand",
                 addressRegion: "Jharkhand",
+                postalCode: "833214",
                 addressCountry: "IN",
               },
 
@@ -192,8 +158,6 @@ export default function RootLayout({
                 latitude: "22.0904",
                 longitude: "85.8781",
               },
-
-              openingHours: "Mo-Fr 09:00-17:00",
 
               sameAs: [
                 "https://www.facebook.com/kiitech.org",
@@ -209,15 +173,29 @@ export default function RootLayout({
                   { "@type": "Course", name: "BBA" },
                   { "@type": "Course", name: "BCA" },
                   { "@type": "Course", name: "PGDM" },
-                  { "@type": "Course", name: "Diploma" },
+                  { "@type": "Course", name: "Diploma Polytechnic" },
                 ],
               },
             }),
           }}
         />
 
-        {children}
-<FloatingSocialBar/>
+        {/* ✅ HEADER */}
+        <Header />
+
+        {/* ✅ SCROLLING BAR (AFTER HEADER) */}
+        <ScrollingBar />
+
+        {/* ✅ MAIN CONTENT */}
+        <main>{children}</main>
+
+        {/* ✅ FOOTER */}
+        <Footer />
+
+        {/* ✅ FLOATING SOCIAL ICONS */}
+        <FloatingSocialBar />
+
+        {/* ✅ SYSTEM */}
         <Toaster />
         <Analytics />
       </body>

@@ -1,12 +1,9 @@
-'use client'
-
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import Link from 'next/link'
+"use client";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
 import { Mail, Phone, MapPin, Clock, Send, Loader2 } from "lucide-react";
-import { useState } from 'react'
+import { useState } from "react";
 import { useToast } from "@/hooks/use-toast";
 
 // ✅ TYPE FIX
@@ -22,18 +19,18 @@ export default function Contact() {
   const { toast } = useToast();
 
   const [formData, setFormData] = useState<FormDataType>({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   // ✅ safer typing
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     const { name, value } = e.target;
 
@@ -100,8 +97,6 @@ export default function Contact() {
 
   return (
     <>
-      <Header />
-
       <section className="relative pt-40 pb-28 overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground">
         <div className="absolute inset-0">
           <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-accent/20 blur-[160px] rounded-full"></div>
@@ -163,9 +158,11 @@ export default function Contact() {
                         placeholder=" "
                         className="peer w-full px-4 pt-6 pb-2 rounded-xl border bg-white/70 focus:ring-2 text-black focus:ring-accent outline-none transition"
                       />
-                      <label className="absolute left-4 top-2 text-sm text-muted-foreground transition-all
+                      <label
+                        className="absolute left-4 top-2 text-sm text-muted-foreground transition-all
                         peer-placeholder-shown:top-4 peer-placeholder-shown:text-base
-                        peer-focus:top-2 peer-focus:text-sm">
+                        peer-focus:top-2 peer-focus:text-sm"
+                      >
                         {field.label}
                       </label>
                     </div>
@@ -234,8 +231,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }
