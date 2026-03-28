@@ -246,7 +246,7 @@ export default function ApplyNow() {
                       required
                       value={formData.qualification}
                       onChange={handleChange}
-                      placeholder="12th / Graduate"
+                      placeholder="10th / 12th / Graduate"
                       className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
                     />
                   </div>
