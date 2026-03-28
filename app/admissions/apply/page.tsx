@@ -116,7 +116,7 @@ export default function ApplyNow() {
                       required
                       value={formData.fullName}
                       onChange={handleChange}
-                      placeholder="Rohit Singh"
+                      placeholder="Your Name"
                       className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
                     />
                   </div>
@@ -132,7 +132,7 @@ export default function ApplyNow() {
                       required
                       value={formData.email}
                       onChange={handleChange}
-                      placeholder="office@kiitech.org"
+                      placeholder="YourEmail@gmail.com"
                       className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
                     />
                   </div>
