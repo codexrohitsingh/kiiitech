@@ -1,22 +1,19 @@
-import { Metadata } from 'next'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import Link from 'next/link'
-import { CheckCircle, Clock, FileText, Users, Award } from 'lucide-react'
+import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import { CheckCircle, Clock, FileText, Users, Award } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: 'Admissions - KIITECH',
-  description: 'Complete information about KIITECH admissions process, eligibility criteria, application deadlines, and fees.',
-  keywords: ['Admissions', 'Apply', 'Eligibility', 'Application Process'],
-}
+  title: "Admissions - KIITECH",
+  description:
+    "Complete information about KIITECH admissions process, eligibility criteria, application deadlines, and fees.",
+  keywords: ["Admissions", "Apply", "Eligibility", "Application Process"],
+};
 
 export default function Admissions() {
   return (
     <>
-      <Header />
-
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-linear-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -466,8 +463,6 @@ export default function Admissions() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }

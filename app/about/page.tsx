@@ -1,63 +1,66 @@
-import { Metadata } from 'next'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { Button } from '@/components/ui/button'
-import { Card } from '@/components/ui/card'
-import Link from 'next/link'
-import { ArrowRight, Award, Users, Building2, Globe, BookOpen } from 'lucide-react'
+import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import {
+  ArrowRight,
+  Award,
+  Users,
+  Building2,
+  Globe,
+  BookOpen,
+} from "lucide-react";
 
 export const metadata: Metadata = {
   title:
-    'KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology | Best College in Majhgaon, Jharkhand',
-  
+    "KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology | Best College in Majhgaon, Jharkhand",
+
   description:
-    'KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology is a leading private college in Majhgaon, Jharkhand, India offering BBA, BCA, PGDM, Diploma and industry-focused programs with 100% placement support.',
+    "KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology is a leading private college in Majhgaon, Jharkhand, India offering BBA, BCA, PGDM, Diploma and industry-focused programs with 100% placement support.",
 
   keywords: [
-    'KIITech',
-    'kiitech',
-    'KIITech college',
-    'Dr APJ Abdul Kalam Institute of Innovation and Technology',
-    'college in Majhgaon Jharkhand',
-    'private college Jharkhand',
-    'BBA college Jharkhand',
-    'BCA college Jharkhand',
-    'PGDM college India',
-    'Diploma college Jharkhand',
+    "KIITech",
+    "kiitech",
+    "KIITech college",
+    "Dr APJ Abdul Kalam Institute of Innovation and Technology",
+    "college in Majhgaon Jharkhand",
+    "private college Jharkhand",
+    "BBA college Jharkhand",
+    "BCA college Jharkhand",
+    "PGDM college India",
+    "Diploma college Jharkhand",
   ],
 
-  authors: [{ name: 'KIITech' }],
+  authors: [{ name: "KIITech" }],
 
-  creator: 'KIITech',
+  creator: "KIITech",
 
   openGraph: {
     title:
-      'KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology',
+      "KIITech - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology",
     description:
-      'Top private college in Majhgaon, Jharkhand offering BBA, BCA, PGDM & Diploma programs with excellent placements.',
-    url: 'https://www.kiitech.org',
-    siteName: 'KIITech',
-    locale: 'en_IN',
-    type: 'website',
+      "Top private college in Majhgaon, Jharkhand offering BBA, BCA, PGDM & Diploma programs with excellent placements.",
+    url: "https://www.kiitech.org",
+    siteName: "KIITech",
+    locale: "en_IN",
+    type: "website",
   },
 
   twitter: {
-    card: 'summary_large_image',
-    title: 'KIITech - Best College in Jharkhand',
+    card: "summary_large_image",
+    title: "KIITech - Best College in Jharkhand",
     description:
-      'Join KIITech for BBA, BCA, PGDM & Diploma programs with industry-ready curriculum.',
+      "Join KIITech for BBA, BCA, PGDM & Diploma programs with industry-ready curriculum.",
   },
 
   alternates: {
-    canonical: 'https://www.kiitech.org/about',
+    canonical: "https://www.kiitech.org/about",
   },
-}
+};
 
 export default function About() {
   return (
     <>
-      <Header />
-
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -443,8 +446,6 @@ export default function About() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }

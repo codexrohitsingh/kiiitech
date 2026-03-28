@@ -1,21 +1,25 @@
-import { Metadata } from 'next'
-import { Header } from '@/components/header'
-import { Footer } from '@/components/footer'
-import { Button } from '@/components/ui/button'
-import { CurriculumAccordion } from '@/components/curriculum-accordion'
-import { TestimonialCard } from '@/components/testimonial-card'
-import { Card } from '@/components/ui/card'
-import Link from 'next/link'
-import { ArrowRight, CheckCircle, Clock, Users, BookOpen, Briefcase } from 'lucide-react'
-import { NewApplyNow } from '@/components/apply'
+import { Metadata } from "next";
+import { Button } from "@/components/ui/button";
+import { CurriculumAccordion } from "@/components/curriculum-accordion";
+import { TestimonialCard } from "@/components/testimonial-card";
+import { Card } from "@/components/ui/card";
+import Link from "next/link";
+import {
+  ArrowRight,
+  CheckCircle,
+  Clock,
+  Users,
+  BookOpen,
+  Briefcase,
+} from "lucide-react";
+import { NewApplyNow } from "@/components/apply";
 // import { ApplyNow } from "@/components/apply";
 
 export const metadata: Metadata = {
-  title:
-    'PGDM Course in Jharkhand | Best PGDM College in Majhgaon - KIITECH',
+  title: "PGDM Course in Jharkhand | Best PGDM College in Majhgaon - KIITECH",
 
   description:
-    'Apply for PGDM (Post Graduate Diploma in Management) at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Total 360 seats including PGDM (General) 180 seats, Business Administration 60 seats, Human Resources Management 60 seats, and Marketing & Finance 60 seats. Industry-focused curriculum with strong placement support.',
+    "Apply for PGDM (Post Graduate Diploma in Management) at KIITECH - Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology, Majhgaon, Jharkhand. Total 360 seats including PGDM (General) 180 seats, Business Administration 60 seats, Human Resources Management 60 seats, and Marketing & Finance 60 seats. Industry-focused curriculum with strong placement support.",
 
   keywords: [
     "PGDM course in Jharkhand",
@@ -37,33 +41,32 @@ export const metadata: Metadata = {
   ],
 
   openGraph: {
-    title:
-      'PGDM Program at KIITECH | Business, HR & Marketing Specializations',
+    title: "PGDM Program at KIITECH | Business, HR & Marketing Specializations",
     description:
-      'Explore PGDM programs at KIITECH with specializations in Business Administration, HR, and Marketing & Finance. Limited seats with strong placement support.',
-    url: 'https://kiitech.org/programs/pgdm',
-    siteName: 'KIITECH',
-    type: 'website',
+      "Explore PGDM programs at KIITECH with specializations in Business Administration, HR, and Marketing & Finance. Limited seats with strong placement support.",
+    url: "https://kiitech.org/programs/pgdm",
+    siteName: "KIITECH",
+    type: "website",
     images: [
       {
-        url: 'https://kiitech.org/pgdm-og.jpg',
+        url: "https://kiitech.org/pgdm-og.jpg",
         width: 1200,
         height: 630,
-        alt: 'PGDM Program at KIITECH',
+        alt: "PGDM Program at KIITECH",
       },
     ],
   },
 
   twitter: {
-    card: 'summary_large_image',
-    title: 'PGDM Course at KIITECH - Advance Your Management Career',
+    card: "summary_large_image",
+    title: "PGDM Course at KIITECH - Advance Your Management Career",
     description:
-      'Enroll in KIITECH’s PGDM program with Business, HR, and Marketing specializations and strong placement support.',
-    images: ['https://kiitech.org/pgdm-og.jpg'],
+      "Enroll in KIITECH’s PGDM program with Business, HR, and Marketing specializations and strong placement support.",
+    images: ["https://kiitech.org/pgdm-og.jpg"],
   },
 
   alternates: {
-    canonical: 'https://kiitech.org/programs/pgdm',
+    canonical: "https://kiitech.org/programs/pgdm",
   },
 
   robots: {
@@ -75,75 +78,79 @@ export const metadata: Metadata = {
 export default function PGDMProgram() {
   const curriculum = [
     {
-      title: 'Semester 1',
+      title: "Semester 1",
       subjects: [
-        { name: 'Organizational Behavior & Management', credits: 4 },
-        { name: 'Financial Management', credits: 4 },
-        { name: 'Marketing Management', credits: 4 },
-        { name: 'Business Communication', credits: 3 },
-        { name: 'Business Ethics & CSR', credits: 2 },
+        { name: "Organizational Behavior & Management", credits: 4 },
+        { name: "Financial Management", credits: 4 },
+        { name: "Marketing Management", credits: 4 },
+        { name: "Business Communication", credits: 3 },
+        { name: "Business Ethics & CSR", credits: 2 },
       ],
     },
     {
-      title: 'Semester 2',
+      title: "Semester 2",
       subjects: [
-        { name: 'Strategic Management', credits: 4 },
-        { name: 'Human Resource Management', credits: 4 },
-        { name: 'Operations Management', credits: 4 },
-        { name: 'Business Analytics', credits: 3 },
-        { name: 'Leadership Development', credits: 2 },
+        { name: "Strategic Management", credits: 4 },
+        { name: "Human Resource Management", credits: 4 },
+        { name: "Operations Management", credits: 4 },
+        { name: "Business Analytics", credits: 3 },
+        { name: "Leadership Development", credits: 2 },
       ],
     },
     {
-      title: 'Semester 3',
+      title: "Semester 3",
       subjects: [
-        { name: 'International Business', credits: 4 },
-        { name: 'Digital Marketing & E-Commerce', credits: 4 },
-        { name: 'Supply Chain Management', credits: 4 },
-        { name: 'Project Management', credits: 3 },
-        { name: 'Specialization Elective-I', credits: 3 },
+        { name: "International Business", credits: 4 },
+        { name: "Digital Marketing & E-Commerce", credits: 4 },
+        { name: "Supply Chain Management", credits: 4 },
+        { name: "Project Management", credits: 3 },
+        { name: "Specialization Elective-I", credits: 3 },
       ],
     },
     {
-      title: 'Semester 4',
+      title: "Semester 4",
       subjects: [
-        { name: 'Corporate Strategy & Governance', credits: 4 },
-        { name: 'Entrepreneurship & Innovation', credits: 4 },
-        { name: 'Research Methodology', credits: 3 },
-        { name: 'Capstone Project/Thesis', credits: 8 },
-        { name: 'Specialization Elective-II', credits: 3 },
+        { name: "Corporate Strategy & Governance", credits: 4 },
+        { name: "Entrepreneurship & Innovation", credits: 4 },
+        { name: "Research Methodology", credits: 3 },
+        { name: "Capstone Project/Thesis", credits: 8 },
+        { name: "Specialization Elective-II", credits: 3 },
       ],
     },
-  ]
+  ];
 
   const testimonials = [
     {
-      name: 'Vikas Sharma',
-      title: 'General Manager',
-      company: 'Reliance Industries',
-      testimonial: 'The PGDM program accelerated my career progression. The practical focus and industry connections are invaluable.',
-      image: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop',
+      name: "Vikas Sharma",
+      title: "General Manager",
+      company: "Reliance Industries",
+      testimonial:
+        "The PGDM program accelerated my career progression. The practical focus and industry connections are invaluable.",
+      image:
+        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
     },
     {
-      name: 'Priya Bansal',
-      title: 'Director, Operations',
-      company: 'Flipkart',
-      testimonial: 'Perfect blend of theory and practice. The PGDM curriculum is very relevant to current market demands.',
-      image: 'https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop',
+      name: "Priya Bansal",
+      title: "Director, Operations",
+      company: "Flipkart",
+      testimonial:
+        "Perfect blend of theory and practice. The PGDM curriculum is very relevant to current market demands.",
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop",
     },
     {
-      name: 'Rajesh Iyer',
-      title: 'VP, Finance',
-      company: 'HDFC Bank',
-      testimonial: 'Great mentoring and networking opportunities. PGDM is an excellent alternative to traditional MBA.',
-      image: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop',
+      name: "Rajesh Iyer",
+      title: "VP, Finance",
+      company: "HDFC Bank",
+      testimonial:
+        "Great mentoring and networking opportunities. PGDM is an excellent alternative to traditional MBA.",
+      image:
+        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
     },
-  ]
+  ];
 
   return (
     <>
-      <Header />
-
       {/* Hero Section */}
       <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
@@ -512,8 +519,6 @@ export default function PGDMProgram() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </>
   );
 }

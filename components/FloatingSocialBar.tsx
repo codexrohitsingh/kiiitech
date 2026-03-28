@@ -14,12 +14,12 @@ export default function FloatingSocialBar() {
 <div className="fixed right-4 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-5">
 
   {/* WhatsApp */}
-  <a href="https://wa.me/8102165491" target="_blank">
+  <a href="https://wa.me/919337736501" target="_blank">
     <FaWhatsapp className="w-6 h-6 text-green-500 hover:scale-110 transition" />
   </a>
 
   {/* Call */}
-  <a href="tel:+918102165491">
+  <a href="tel:+919337736501">
     <Phone className="w-6 h-6 text-blue-500 hover:scale-110 transition" />
   </a>
 
