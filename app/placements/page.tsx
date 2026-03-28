@@ -120,13 +120,13 @@ export default function Placements() {
               {
                 icon: <Users className="w-8 h-8" />,
                 label: "Total Placements",
-                value: "15K+",
+                value: "10K+",
                 description: "Successful placements",
               },
               {
                 icon: <Briefcase className="w-8 h-8" />,
                 label: "Top Recruiters",
-                value: "50+",
+                value: "100+",
                 description: "Leading companies",
               },
             ].map((stat, index) => (
@@ -179,7 +179,7 @@ export default function Placements() {
               </thead>
               <tbody>
                 {[
-                  ["BCA", "₹7-9 LPA", "₹25 LPA", "100%"],
+                  ["BCA", "₹7-9 LPA", "₹28 LPA", "100%"],
                   ["Diploma", "₹4-6 LPA", "₹12 LPA", "100%"],
                   ["BBA", "₹6-8 LPA", "₹18 LPA", "100%"],
                   ["PGDM", "₹12-15 LPA", "₹35 LPA", "100%"],
