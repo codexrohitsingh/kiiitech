@@ -97,53 +97,60 @@ export default function Contact() {
 
   return (
     <>
-      <section className="relative pt-40 pb-28 overflow-hidden bg-gradient-to-br from-primary via-primary/90 to-secondary text-primary-foreground">
+      <section className="relative pt-40 pb-28 overflow-hidden bg-[#0b1633] text-white">
+        {/* Background glow */}
         <div className="absolute inset-0">
-          <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-accent/20 blur-[160px] rounded-full"></div>
-          <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-secondary/30 blur-[140px] rounded-full"></div>
+          <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-blue-500/20 blur-[160px] rounded-full"></div>
+          <div className="absolute bottom-[-150px] right-[-150px] w-[500px] h-[500px] bg-yellow-500/20 blur-[140px] rounded-full"></div>
         </div>
 
         <div className="relative z-10 max-w-7xl mx-auto px-6">
+          {/* Back Link */}
           <Link
             href="/"
-            className="group flex items-center gap-2 text-accent mb-12 w-fit"
+            className="group flex items-center gap-2 text-yellow-400 mb-12 w-fit"
           >
             <span className="transition group-hover:-translate-x-1">←</span>
             Back
           </Link>
 
           <div className="grid lg:grid-cols-2 gap-16 items-center">
+            {/* LEFT CONTENT */}
             <div>
               <h1 className="text-6xl font-extrabold leading-tight mb-6 tracking-tight">
                 Let’s create something <br />
-                <span className="bg-gradient-to-r from-accent to-secondary bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                   amazing together
                 </span>
               </h1>
 
-              <p className="text-lg opacity-90 mb-10 max-w-xl">
+              <p className="text-lg text-white/80 mb-10 max-w-xl">
                 Whether you're applying, exploring, or collaborating — our team
                 is ready to help you move forward.
               </p>
 
+              {/* Info Cards */}
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
-                  <p className="text-sm opacity-80">Email us</p>
+                  <p className="text-sm text-white/60">Email us</p>
                   <p className="font-semibold">admissions@kiit.edu</p>
                 </div>
 
                 <div className="p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
-                  <p className="text-sm opacity-80">Call us</p>
+                  <p className="text-sm text-white/60">Call us</p>
                   <p className="font-semibold">+91 XXXXX XXXXX</p>
                 </div>
               </div>
             </div>
 
+            {/* RIGHT FORM */}
             <div className="relative group">
-              <div className="absolute -inset-[2px] bg-gradient-to-r from-accent via-secondary to-accent rounded-3xl blur opacity-30"></div>
+              {/* Glow border */}
+              <div className="absolute -inset-[2px] bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-400 rounded-3xl blur opacity-30"></div>
 
-              <div className="relative bg-white/85 backdrop-blur-2xl rounded-3xl p-8 shadow-2xl border border-white/40">
-                <h2 className="text-2xl font-bold mb-6 text-foreground">
+              {/* Form Card */}
+              <div className="relative bg-white/10 backdrop-blur-2xl rounded-3xl p-8 shadow-[0_20px_60px_rgba(0,0,0,0.6)] border border-white/20">
+                <h2 className="text-2xl font-bold mb-6 text-white">
                   Send a message
                 </h2>
 
@@ -156,12 +163,12 @@ export default function Contact() {
                         onChange={handleChange}
                         required
                         placeholder=" "
-                        className="peer w-full px-4 pt-6 pb-2 rounded-xl border bg-white/70 focus:ring-2 text-black focus:ring-accent outline-none transition"
+                        className="peer w-full px-4 pt-6 pb-2 rounded-xl border border-white/20 bg-white/10 text-white placeholder-transparent focus:ring-2 focus:ring-yellow-400 outline-none transition"
                       />
                       <label
-                        className="absolute left-4 top-2 text-sm text-muted-foreground transition-all
-                        peer-placeholder-shown:top-4 peer-placeholder-shown:text-base
-                        peer-focus:top-2 peer-focus:text-sm"
+                        className="absolute left-4 top-2 text-sm text-white/60 transition-all
+                  peer-placeholder-shown:top-4 peer-placeholder-shown:text-base
+                  peer-focus:top-2 peer-focus:text-sm peer-focus:text-yellow-300"
                       >
                         {field.label}
                       </label>
@@ -175,13 +182,13 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     placeholder="Your message..."
-                    className="w-full px-4 py-3 rounded-xl border bg-white/70 focus:ring-2 text-black focus:ring-accent transition"
+                    className="w-full px-4 py-3 rounded-xl border border-white/20 bg-white/10 text-white focus:ring-2 focus:ring-yellow-400 outline-none transition"
                   />
 
                   <Button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-accent to-secondary"
+                    className="w-full py-3 rounded-xl font-semibold bg-gradient-to-r from-yellow-400 via-orange-500 to-yellow-500 text-black hover:opacity-90 transition"
                   >
                     {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
