@@ -62,7 +62,7 @@ export const metadata: Metadata = {
     title: "PGDM Course at KIITECH - Advance Your Management Career",
     description:
       "Enroll in KIITECH’s PGDM program with Business, HR, and Marketing specializations and strong placement support.",
-    images: ["https://kiitech.org/pgdm-og.jpg"],
+    images: ["https://kiitech.org/pgdm.png"],
   },
 
   alternates: {
@@ -152,7 +152,7 @@ export default function PGDMProgram() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
+      <section className="pt-12 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -236,7 +236,7 @@ export default function PGDMProgram() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=400&fit=crop"
+                src="/pgdm.png"
                 alt="PGDM Program"
                 className="w-full h-96 object-cover rounded-2xl shadow-lg"
               />

@@ -20,10 +20,12 @@ export function Footer() {
           {/* About */}
           <div>
             <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-accent rounded-lg flex items-center justify-center text-primary text-sm font-bold">
-                K
-              </div>
-              <h3 className="font-bold text-lg">KIITECH</h3>
+              <img
+                src="/icon.svg"
+                alt="KIITECH Logo"
+                className="w-20 h-20 object-contain"
+              />
+              <h3 className="font-bold text-lg">KIITech</h3>
             </div>
             <p className="text-sm opacity-90 mb-4">
               Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology -
@@ -229,7 +231,6 @@ export function Footer() {
         </div>
       </div>
     </footer>
-
   );
 }
 export default Footer;

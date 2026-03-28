@@ -152,7 +152,7 @@ export default function DiplomaProgram() {
   return (
     <>
       {/* Hero Section */}
-      <section className="pt-32 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
+      <section className="pt-12 pb-16 bg-gradient-to-br from-primary via-primary/95 to-secondary text-primary-foreground relative overflow-hidden">
         <div className="absolute top-0 left-0 w-96 h-96 bg-accent/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -235,7 +235,7 @@ export default function DiplomaProgram() {
             </div>
             <div className="relative">
               <img
-                src="https://images.unsplash.com/photo-1516321318423-f06b85d504b6?w=600&h=400&fit=crop"
+                src="/diploma.png"
                 alt="Diploma Program"
                 className="w-full h-96 object-cover rounded-2xl shadow-lg"
               />
