@@ -37,6 +37,7 @@ export const metadata: Metadata = {
     "best college for BBA near me",
     "career in business management India",
     "BBA program with placement support",
+    "",
   ],
 
   openGraph: {
@@ -486,3 +487,6 @@ export default function BBAProgram() {
     </>
   );
 }
+
+
+//  Hi rohit
