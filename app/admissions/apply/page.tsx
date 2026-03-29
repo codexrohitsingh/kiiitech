@@ -7,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 export default function ApplyNow() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const [errors, setErrors] = useState<Record<string, string>>({});
   const [formData, setFormData] = useState({
     fullName: "",
     email: "",
@@ -21,6 +21,71 @@ export default function ApplyNow() {
     address: "",
   });
 
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required.";
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.fullName)) {
+      newErrors.fullName = "Name should contain only letters and spaces.";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
+      newErrors.email = "Invalid email address.";
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required.";
+    } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ""))) {
+      newErrors.phone = "Phone number must be 10 digits.";
+    }
+
+    if (!formData.dob) {
+      newErrors.dob = "Date of birth is required.";
+    } else {
+      const birthDate = new Date(formData.dob);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      if (birthDate > today) {
+        newErrors.dob = "Date of birth cannot be in the future.";
+      } else if (age < 14) {
+        newErrors.dob = "You must be at least 14 years old to apply.";
+      }
+    }
+
+    if (!formData.gender) {
+      newErrors.gender = "Please select your gender.";
+    }
+
+    if (!formData.course) {
+      newErrors.course = "Please select a course.";
+    }
+
+    if (!formData.qualification.trim()) {
+      newErrors.qualification = "Highest qualification is required.";
+    }
+
+    if (!formData.marks.trim()) {
+      newErrors.marks = "Marks are required.";
+    } else if (isNaN(Number(formData.marks)) || Number(formData.marks) < 0 || Number(formData.marks) > 100) {
+      newErrors.marks = "Please enter valid marks (0-100).";
+    }
+
+    if (!formData.address.trim()) {
+      newErrors.address = "Address is required.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
   const handleChange = (
     e: React.ChangeEvent<
       HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
@@ -31,10 +96,26 @@ export default function ApplyNow() {
       ...formData,
       [name]: value,
     });
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    if (!validate()) {
+      toast({
+        title: "Validation Error",
+        description: "Please check the form for errors.",
+        variant: "destructive",
+      });
+      return;
+    }
     setIsSubmitting(true);
 
     try {
@@ -152,8 +233,13 @@ export default function ApplyNow() {
                       value={formData.fullName}
                       onChange={handleChange}
                       placeholder="Your Name"
-                      className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.fullName ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     />
+                    {errors.fullName && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.fullName}
+                      </p>
+                    )}
                   </div>
 
                   {/* ✅ EMAIL */}
@@ -168,8 +254,11 @@ export default function ApplyNow() {
                       value={formData.email}
                       onChange={handleChange}
                       placeholder="YourEmail@gmail.com"
-                      className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.email ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     />
+                    {errors.email && (
+                      <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                    )}
                   </div>
 
                   {/* PHONE */}
@@ -184,8 +273,11 @@ export default function ApplyNow() {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="+91 00000 00000"
-                      className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.phone ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     />
+                    {errors.phone && (
+                      <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+                    )}
                   </div>
 
                   {/* DOB */}
@@ -199,8 +291,11 @@ export default function ApplyNow() {
                       required
                       value={formData.dob}
                       onChange={handleChange}
-                      className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.dob ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     />
+                    {errors.dob && (
+                      <p className="text-red-500 text-xs mt-1">{errors.dob}</p>
+                    )}
                   </div>
 
                   {/* Gender */}
@@ -213,13 +308,18 @@ export default function ApplyNow() {
                       required
                       value={formData.gender}
                       onChange={handleChange}
-                      className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.gender ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     >
                       <option value="">Select Gender</option>
                       <option value="male">Male</option>
                       <option value="female">Female</option>
                       <option value="other">Other</option>
                     </select>
+                    {errors.gender && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.gender}
+                      </p>
+                    )}
                   </div>
 
                   {/* Course */}
@@ -232,7 +332,7 @@ export default function ApplyNow() {
                       required
                       value={formData.course}
                       onChange={handleChange}
-                      className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.course ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     >
                       <option value="">Select Course</option>
                       <option value="Bachelor of Computer Applications">
@@ -268,6 +368,11 @@ export default function ApplyNow() {
                         PGDM in Marketing and Finance
                       </option>
                     </select>
+                    {errors.course && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.course}
+                      </p>
+                    )}
                   </div>
 
                   {/* Qualification */}
@@ -282,8 +387,13 @@ export default function ApplyNow() {
                       value={formData.qualification}
                       onChange={handleChange}
                       placeholder="10th / 12th / Graduate"
-                      className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.qualification ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     />
+                    {errors.qualification && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.qualification}
+                      </p>
+                    )}
                   </div>
 
                   {/* Passing Year */}
@@ -312,8 +422,11 @@ export default function ApplyNow() {
                       required
                       value={formData.marks}
                       onChange={handleChange}
-                      className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.marks ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     />
+                    {errors.marks && (
+                      <p className="text-red-500 text-xs mt-1">{errors.marks}</p>
+                    )}
                   </div>
                 </div>
 
@@ -328,8 +441,11 @@ export default function ApplyNow() {
                     required
                     value={formData.address}
                     onChange={handleChange}
-                    className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                    className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.address ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                   ></textarea>
+                  {errors.address && (
+                    <p className="text-red-500 text-xs mt-1">{errors.address}</p>
+                  )}
                 </div>
 
                 {/* Submit */}
