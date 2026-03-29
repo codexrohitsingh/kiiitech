@@ -12,21 +12,22 @@
  * 8. Copy the Web App URL and paste it into SCRIPT_URL in app/contact/page.tsx.
  */
 
+var SPREADSHEET_ID = '1Fqt65NJIbUEvuDPkwP0NJMU13MxV_q5jukORFSuxfK0';
+var SHEET_NAME = 'Sheet1';
+
 function doGet(e) {
-  return ContentService.createTextOutput("Contact Form Script is Active. Send a POST request to submit data.")
-    .setMimeType(ContentService.MimeType.TEXT);
+  return handleRequest(e);
 }
 
 function doPost(e) {
-  var SPREADSHEET_ID = '1Fqt65NJIbUEvuDPkwP0NJMU13MxV_q5jukORFSuxfK0';
-  var SHEET_NAME = 'Sheet1';
+  return handleRequest(e);
+}
 
+function handleRequest(e) {
   try {
-    // Open the spreadsheet
     var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     var sheet = ss.getSheetByName(SHEET_NAME);
     
-    // Create sheet if it doesn't exist
     if (!sheet) {
       sheet = ss.insertSheet(SHEET_NAME);
       sheet.appendRow([
@@ -40,36 +41,14 @@ function doPost(e) {
       sheet.getRange(1, 1, 1, 6).setFontWeight('bold').setBackground('#f3f3f3');
     }
 
-    // Get the data from the request
-    var data = {};
+    var data = e.parameter;
     
-    // 1. Check for URL parameters (sent via application/x-www-form-urlencoded)
-    if (e && e.parameter) {
-      for (var key in e.parameter) {
-        data[key] = e.parameter[key];
-      }
-    }
-    
-    // 2. Check for JSON content in postData (sent via application/json)
-    if (e && e.postData && e.postData.contents) {
-      try {
-        var jsonData = JSON.parse(e.postData.contents);
-        for (var key in jsonData) {
-          data[key] = jsonData[key];
-        }
-      } catch (err) {
-        // Not JSON or empty contents
-      }
-    }
-    
-    // Validate data - ensure we have at least a name
     var name = data.name || data.fullName || 'Unknown';
     var email = data.email || 'No Email';
     var phone = data.phone || 'No Phone';
     var subject = data.subject || 'No Subject';
     var message = data.message || 'No Message';
 
-    // Append the row
     var newRow = [
       new Date(),
       name,
@@ -81,28 +60,78 @@ function doPost(e) {
 
     sheet.appendRow(newRow);
 
-    // Return success response
-    var response = {
-      'result': 'success',
-      'message': 'Data appended successfully',
-      'row': newRow
-    };
+    // --- EMAIL LOGIC ---
+    if (email && email !== 'No Email') {
+      sendContactConfirmationEmail({
+        name: name,
+        email: email,
+        subject: subject,
+        message: message
+      });
+    }
 
-    return ContentService.createTextOutput(JSON.stringify(response))
-      .setMimeType(ContentService.MimeType.JSON);
+    var result = JSON.stringify({ 'result': 'success', 'message': 'Data added successfully' });
+    
+    // Handle JSONP callback
+    if (e.parameter.callback) {
+      return ContentService.createTextOutput(e.parameter.callback + '(' + result + ')')
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    }
+
+    return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
-    // Log the error for debugging in Apps Script console
-    console.error('Script Error:', error.toString());
+    console.error('Error in script:', error.toString());
+    var errorResult = JSON.stringify({ 'result': 'error', 'message': error.toString() });
     
-    return ContentService.createTextOutput(JSON.stringify({
-      'result': 'error',
-      'message': error.toString()
-    })).setMimeType(ContentService.MimeType.JSON);
+    if (e.parameter && e.parameter.callback) {
+      return ContentService.createTextOutput(e.parameter.callback + '(' + errorResult + ')')
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    }
+    
+    return ContentService.createTextOutput(errorResult).setMimeType(ContentService.MimeType.JSON);
   }
 }
 
-function doOptions(e) {
-  return ContentService.createTextOutput("")
-    .setMimeType(ContentService.MimeType.TEXT);
+function sendContactConfirmationEmail(data) {
+  var subject = "Message Received - Kalam Institute";
+  
+  var htmlBody = `
+    <html>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+          <h2 style="color: #0b1633; text-align: center;">Kalam Institute of Technology</h2>
+          <p>Dear <strong>${data.name}</strong>,</p>
+          <p>Thank you for reaching out to us. We have received your message regarding "<strong>${data.subject}</strong>".</p>
+          
+          <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <h3 style="margin-top: 0;">Your Message:</h3>
+            <p>${data.message}</p>
+          </div>
+          
+          <p>Our team will review your inquiry and get back to you as soon as possible.</p>
+          
+          <p>Best regards,<br>
+          <strong>Support Team</strong><br>
+          Kalam Institute of Technology<br>
+          Jamshedpur, Jharkhand</p>
+          
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+          <p style="font-size: 12px; color: #777; text-align: center;">
+            This is an automated email. Please do not reply directly to this message.
+          </p>
+        </div>
+      </body>
+    </html>
+  `;
+
+  try {
+    MailApp.sendEmail({
+      to: data.email,
+      subject: subject,
+      htmlBody: htmlBody
+    });
+  } catch (err) {
+    console.error("Failed to send email: " + err.toString());
+  }
 }

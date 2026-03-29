@@ -54,35 +54,65 @@ export default function Contact() {
 
     try {
       const SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbyBV6RpQpqawhaZ-alX5fnvUfpZFXZbmJmXgDtQRbwIdI1CrD4QZ8QqIcY7ZdyzIYZ8sQ/exec";
+        "https://script.google.com/macros/s/AKfycbzNQmL5eh6t9qoz2NKMHCyZDg6dWBzIePmBMr0REMK4ugAF2cvzcXjbpb1Rov0IrT30Ig/exec";
 
-      const params = new URLSearchParams();
-      Object.entries(formData).forEach(([key, value]) => {
-        params.append(key, value.toString());
-      });
+      const submitData = () => {
+        return new Promise((resolve, reject) => {
+          const params = new URLSearchParams();
+          Object.entries(formData).forEach(([key, value]) => {
+            params.append(key, value.toString());
+          });
 
-      await fetch(SCRIPT_URL, {
-        method: "POST",
-        mode: "no-cors",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
-        body: params,
-      });
+          const callbackName =
+            "jsonp_callback_" + Math.round(100000 * Math.random());
 
-      toast({
-        title: "Message Sent Successfully!",
-        description:
-          "Thank you for reaching out! We will get back to you soon.",
-      });
+          const script = document.createElement("script");
+          const url = `${SCRIPT_URL}?${params.toString()}&callback=${callbackName}`;
 
-      setFormData({
-        name: "",
-        email: "",
-        phone: "",
-        subject: "",
-        message: "",
-      });
+          (window as any)[callbackName] = function (data: any) {
+            delete (window as any)[callbackName];
+            document.body.removeChild(script);
+            resolve(data);
+          };
+
+          script.onerror = function () {
+            delete (window as any)[callbackName];
+            document.body.removeChild(script);
+            reject(new Error("JSONP request failed"));
+          };
+
+          script.src = url;
+          document.body.appendChild(script);
+
+          setTimeout(() => {
+            if ((window as any)[callbackName]) {
+              delete (window as any)[callbackName];
+              document.body.removeChild(script);
+              reject(new Error("JSONP request timeout"));
+            }
+          }, 10000);
+        });
+      };
+
+      const result = (await submitData()) as { result: string };
+
+      if (result.result === "success") {
+        toast({
+          title: "Message Sent Successfully!",
+          description:
+            "Thank you for reaching out! We will get back to you soon.",
+        });
+
+        setFormData({
+          name: "",
+          email: "",
+          phone: "",
+          subject: "",
+          message: "",
+        });
+      } else {
+        throw new Error("Failed to submit");
+      }
     } catch (error) {
       toast({
         title: "Submission Failed",

@@ -38,35 +38,70 @@ export default function ApplyNow() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch("/api/admissions", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbyI4iYbOK7zhnvon8pbp4OZH5sWqzppCahe2y_W4O55_2GSKPj7_av-TekAmoBu3O8g/exec";
 
-      if (!response.ok) {
+      const submitData = () => {
+        return new Promise((resolve, reject) => {
+          const params = new URLSearchParams();
+          Object.entries(formData).forEach(([key, value]) => {
+            params.append(key, value.toString());
+          });
+
+          const callbackName =
+            "jsonp_callback_" + Math.round(100000 * Math.random());
+
+          const script = document.createElement("script");
+          const url = `${SCRIPT_URL}?${params.toString()}&callback=${callbackName}`;
+
+          (window as any)[callbackName] = function (data: any) {
+            delete (window as any)[callbackName];
+            document.body.removeChild(script);
+            resolve(data);
+          };
+
+          script.onerror = function () {
+            delete (window as any)[callbackName];
+            document.body.removeChild(script);
+            reject(new Error("JSONP request failed"));
+          };
+
+          script.src = url;
+          document.body.appendChild(script);
+
+          setTimeout(() => {
+            if ((window as any)[callbackName]) {
+              delete (window as any)[callbackName];
+              document.body.removeChild(script);
+              reject(new Error("JSONP request timeout"));
+            }
+          }, 10000);
+        });
+      };
+
+      const result = (await submitData()) as { result: string };
+
+      if (result.result === "success") {
+        toast({
+          title: "Application Submitted Successfully!",
+          description: "An email conformation has been sent.",
+        });
+
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          dob: "",
+          gender: "",
+          course: "",
+          qualification: "",
+          passingYear: "",
+          marks: "",
+          address: "",
+        });
+      } else {
         throw new Error("Failed to submit");
       }
-
-      toast({
-        title: "Application Submitted Successfully!",
-        description: "An email conformation has been sent.",
-      });
-
-      setFormData({
-        fullName: "",
-        email: "",
-        phone: "",
-        dob: "",
-        gender: "",
-        course: "",
-        qualification: "",
-        passingYear: "",
-        marks: "",
-        address: "",
-      });
     } catch (error) {
       toast({
         title: "Submission Failed",

@@ -12,10 +12,18 @@
  * 8. Copy the Web App URL and paste it into SCRIPT_URL in app/admissions/apply/page.tsx.
  */
 
-function doPost(e) {
-  var SPREADSHEET_ID = '1UaMTyzzkD5Y5Rmu9ursmmIikgJEOsn7cynA7O1YsR_s';
-  var SHEET_NAME = 'Sheet1';
+var SPREADSHEET_ID = '1UaMTyzzkD5Y5Rmu9ursmmIikgJEOsn7cynA7O1YsR_s';
+var SHEET_NAME = 'Sheet1';
 
+function doGet(e) {
+  return handleRequest(e);
+}
+
+function doPost(e) {
+  return handleRequest(e);
+}
+
+function handleRequest(e) {
   try {
     var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
     var sheet = ss.getSheetByName(SHEET_NAME);
@@ -38,19 +46,7 @@ function doPost(e) {
       sheet.getRange(1, 1, 1, 11).setFontWeight('bold').setBackground('#f3f3f3');
     }
 
-    var data;
-    if (e.postData && e.postData.contents) {
-      // Try parsing as JSON
-      try {
-        data = JSON.parse(e.postData.contents);
-      } catch (err) {
-        // If not JSON, it might be form data or plain text
-        data = e.parameter;
-      }
-    } else {
-      // Fallback to parameters
-      data = e.parameter;
-    }
+    var data = e.parameter;
     
     // Ensure all fields exist, even if empty
     var rowData = {
@@ -82,24 +78,76 @@ function doPost(e) {
 
     sheet.appendRow(newRow);
 
-    return ContentService.createTextOutput(JSON.stringify({ 
-      'result': 'success', 
-      'message': 'Data added successfully' 
-    })).setMimeType(ContentService.MimeType.JSON);
+    // --- EMAIL LOGIC ---
+    if (rowData.email) {
+      sendConfirmationEmail(rowData);
+    }
+
+    var result = JSON.stringify({ 'result': 'success', 'message': 'Data added successfully' });
+    
+    // Handle JSONP callback
+    if (e.parameter.callback) {
+      return ContentService.createTextOutput(e.parameter.callback + '(' + result + ')')
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    }
+
+    return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
-    console.error('Error in doPost:', error.toString());
-    return ContentService.createTextOutput(JSON.stringify({ 
-      'result': 'error', 
-      'message': error.toString() 
-    })).setMimeType(ContentService.MimeType.JSON);
+    console.error('Error in script:', error.toString());
+    var errorResult = JSON.stringify({ 'result': 'error', 'message': error.toString() });
+    
+    if (e.parameter && e.parameter.callback) {
+      return ContentService.createTextOutput(e.parameter.callback + '(' + errorResult + ')')
+        .setMimeType(ContentService.MimeType.JAVASCRIPT);
+    }
+    
+    return ContentService.createTextOutput(errorResult).setMimeType(ContentService.MimeType.JSON);
   }
 }
 
-/**
- * Handle CORS preflight requests.
- */
-function doOptions(e) {
-  return ContentService.createTextOutput("")
-    .setMimeType(ContentService.MimeType.TEXT);
+function sendConfirmationEmail(data) {
+  var subject = "Admission Application Received - Kalam Institute";
+  
+  var htmlBody = `
+    <html>
+      <body style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+        <div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #ddd; border-radius: 10px;">
+          <h2 style="color: #d32f2f; text-align: center;">Kalam Institute of Technology</h2>
+          <p>Dear <strong>${data.fullName}</strong>,</p>
+          <p>Thank you for applying to Kalam Institute. We have received your application for the <strong>${data.course}</strong> program.</p>
+          
+          <div style="background: #f9f9f9; padding: 15px; border-radius: 5px; margin: 20px 0;">
+            <h3 style="margin-top: 0;">Application Details:</h3>
+            <p><strong>Name:</strong> ${data.fullName}</p>
+            <p><strong>Course:</strong> ${data.course}</p>
+            <p><strong>Email:</strong> ${data.email}</p>
+            <p><strong>Phone:</strong> ${data.phone}</p>
+          </div>
+          
+          <p>Our admissions team will review your application and contact you shortly for the next steps.</p>
+          
+          <p>Best regards,<br>
+          <strong>Admissions Team</strong><br>
+          Kalam Institute of Technology<br>
+          Jamshedpur, Jharkhand</p>
+          
+          <hr style="border: 0; border-top: 1px solid #eee; margin: 20px 0;">
+          <p style="font-size: 12px; color: #777; text-align: center;">
+            This is an automated email. Please do not reply directly to this message.
+          </p>
+        </div>
+      </body>
+    </html>
+  `;
+
+  try {
+    MailApp.sendEmail({
+      to: data.email,
+      subject: subject,
+      htmlBody: htmlBody
+    });
+  } catch (err) {
+    console.error("Failed to send email: " + err.toString());
+  }
 }
