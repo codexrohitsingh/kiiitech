@@ -174,7 +174,7 @@ export function Header() {
 
           {/* MOBILE CTA */}
           <div className="pt-4 flex sm:hidden">
-            <NewApplyNow className="w-full" />
+            <NewApplyNow className="w-full" onClick={() => setIsOpen(false)} />
           </div>
         </div>
       )}

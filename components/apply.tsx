@@ -1,10 +1,17 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-export function NewApplyNow({ className }: { className?: string }) {
+export function NewApplyNow({
+  className,
+  onClick,
+}: {
+  className?: string;
+  onClick?: () => void;
+}) {
   return (
     <div className={className}>
       <Button
+        onClick={onClick}
         className="
       relative px-7 py-3 text-sm font-bold text-white rounded-xl
       bg-linear-to-r from-red-600 via-yellow-500 to-red-600
@@ -22,6 +29,7 @@ export function NewApplyNow({ className }: { className?: string }) {
         <Link
           href="/admissions/apply"
           className="relative z-10 flex items-center gap-2"
+          onClick={onClick}
         >
           Apply Now
           {/* Shine effect */}
