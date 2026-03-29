@@ -196,10 +196,10 @@ export default function ApplyNow() {
 
   return (
     <>
-      <main className="pt-24 pb-16 min-h-screen bg-linear-to-br from-[#3b0000] via-[#7a0000] to-[#1a0000]">
+      <main className="pt-20 sm:pt-24 pb-12 sm:pb-16 min-h-screen bg-linear-to-br from-[#3b0000] via-[#7a0000] to-[#1a0000]">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Header */}
-          <div className="mb-10 text-start">
+          <div className="mb-8 sm:mb-10 text-start">
             <Link
               href="/admissions"
               className="text-yellow-400 hover:text-yellow-300 text-sm font-semibold"
@@ -207,20 +207,20 @@ export default function ApplyNow() {
               ← Back to Admissions
             </Link>
 
-            <h1 className="text-5xl font-extrabold mt-4 bg-linear-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mt-4 bg-linear-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent leading-tight">
               Admission Application
             </h1>
 
-            <p className="text-gray-300 mt-3">
+            <p className="text-gray-300 mt-3 text-sm sm:text-base">
               Start your journey with Jharkhand’s No.1 Private College
             </p>
           </div>
 
           {/* Card */}
           <div className="relative rounded-2xl p-0.5 bg-linear-to-r from-yellow-500 via-yellow-300 to-yellow-500 shadow-2xl">
-            <div className="bg-[#2b0000]/90 backdrop-blur-xl rounded-2xl p-8">
-              <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
+            <div className="bg-[#2b0000]/90 backdrop-blur-xl rounded-2xl p-5 sm:p-8">
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
                   {/* ✅ NAME */}
                   <div className="space-y-2">
                     <label className="text-yellow-300 text-sm font-semibold">

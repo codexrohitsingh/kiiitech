@@ -1,9 +1,9 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 
-export function NewApplyNow() {
+export function NewApplyNow({ className }: { className?: string }) {
   return (
-    <div className="hidden md:flex">
+    <div className={className}>
       <Button
         className="
       relative px-7 py-3 text-sm font-bold text-white rounded-xl
@@ -15,6 +15,7 @@ export function NewApplyNow() {
       hover:scale-110 active:scale-95
 
       transition-all duration-300 overflow-hidden
+      w-full sm:w-auto
     "
         asChild
       >
