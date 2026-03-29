@@ -127,7 +127,7 @@ export default function Contact() {
 
   return (
     <>
-      <section className="relative pt-24 sm:pt-32 pb-16 sm:pb-28 overflow-hidden bg-[#0b1633] text-white">
+      <section className="relative pt-12 sm:pt-16 pb-16 sm:pb-28 overflow-hidden bg-[#0b1633] text-white">
         {/* Background glow */}
         <div className="absolute inset-0">
           <div className="absolute top-[-200px] left-[-200px] w-[600px] h-[600px] bg-accent/20 text-accent blur-[160px] rounded-full"></div>
@@ -144,10 +144,10 @@ export default function Contact() {
             Back
           </Link>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
             {/* LEFT CONTENT */}
             <div className="text-start">
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4 sm:mb-6 tracking-tight">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-6 sm:mb-8 tracking-tight">
                 Where questions turn into <br className="hidden sm:block" />
                 <span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
                   opportunities
@@ -163,12 +163,16 @@ export default function Contact() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
                   <p className="text-sm text-white/60 mb-1">Email us</p>
-                  <p className="font-semibold text-sm sm:text-base break-words">office@kiitech.org</p>
+                  <p className="font-semibold text-sm sm:text-base break-words">
+                    office@kiitech.org
+                  </p>
                 </div>
 
                 <div className="p-4 sm:p-5 rounded-2xl bg-white/10 backdrop-blur-lg border border-white/20">
                   <p className="text-sm text-white/60 mb-1">Call us</p>
-                  <p className="font-semibold text-sm sm:text-base">+91 9337736501</p>
+                  <p className="font-semibold text-sm sm:text-base">
+                    +91 9337736501
+                  </p>
                 </div>
               </div>
             </div>
@@ -184,7 +188,10 @@ export default function Contact() {
                   Start Your Admission Inquiry
                 </h2>
 
-                <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-5">
+                <form
+                  onSubmit={handleSubmit}
+                  className="space-y-4 sm:space-y-5"
+                >
                   {fields.map((field) => (
                     <div key={field.name} className="relative">
                       <input
@@ -245,7 +252,9 @@ export default function Contact() {
           {/* INFO */}
           <div className="flex flex-col justify-center space-y-6 sm:space-y-8">
             <div>
-              <h3 className="text-2xl sm:text-3xl font-bold mb-3">Visit Our Campus</h3>
+              <h3 className="text-2xl sm:text-3xl font-bold mb-3">
+                Visit Our Campus
+              </h3>
               <p className="text-sm sm:text-base text-muted-foreground">
                 Experience the vibrant learning environment at KIITech, where
                 innovation, discipline, and practical education come together.
