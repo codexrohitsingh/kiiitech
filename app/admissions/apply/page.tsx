@@ -257,7 +257,9 @@ export default function ApplyNow() {
                       className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.email ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     />
                     {errors.email && (
-                      <p className="text-red-500 text-xs mt-1">{errors.email}</p>
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.email}
+                      </p>
                     )}
                   </div>
 
@@ -272,11 +274,13 @@ export default function ApplyNow() {
                       required
                       value={formData.phone}
                       onChange={handleChange}
-                      placeholder="+91 00000 00000"
+                      placeholder="9876543210"
                       className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.phone ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     />
                     {errors.phone && (
-                      <p className="text-red-500 text-xs mt-1">{errors.phone}</p>
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.phone}
+                      </p>
                     )}
                   </div>
 
@@ -380,15 +384,25 @@ export default function ApplyNow() {
                     <label className="text-yellow-300 text-sm font-semibold">
                       Highest Qualification *
                     </label>
-                    <input
-                      type="text"
+
+                    <select
                       name="qualification"
                       required
                       value={formData.qualification}
                       onChange={handleChange}
-                      placeholder="10th / 12th / Graduate"
-                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.qualification ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
-                    />
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${
+                        errors.qualification
+                          ? "border-red-500"
+                          : "border-yellow-600"
+                      } text-white focus:ring-2 focus:ring-yellow-400`}
+                    >
+                      <option value="">Select Qualification</option>
+                      <option value="10th">10th</option>
+                      <option value="12th">12th</option>
+                      <option value="Diploma">Diploma</option>
+                      <option value="Graduate">Graduate</option>
+                    </select>
+
                     {errors.qualification && (
                       <p className="text-red-500 text-xs mt-1">
                         {errors.qualification}
@@ -425,7 +439,9 @@ export default function ApplyNow() {
                       className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.marks ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                     />
                     {errors.marks && (
-                      <p className="text-red-500 text-xs mt-1">{errors.marks}</p>
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.marks}
+                      </p>
                     )}
                   </div>
                 </div>
@@ -444,7 +460,9 @@ export default function ApplyNow() {
                     className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.address ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
                   ></textarea>
                   {errors.address && (
-                    <p className="text-red-500 text-xs mt-1">{errors.address}</p>
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.address}
+                    </p>
                   )}
                 </div>
 
