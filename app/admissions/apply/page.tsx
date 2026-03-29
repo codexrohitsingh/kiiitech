@@ -120,7 +120,7 @@ export default function ApplyNow() {
 
     try {
       const SCRIPT_URL =
-        "https://script.google.com/macros/s/AKfycbyI4iYbOK7zhnvon8pbp4OZH5sWqzppCahe2y_W4O55_2GSKPj7_av-TekAmoBu3O8g/exec";
+        "https://script.google.com/macros/s/AKfycbzFhFhLR4T2beMdwLuUEsRlzgMVvQ4QJM71BRskF6Yg2cCUOofgar-cEzG8CH5xJC1S/exec";
 
       const submitData = () => {
         return new Promise((resolve, reject) => {
