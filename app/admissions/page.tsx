@@ -1,284 +1,502 @@
-import { Metadata } from "next";
-import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
-import { CheckCircle, FileText, Award } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
-export const metadata: Metadata = {
-  title: "Admissions - KIITECH",
-  description:
-    "Complete information about KIITECH admissions process, eligibility criteria, courses, and fees.",
-};
+export default function ApplyNow() {
+  const { toast } = useToast();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+    dob: "",
+    gender: "",
+    course: "",
+    qualification: "",
+    passingYear: "",
+    marks: "",
+    address: "",
+  });
 
-export default function Admissions() {
+  const validate = () => {
+    const newErrors: Record<string, string> = {};
+
+    if (!formData.fullName.trim()) {
+      newErrors.fullName = "Full name is required.";
+    } else if (!/^[a-zA-Z\s]+$/.test(formData.fullName)) {
+      newErrors.fullName = "Name should contain only letters and spaces.";
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required.";
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(formData.email)) {
+      newErrors.email = "Invalid email address.";
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required.";
+    } else if (!/^\d{10}$/.test(formData.phone.replace(/\D/g, ""))) {
+      newErrors.phone = "Phone number must be 10 digits.";
+    }
+
+    if (!formData.dob) {
+      newErrors.dob = "Date of birth is required.";
+    } else {
+      const birthDate = new Date(formData.dob);
+      const today = new Date();
+      let age = today.getFullYear() - birthDate.getFullYear();
+      const m = today.getMonth() - birthDate.getMonth();
+      if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+        age--;
+      }
+
+      if (birthDate > today) {
+        newErrors.dob = "Date of birth cannot be in the future.";
+      } else if (age < 14) {
+        newErrors.dob = "You must be at least 14 years old to apply.";
+      }
+    }
+
+    if (!formData.gender) {
+      newErrors.gender = "Please select your gender.";
+    }
+
+    if (!formData.course) {
+      newErrors.course = "Please select a course.";
+    }
+
+    if (!formData.qualification.trim()) {
+      newErrors.qualification = "Highest qualification is required.";
+    }
+
+    if (!formData.marks.trim()) {
+      newErrors.marks = "Marks are required.";
+    } else if (isNaN(Number(formData.marks)) || Number(formData.marks) < 0 || Number(formData.marks) > 100) {
+      newErrors.marks = "Please enter valid marks (0-100).";
+    }
+
+    if (!formData.address.trim()) {
+      newErrors.address = "Address is required.";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<
+      HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+    >,
+  ) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+    // Clear error when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => {
+        const newErrors = { ...prev };
+        delete newErrors[name];
+        return newErrors;
+      });
+    }
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validate()) {
+      toast({
+        title: "Validation Error",
+        description: "Please check the form for errors.",
+        variant: "destructive",
+      });
+      return;
+    }
+    setIsSubmitting(true);
+
+    try {
+      const SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbzqu06r0y61no4Wbkg_RlYKjXvQE_WkorRVOx34EBGux8KrRjezEjDu06FMFE9BQcHF/exec";
+
+      const submitData = () => {
+        return new Promise((resolve, reject) => {
+          const params = new URLSearchParams();
+          Object.entries(formData).forEach(([key, value]) => {
+            params.append(key, value.toString());
+          });
+
+          const callbackName =
+            "jsonp_callback_" + Math.round(100000 * Math.random());
+
+          const script = document.createElement("script");
+          // Use a proper URL construction to avoid double question marks or encoding issues
+          const queryString = params.toString();
+          const url = `${SCRIPT_URL}${SCRIPT_URL.includes("?") ? "&" : "?"}${queryString}&callback=${callbackName}`;
+
+          (window as any)[callbackName] = function (data: any) {
+            console.log("JSONP Success:", data);
+            delete (window as any)[callbackName];
+            document.body.removeChild(script);
+            resolve(data);
+          };
+
+          script.onerror = function (err) {
+            console.error("JSONP Error:", err);
+            delete (window as any)[callbackName];
+            document.body.removeChild(script);
+            reject(
+              new Error(
+                "JSONP request failed - possibly blocked by browser or incorrect URL",
+              ),
+            );
+          };
+
+          script.src = url;
+          document.body.appendChild(script);
+
+          setTimeout(() => {
+            if ((window as any)[callbackName]) {
+              console.warn("JSONP Timeout");
+              delete (window as any)[callbackName];
+              document.body.removeChild(script);
+              reject(
+                new Error(
+                  "JSONP request timeout - check your internet or App Script deployment",
+                ),
+              );
+            }
+          }, 15000); // Increased timeout to 15s
+        });
+      };
+
+      const result = (await submitData()) as {
+        result: string;
+        message?: string;
+      };
+
+      if (result.result === "success") {
+        toast({
+          title: "Application Submitted Successfully!",
+          description: "An email conformation has been sent.",
+        });
+
+        setFormData({
+          fullName: "",
+          email: "",
+          phone: "",
+          dob: "",
+          gender: "",
+          course: "",
+          qualification: "",
+          passingYear: "",
+          marks: "",
+          address: "",
+        });
+      } else {
+        throw new Error("Failed to submit");
+      }
+    } catch (error) {
+      toast({
+        title: "Submission Failed",
+        description: "Something went wrong. Try again.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <>
-      {/* Hero Section */}
-      <section className="pt-12 pb-16 bg-linear-to-br from-primary via-primary/95 to-secondary text-primary-foreground">
-        <div className="max-w-7xl mx-auto px-4">
-          <Link
-            href="/"
-            className="text-accent hover:underline text-sm font-semibold"
-          >
-            ← Back to Home
-          </Link>
+      <main className="pt-20 sm:pt-24 pb-12 sm:pb-16 min-h-screen bg-linear-to-br from-[#3b0000] via-[#7a0000] to-[#1a0000]">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Header */}
+          <div className="mb-8 sm:mb-10 text-start">
+            <Link
+              href="/admissions"
+              className="text-yellow-400 hover:text-yellow-300 text-sm font-semibold"
+            >
+              ← Back to Admissions
+            </Link>
 
-          <div className="max-w-3xl mt-6">
-            <h1 className="text-5xl font-bold mb-6">Admissions</h1>
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mt-4 bg-linear-to-r from-yellow-300 to-yellow-500 bg-clip-text text-transparent leading-tight">
+              Admission Application
+            </h1>
 
-            <p className="text-xl opacity-95">
-              Join KIITECH and start your journey towards a successful career.
-              Explore our professional courses and simple admission process.
+            <p className="text-gray-300 mt-3 text-sm sm:text-base">
+              Start your journey with Jharkhand’s No.1 Private College
             </p>
           </div>
-        </div>
-      </section>
 
-      {/* Programs Section */}
-      <section className="py-16 bg-background">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Our Programs & Courses
-          </h2>
+          {/* Card */}
+          <div className="relative rounded-2xl p-0.5 bg-linear-to-r from-yellow-500 via-yellow-300 to-yellow-500 shadow-2xl">
+            <div className="bg-[#2b0000]/90 backdrop-blur-xl rounded-2xl p-5 sm:p-8">
+              <form onSubmit={handleSubmit} className="space-y-5 sm:space-y-6">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-5 sm:gap-6">
+                  {/* ✅ NAME */}
+                  <div className="space-y-2">
+                    <label className="text-yellow-300 text-sm font-semibold">
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      name="fullName" // ✅ FIXED
+                      required
+                      value={formData.fullName}
+                      onChange={handleChange}
+                      placeholder="Your Name"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.fullName ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
+                    />
+                    {errors.fullName && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.fullName}
+                      </p>
+                    )}
+                  </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {/* BCA */}
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-4">
-                BCA (Bachelor of Computer Applications)
-              </h3>
+                  {/* ✅ EMAIL */}
+                  <div className="space-y-2">
+                    <label className="text-yellow-300 text-sm font-semibold">
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="YourEmail@gmail.com"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.email ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
+                    />
+                    {errors.email && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.email}
+                      </p>
+                    )}
+                  </div>
 
-              <p className="text-sm text-muted-foreground mb-3">
-                A professional course focused on computer applications,
-                programming, and software development.
-              </p>
+                  {/* PHONE */}
+                  <div className="space-y-2">
+                    <label className="text-yellow-300 text-sm font-semibold">
+                      Phone Number
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      required
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="9876543210"
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.phone ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
+                    />
+                    {errors.phone && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.phone}
+                      </p>
+                    )}
+                  </div>
 
-              <ul className="text-sm space-y-2">
-                <li>
-                  <strong>Duration:</strong> 3 Years (6 Semesters)
-                </li>
-                <li>
-                  <strong>Eligibility:</strong> 12th Pass
-                </li>
-                <li>
-                  <strong>Semester Fee:</strong> ₹20,000
-                </li>
-              </ul>
-            </Card>
+                  {/* DOB */}
+                  <div className="space-y-2">
+                    <label className="text-yellow-300 text-sm font-semibold">
+                      Date of Birth
+                    </label>
+                    <input
+                      type="date"
+                      name="dob"
+                      required
+                      value={formData.dob}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.dob ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
+                    />
+                    {errors.dob && (
+                      <p className="text-red-500 text-xs mt-1">{errors.dob}</p>
+                    )}
+                  </div>
 
-            {/* BBA */}
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-4">
-                BBA (Bachelor of Business Administration)
-              </h3>
+                  {/* Gender */}
+                  <div className="space-y-2">
+                    <label className="text-yellow-300 text-sm font-semibold">
+                      Gender *
+                    </label>
+                    <select
+                      name="gender"
+                      required
+                      value={formData.gender}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.gender ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
+                    >
+                      <option value="">Select Gender</option>
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
+                      <option value="other">Other</option>
+                    </select>
+                    {errors.gender && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.gender}
+                      </p>
+                    )}
+                  </div>
 
-              <p className="text-sm text-muted-foreground mb-3">
-                Develop business knowledge, management skills, and leadership
-                qualities.
-              </p>
+                  {/* Course */}
+                  <div className="space-y-2">
+                    <label className="text-yellow-300 text-sm font-semibold">
+                      Select Program *
+                    </label>
+                    <select
+                      name="course"
+                      required
+                      value={formData.course}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.course ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
+                    >
+                      <option value="">Select Course</option>
+                      <option value="Bachelor of Computer Applications">
+                        BCA (Bachelor of Computer Applications)
+                      </option>
+                      <option value="Bachelor of Business Administration">
+                        BBA (Bachelor of Business Administration)
+                      </option>
 
-              <ul className="text-sm space-y-2">
-                <li>
-                  <strong>Duration:</strong> 3 Years (6 Semesters)
-                </li>
-                <li>
-                  <strong>Eligibility:</strong> 12th Pass
-                </li>
-                <li>
-                  <strong>Semester Fee:</strong> ₹20,000
-                </li>
-              </ul>
-            </Card>
+                      <option value="Diploma in Mechanical Engineering">
+                        Diploma in Mechanical Engineering
+                      </option>
+                      <option value=" Diploma in Electrical Engineering">
+                        Diploma in Electrical Engineering
+                      </option>
+                      <option value=" Diploma in Civil Engineering">
+                        Diploma in Civil Engineering
+                      </option>
+                      <option value="Diploma in Artificial Intelligence and Machine Learning">
+                        Diploma in Artificial Intelligence and Machine Learning
+                      </option>
 
-            {/* Diploma */}
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-4">Diploma in Engineering</h3>
+                      <option value="Post Graduate Diploma in Management">
+                        PGDM (Post Graduate Diploma in Management)
+                      </option>
+                      <option value="PGDM in Business Administration">
+                        PGDM in Business Administration
+                      </option>
+                      <option value="PGDM in Human Resource Management">
+                        PGDM in Human Resource Management
+                      </option>
+                      <option value=" PGDM in Marketing and Finance">
+                        PGDM in Marketing and Finance
+                      </option>
+                    </select>
+                    {errors.course && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.course}
+                      </p>
+                    )}
+                  </div>
 
-              <p className="text-sm text-muted-foreground mb-3">
-                Skill-based technical education with industry-ready training.
-              </p>
+                  {/* Qualification */}
+                  <div className="space-y-2">
+                    <label className="text-yellow-300 text-sm font-semibold">
+                      Highest Qualification *
+                    </label>
 
-              <p className="font-semibold mb-2">Available Branches:</p>
+                    <select
+                      name="qualification"
+                      required
+                      value={formData.qualification}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${
+                        errors.qualification
+                          ? "border-red-500"
+                          : "border-yellow-600"
+                      } text-white focus:ring-2 focus:ring-yellow-400`}
+                    >
+                      <option value="">Select Qualification</option>
+                      <option value="10th">10th</option>
+                      <option value="12th">12th</option>
+                      <option value="Diploma">Diploma</option>
+                      <option value="Graduate">Graduate</option>
+                    </select>
 
-              <ul className="list-disc list-inside text-sm mb-3 space-y-1">
-                <li>Diploma in Mechanical Engineering</li>
-                <li>Diploma in Electrical Engineering</li>
-                <li>Diploma in Civil Engineering</li>
-                <li>Diploma in Artificial Intelligence and Machine Learning</li>
-              </ul>
+                    {errors.qualification && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.qualification}
+                      </p>
+                    )}
+                  </div>
 
-              <ul className="text-sm space-y-2">
-                <li>
-                  <strong>Duration:</strong> 2–3 Years
-                </li>
-                <li>
-                  <strong>Eligibility:</strong> 10th Pass
-                </li>
-                <li>
-                  <strong>Semester Fee:</strong> ₹20,000
-                </li>
-              </ul>
-            </Card>
+                  {/* Passing Year */}
+                  {/* <div className="space-y-2">
+                    <label className="text-yellow-300 text-sm font-semibold">
+                      Year of Passing *
+                    </label>
+                    <input
+                      type="number"
+                      name="passingYear"
+                      required
+                      value={formData.passingYear}
+                      onChange={handleChange}
+                      className="w-full p-3 rounded-lg bg-[#1a0000] border border-yellow-600 text-white focus:ring-2 focus:ring-yellow-400"
+                    />
+                  </div> */}
 
-            {/* PGDM */}
-            <Card className="p-6">
-              <h3 className="text-xl font-bold mb-4">
-                PGDM (Post Graduate Diploma in Management)
-              </h3>
+                  {/* Marks */}
+                  <div className="space-y-2">
+                    <label className="text-yellow-300 text-sm font-semibold">
+                      Aggregate Marks (%) *
+                    </label>
+                    <input
+                      type="number"
+                      name="marks"
+                      required
+                      value={formData.marks}
+                      onChange={handleChange}
+                      className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.marks ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
+                    />
+                    {errors.marks && (
+                      <p className="text-red-500 text-xs mt-1">
+                        {errors.marks}
+                      </p>
+                    )}
+                  </div>
+                </div>
 
-              <p className="text-sm text-muted-foreground mb-3">
-                Advanced management education designed to prepare students for
-                leadership roles.
-              </p>
+                {/* Address */}
+                <div className="space-y-2">
+                  <label className="text-yellow-300 text-sm font-semibold">
+                    Full Address *
+                  </label>
+                  <textarea
+                    name="address"
+                    rows={3}
+                    required
+                    value={formData.address}
+                    onChange={handleChange}
+                    className={`w-full p-3 rounded-lg bg-[#1a0000] border ${errors.address ? "border-red-500" : "border-yellow-600"} text-white focus:ring-2 focus:ring-yellow-400`}
+                  ></textarea>
+                  {errors.address && (
+                    <p className="text-red-500 text-xs mt-1">
+                      {errors.address}
+                    </p>
+                  )}
+                </div>
 
-              <p className="font-semibold mb-2">Specializations:</p>
-
-              <ul className="list-disc list-inside text-sm mb-3 space-y-1">
-                <li>PGDM in Business Administration</li>
-                <li>PGDM in Human Resource Management</li>
-                <li>PGDM in Marketing and Finance</li>
-              </ul>
-
-              <ul className="text-sm space-y-2">
-                <li>
-                  <strong>Duration:</strong> 2 Years (4 Semesters)
-                </li>
-                <li>
-                  <strong>Eligibility:</strong> Bachelor Degree
-                </li>
-                <li>
-                  <strong>Semester Fee:</strong> ₹35,000
-                </li>
-              </ul>
-            </Card>
-          </div>
-        </div>
-      </section>
-
-      {/* Fee Structure */}
-      <section className="py-16 bg-muted/30">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Course Fee Structure (Per Semester)
-          </h2>
-
-          <div className="max-w-4xl mx-auto overflow-x-auto">
-            <table className="w-full border border-border">
-              <thead className="bg-muted/30">
-                <tr>
-                  <th className="p-4 text-left">Course</th>
-                  <th className="p-4 text-left">Duration</th>
-                  <th className="p-4 text-left">Semester Fee</th>
-                </tr>
-              </thead>
-
-              <tbody>
-                <tr className="border-t">
-                  <td className="p-4">
-                    BCA (Bachelor of Computer Applications)
-                  </td>
-                  <td className="p-4">3 Years</td>
-                  <td className="p-4 font-semibold text-accent">₹20,000</td>
-                </tr>
-
-                <tr className="border-t">
-                  <td className="p-4">
-                    BBA (Bachelor of Business Administration)
-                  </td>
-                  <td className="p-4">3 Years</td>
-                  <td className="p-4 font-semibold text-accent">₹20,000</td>
-                </tr>
-
-                <tr className="border-t">
-                  <td className="p-4">Diploma Engineering (All Branches)</td>
-                  <td className="p-4">2–3 Years</td>
-                  <td className="p-4 font-semibold text-accent">₹20,000</td>
-                </tr>
-
-                <tr className="border-t">
-                  <td className="p-4">PGDM (All Specializations)</td>
-                  <td className="p-4">2 Years</td>
-                  <td className="p-4 font-semibold text-accent">₹35,000</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </section>
-
-      {/* Required Documents */}
-      <section className="py-16 bg-background">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">
-            Required Documents
-          </h2>
-
-          <Card className="p-8 max-w-4xl mx-auto">
-            <div className="grid md:grid-cols-2 gap-8">
-              <div>
-                <h4 className="font-bold mb-4">Educational Documents</h4>
-
-                <ul className="space-y-2 text-sm">
-                  <li className="flex gap-2">
-                    <FileText className="w-4 h-4 text-accent" />
-                    10th Mark Sheet
-                  </li>
-
-                  <li className="flex gap-2">
-                    <FileText className="w-4 h-4 text-accent" />
-                    12th Mark Sheet
-                  </li>
-
-                  <li className="flex gap-2">
-                    <FileText className="w-4 h-4 text-accent" />
-                    Transfer Certificate
-                  </li>
-                </ul>
-              </div>
-
-              <div>
-                <h4 className="font-bold mb-4">Personal Documents</h4>
-
-                <ul className="space-y-2 text-sm">
-                  <li className="flex gap-2">
-                    <FileText className="w-4 h-4 text-accent" />
-                    Aadhaar Card
-                  </li>
-
-                  <li className="flex gap-2">
-                    <FileText className="w-4 h-4 text-accent" />
-                    Passport Size Photos
-                  </li>
-
-                  <li className="flex gap-2">
-                    <FileText className="w-4 h-4 text-accent" />
-                    Address Proof
-                  </li>
-                </ul>
-              </div>
+                {/* Submit */}
+                <div className="pt-6">
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className="w-full py-4 text-lg font-bold rounded-xl bg-linear-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-black shadow-lg hover:scale-[1.02]"
+                  >
+                    {isSubmitting ? "Processing..." : "Submit Application"}
+                  </button>
+                </div>
+              </form>
             </div>
-          </Card>
+          </div>
         </div>
-      </section>
-
-      {/* CTA */}
-      <section className="py-16 bg-primary text-white text-center">
-        <h2 className="text-4xl font-bold mb-6">Ready to Apply?</h2>
-
-        <p className="mb-8">
-          Start your application today and secure your future.
-        </p>
-
-        <div className="flex justify-center gap-4">
-          <Button variant="secondary" size="lg" asChild>
-            <Link href="/admissions/apply">Start Application</Link>
-          </Button>
-
-          <Button variant="secondary" size="lg" asChild>
-            <Link href="/contact">Contact Admissions</Link>
-          </Button>
-        </div>
-      </section>
+      </main>
     </>
   );
 }

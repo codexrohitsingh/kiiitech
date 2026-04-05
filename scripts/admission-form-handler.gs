@@ -10,8 +10,6 @@
  * 6. Set 'Execute as': 'Me'.
  * 7. Set 'Who has access': 'Anyone'.
  * 8. Copy the Web App URL and paste it into SCRIPT_URL in app/admissions/apply/page.tsx.
- * 
- * Optional: Set up a Trigger for 'sendEmailForNewEntry' if you want to process missed rows.
  */
 
 var SPREADSHEET_ID = '1UaMTyzzkD5Y5Rmu9ursmmIikgJEOsn7cynA7O1YsR_s';
@@ -52,16 +50,16 @@ function handleRequest(e) {
     
     // Ensure all fields exist, even if empty
     var rowData = {
-      fullName: data.fullName || '',
-      email: data.email || '',
-      phone: data.phone || '',
-      dob: data.dob || '',
-      gender: data.gender || '',
-      course: (data.course || '').toUpperCase(),
-      qualification: data.qualification || '',
-      passingYear: data.passingYear || '',
-      marks: data.marks || '',
-      address: data.address || ''
+      fullName: (data.fullName || data.name || 'Anonymous').toString().trim(),
+      email: (data.email || '').toString().trim(),
+      phone: (data.phone || '').toString().trim(),
+      dob: (data.dob || '').toString().trim(),
+      gender: (data.gender || '').toString().trim(),
+      course: (data.course || '').toString().toUpperCase().trim(),
+      qualification: (data.qualification || '').toString().trim(),
+      passingYear: (data.passingYear || '').toString().trim(),
+      marks: (data.marks || '').toString().trim(),
+      address: (data.address || '').toString().trim()
     };
 
     var newRow = [
@@ -81,12 +79,22 @@ function handleRequest(e) {
     sheet.appendRow(newRow);
 
     // --- EMAIL LOGIC ---
-    // This sends the email instantly upon submission
-    if (rowData.email) {
-      sendConfirmationEmail(rowData);
+    var emailStatus = "Email skipped (no email provided)";
+    if (rowData.email && rowData.email.indexOf("@") !== -1) {
+      try {
+        sendConfirmationEmail(rowData);
+        emailStatus = "Email sent successfully";
+      } catch (err) {
+        emailStatus = "Failed to send email: " + err.toString();
+        console.error(emailStatus);
+      }
     }
 
-    var result = JSON.stringify({ 'result': 'success', 'message': 'Data added successfully' });
+    var result = JSON.stringify({ 
+      'result': 'success', 
+      'message': 'Data added successfully',
+      'email_status': emailStatus 
+    });
     
     // Handle JSONP callback
     if (e.parameter.callback) {
@@ -97,8 +105,8 @@ function handleRequest(e) {
     return ContentService.createTextOutput(result).setMimeType(ContentService.MimeType.JSON);
 
   } catch (error) {
-    console.error('Error in script:', error.toString());
-    var errorResult = JSON.stringify({ 'result': 'error', 'message': error.toString() });
+    console.error('Critical Error in script:', error.toString());
+    var errorResult = JSON.stringify({ 'result': 'error', 'message': 'Spreadsheet error: ' + error.toString() });
     
     if (e.parameter && e.parameter.callback) {
       return ContentService.createTextOutput(e.parameter.callback + '(' + errorResult + ')')
@@ -111,7 +119,6 @@ function handleRequest(e) {
 
 /**
  * Sends a confirmation email using the provided template.
- * Used by handleRequest (real-time).
  */
 function sendConfirmationEmail(data) {
   var alias = "office@kiitech.org";
@@ -119,71 +126,55 @@ function sendConfirmationEmail(data) {
   
   var htmlBody = getEmailHtml(data.fullName, data.email, data.course, data.phone);
 
+  // Use MailApp as primary for reliability, GmailApp as fallback for alias
   try {
-    // Attempt to send as alias, fall back to default if alias not configured
-    try {
-      GmailApp.sendEmail(data.email, subject, "", {
-        from: alias,
-        htmlBody: htmlBody
-      });
-    } catch (aliasError) {
-      MailApp.sendEmail({
-        to: data.email,
-        subject: subject,
-        htmlBody: htmlBody
-      });
-    }
-    Logger.log("Email sent to: " + data.email);
-  } catch (err) {
-    console.error("Failed to send email: " + err.toString());
+    // If you want to use the alias, you MUST have it configured in your Gmail settings.
+    // If not, use MailApp which sends from the script's primary account.
+    GmailApp.sendEmail(data.email, subject, "", {
+      from: alias,
+      htmlBody: htmlBody
+    });
+  } catch (aliasError) {
+    // Fallback: This will send from your personal email (the one that deployed the script)
+    MailApp.sendEmail({
+      to: data.email,
+      subject: subject,
+      htmlBody: htmlBody
+    });
   }
 }
 
 /**
- * Periodically processes new rows that might have been missed.
- * Set up a time-driven trigger for this function if needed.
+ * Manual processing of missed rows.
  */
 function sendEmailForNewEntry() {
    var ss = SpreadsheetApp.openById(SPREADSHEET_ID);
    var sheet = ss.getSheetByName(SHEET_NAME);
-   
+   if (!sheet) return;
+
    var data = sheet.getDataRange().getValues();
    var scriptProperties = PropertiesService.getScriptProperties();
-   var lastRowProcessed = parseInt(scriptProperties.getProperty("LAST_ROW_PROCESSED") || 1); // Start after header
+   var lastRowProcessed = parseInt(scriptProperties.getProperty("LAST_ROW_PROCESSED") || 1); 
  
-   // Loop through all new rows to ensure none are missed
    for (var i = lastRowProcessed; i < data.length; i++) {
      var row = data[i];
-     
-     // Corrected Indices based on our structure:
-     // 1: Full Name, 2: Email, 3: Phone, 6: Course
      var fullName = row[1];
      var email = row[2];
      var phone = row[3];
      var course = row[6];
  
      if (email && email.toString().includes("@")) {
-       var alias = "office@kiitech.org";
-       var subject = "Admission Confirmation - KIITech";
-       var htmlBody = getEmailHtml(fullName, email, course, phone);
- 
        try {
-         GmailApp.sendEmail(email, subject, "", {
-           from: alias,
-           htmlBody: htmlBody
+         sendConfirmationEmail({
+           fullName: fullName,
+           email: email,
+           course: course,
+           phone: phone
          });
-         Logger.log("Trigger-based Email sent to: " + email);
        } catch (err) {
-         // Fallback if GmailApp alias fails
-         MailApp.sendEmail({
-           to: email,
-           subject: subject,
-           htmlBody: htmlBody
-         });
+         console.error("Batch processing failed for row " + (i+1) + ": " + err.toString());
        }
      }
-     
-     // Update processed row counter
      scriptProperties.setProperty("LAST_ROW_PROCESSED", (i + 1).toString());
    }
 }
@@ -192,7 +183,9 @@ function sendEmailForNewEntry() {
  * Returns the HTML template for the admission confirmation email.
  */
 function getEmailHtml(fullName, email, course, phone) {
-  course = (course || "Your Selected Program").toUpperCase();
+  fullName = fullName || "Applicant";
+  course = (course || "Your Program").toUpperCase();
+  phone = phone || "the provided contact number";
   
   return ` 
   <html> 

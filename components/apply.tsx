@@ -27,7 +27,7 @@ export function NewApplyNow({
         asChild
       >
         <Link
-          href="/admissions/apply"
+          href="/admissions"
           className="relative z-10 flex items-center gap-2"
           onClick={onClick}
         >

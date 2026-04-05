@@ -405,52 +405,52 @@ export default function About() {
             </p>
           </div>
 
-<div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
-  {[
-    {
-      name: "Er. Sohail Khan",
-      position: "Founder",
-      image: "/founder.jpeg",
-    },
-    {
-      name: "Dr. Chandrabhanu Malla",
-      position: "Advisor",
-      image: "/advisor.jpeg",
-    },
-  ].map((leader, index) => (
-    <Card
-      key={index}
-      className="p-8 text-center border border-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-white"
-    >
-      {/* Profile Image */}
-      <div className="flex justify-center mb-6">
-        <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-accent/20 shadow-md">
-          <Image
-            src={leader.image}
-            alt={leader.name}
-            fill
-            className="object-cover"
-            sizes="160px"
-            priority={index === 0}
-          />
-        </div>
-      </div>
+          <div className="grid md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+            {[
+              {
+                name: "Er. Sohail Khan",
+                position: "Founder",
+                image: "/founder.jpeg",
+              },
+              {
+                name: "Dr. Chandrabhanu Malla",
+                position: "Advisor",
+                image: "/advisor.jpeg",
+              },
+            ].map((leader, index) => (
+              <Card
+                key={index}
+                className="p-8 text-center border border-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-300 bg-white"
+              >
+                {/* Profile Image */}
+                <div className="flex justify-center mb-6">
+                  <div className="relative w-40 h-40 rounded-full overflow-hidden border-4 border-accent/20 shadow-md">
+                    <Image
+                      src={leader.image}
+                      alt={leader.name}
+                      fill
+                      className="object-cover"
+                      sizes="160px"
+                      priority={index === 0}
+                    />
+                  </div>
+                </div>
 
-      {/* Name */}
-      <h4 className="font-bold text-foreground text-xl mb-2">
-        {leader.name}
-      </h4>
+                {/* Name */}
+                <h4 className="font-bold text-foreground text-xl mb-2">
+                  {leader.name}
+                </h4>
 
-      {/* Position */}
-      <p className="text-accent font-semibold text-sm tracking-wide uppercase">
-        {leader.position}
-      </p>
+                {/* Position */}
+                <p className="text-accent font-semibold text-sm tracking-wide uppercase">
+                  {leader.position}
+                </p>
 
-      {/* Decorative Line */}
-      <div className="w-12 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
-    </Card>
-  ))}
-</div>
+                {/* Decorative Line */}
+                <div className="w-12 h-1 bg-accent mx-auto mt-4 rounded-full"></div>
+              </Card>
+            ))}
+          </div>
         </div>
       </section>
 
@@ -464,7 +464,7 @@ export default function About() {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="secondary" size="lg" asChild>
-              <Link href="/admissions/apply">Apply Now</Link>
+              <Link href="/admissions">Apply Now</Link>
             </Button>
             <Button
               variant="secondary"
