@@ -169,7 +169,7 @@ export function Footer() {
               </li>
               <li>
                 <Link
-                  href="/admissions"
+                  href="/apply"
                   className="hover:text-accent transition-colors"
                 >
                   Admissions
