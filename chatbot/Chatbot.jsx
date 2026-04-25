@@ -3,12 +3,13 @@ import React, { useEffect, useRef, useState } from "react";
 import ChatbotIcon from "./components/Chatboticon";
 import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
-import { companyInfo, suggestions } from "./companyInfo";
+import { companyInfo, suggestions, courseFees } from "./companyInfo";
 import './Chatbot.css'
 
 const Chatbot = () => {
   const chatBodyRef = useRef();
   const [showChatbot, setShowChatbot] = useState(false);
+  const [currentSuggestions, setCurrentSuggestions] = useState(suggestions);
   const [chatHistory, setChatHistory] = useState([
     {
       hideInChat: true,
@@ -19,15 +20,33 @@ const Chatbot = () => {
 
   const handleSuggestionClick = (suggestion) => {
     // Add user message to history
-    const newUserMsg = { role: "user", text: suggestion.question };
+    const newUserMsg = { role: "user", text: suggestion.question || suggestion.course };
     setChatHistory((prev) => [...prev, newUserMsg]);
 
     // Delay and then add bot response
     setTimeout(() => {
-      setChatHistory((prev) => [
-        ...prev,
-        { role: "model", text: suggestion.answer }
-      ]);
+      if (suggestion.type === "fee_inquiry") {
+        setChatHistory((prev) => [
+          ...prev,
+          { role: "model", text: suggestion.answer }
+        ]);
+        // Update suggestions to show courses
+        setCurrentSuggestions(courseFees);
+      } else if (suggestion.fee) {
+        setChatHistory((prev) => [
+          ...prev,
+          { role: "model", text: `The fee for ${suggestion.course} is ${suggestion.fee}.` }
+        ]);
+        // Reset to main suggestions
+        setCurrentSuggestions(suggestions);
+      } else {
+        setChatHistory((prev) => [
+          ...prev,
+          { role: "model", text: suggestion.answer }
+        ]);
+        // Reset to main suggestions if they were changed
+        setCurrentSuggestions(suggestions);
+      }
     }, 600);
   };
 
@@ -101,13 +120,13 @@ const Chatbot = () => {
 
           {/* Suggestions */}
           <div className="suggestions-container">
-            {suggestions.map((suggestion, index) => (
+            {currentSuggestions.map((suggestion, index) => (
               <button
                 key={index}
                 onClick={() => handleSuggestionClick(suggestion)}
                 className="suggestion-btn"
               >
-                {suggestion.question}
+                {suggestion.question || suggestion.course}
               </button>
             ))}
           </div>
@@ -115,15 +134,6 @@ const Chatbot = () => {
           {chatHistory.map((chat, index) => (
             <ChatMessage key={index} chat={chat} />
           ))}
-        </div>
-
-        {/* Chatbot Footer */}
-        <div className="chat-footer">
-          <ChatForm
-            chatHistory={chatHistory}
-            setChatHistory={setChatHistory}
-            generateBotResponse={generateBotResponse}
-          />
         </div>
       </div>
     </div>

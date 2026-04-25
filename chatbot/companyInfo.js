@@ -1,7 +1,7 @@
 // Detailed KIITech Information for Chatbot Training
 export const companyInfo = `
 Introduction:
-Namaste! I'm your virtual KIITech Assistant — your go-to guide for Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology. Whether you're a prospective student, a parent, or just curious about our programs, I'm here to assist you 24x7. �
+Namaste! I'm your virtual KIITech Assistant — your go-to guide for Dr. A.P.J. Abdul Kalam Institute of Innovation and Technology. Whether you're a prospective student, a parent, or just curious about our programs, I'm here to assist you 24x7. 🎓
 
 About KIITech:
 Founded in 2026, KIITech is a modern institution built on academic excellence and industry experience. Named after Dr. A.P.J. Abdul Kalam, our institute reflects his ideals of innovation, knowledge, and nation-building.
@@ -25,18 +25,27 @@ Placements & Faculty:
 
 Contact Information:
 - 📍 Address: Majhgaon, West Singhbhum, Jharkhand – 833214, India.
-- � Email: office@kiitech.org
+- 📧 Email: office@kiitech.org
 - 📞 Phone: +91 9337736501
 - ⏰ Hours: Monday – Friday, 10:00 AM – 5:00 PM.
-
-Social Media:
-- Stay connected with us for updates and news!
 `;
+
+export const courseFees = [
+  { course: "BCA", fee: "₹20,000 per semester" },
+  { course: "BBA", fee: "₹20,000 per semester" },
+  { course: "Diploma", fee: "₹20,000 per semester" },
+  { course: "PGDM", fee: "₹30,000 per semester" }
+];
 
 export const suggestions = [
   {
     question: "What courses are offered?",
     answer: "We offer BCA (Software Development), BBA (Marketing, Finance, HR), PGDM (Management), and Diploma in Engineering (Mechanical, Electrical, Civil, AI/ML)."
+  },
+  {
+    question: "What is the fee structure?",
+    type: "fee_inquiry",
+    answer: "Sure! For which course would you like to know the fee structure?"
   },
   {
     question: "How can I apply for admission?",
@@ -45,10 +54,6 @@ export const suggestions = [
   {
     question: "Where is the college located?",
     answer: "Our campus is located in Majhgaon, West Singhbhum, Jharkhand – 833214, India."
-  },
-  {
-    question: "What is the fee structure?",
-    answer: "The semester fee for most programs like BCA, BBA, and Diploma is approximately ₹20,000. For detailed fees, please contact the admission office."
   },
   {
     question: "Do you provide placement assistance?",
