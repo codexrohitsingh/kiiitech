@@ -173,6 +173,33 @@
   border-radius: 13px 13px 3px 13px;
 }
 
+/* Suggestions Styles */
+.suggestions-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0 10px 15px;
+  margin-top: -10px;
+}
+
+.suggestion-btn {
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-radius: 18px;
+  padding: 6px 12px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  color: #333;
+  white-space: nowrap;
+}
+
+.suggestion-btn:hover {
+  background: #6D4FC2;
+  color: #fff;
+  border-color: #6D4FC2;
+}
+
 /* Chat Footer */
 .chat-footer {
   position: absolute;

@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import ChatbotIcon from "./components/ChatbotIcon";
 import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
-import { companyInfo } from "./companyInfo";
+import { companyInfo, suggestions } from "./companyInfo";
 import './Chatbot.css'
 
 const Chatbot = () => {
@@ -15,6 +15,20 @@ const Chatbot = () => {
       text: companyInfo,
     },
   ]);
+
+  const handleSuggestionClick = (suggestion) => {
+    // Add user message to history
+    const newUserMsg = { role: "user", text: suggestion.question };
+    setChatHistory((prev) => [...prev, newUserMsg]);
+
+    // Delay and then add bot response
+    setTimeout(() => {
+      setChatHistory((prev) => [
+        ...prev,
+        { role: "model", text: suggestion.answer }
+      ]);
+    }, 600);
+  };
 
   const generateBotResponse = async (history) => {
     const updateHistory = (text, isError = false) => {
@@ -79,10 +93,24 @@ const Chatbot = () => {
           <div className="message bot-message">
             <ChatbotIcon />
             <p className="message-text">
-              Namaste! 👋 <br /> I’m your LokManch Assistant. <br />
-              How can I help you participate in building a transparent and empowered India today?
+              Namaste! 👋 <br /> I’m your KIITech Assistant. <br />
+              How can I help you today?
             </p>
           </div>
+
+          {/* Suggestions */}
+          <div className="suggestions-container">
+            {suggestions.map((suggestion, index) => (
+              <button
+                key={index}
+                onClick={() => handleSuggestionClick(suggestion)}
+                className="suggestion-btn"
+              >
+                {suggestion.question}
+              </button>
+            ))}
+          </div>
+
           {chatHistory.map((chat, index) => (
             <ChatMessage key={index} chat={chat} />
           ))}
