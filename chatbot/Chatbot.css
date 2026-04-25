@@ -280,9 +280,8 @@
   }
 
   .chat-body {
-    height: calc(100% - 140px);
+    height: calc(100% - 60px);
     padding: 20px 15px;
-    margin-bottom: 70px;
   }
 
   .chat-footer {
