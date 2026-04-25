@@ -121,7 +121,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
+      <html lang="en" suppressHydrationWarning>
+      <head>
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@24,400,0,0"
+        />
+      </head>
       <body
         className={`${geist.variable} ${geistMono.variable} font-sans antialiased bg-background text-foreground`}
       >
@@ -199,6 +205,7 @@ export default function RootLayout({
         {/* ✅ SYSTEM */}
         <Toaster />
         <Analytics />
+        <Chatbot />
       </body>
     </html>
   );
