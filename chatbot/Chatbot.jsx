@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import ChatbotIcon from "./components/ChatbotIcon";
+import ChatbotIcon from "./components/Chatboticon";
 import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
 import { companyInfo, suggestions } from "./companyInfo";
