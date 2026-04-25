@@ -9,6 +9,7 @@ import Header from "@/components/header";
 import Footer from "@/components/footer";
 import FloatingSocialBar from "@/components/FloatingSocialBar";
 import ScrollingBar from "@/components/ScrollingBar";
+import Chatbot from "../chatbot/Chatbot";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-mono" });
