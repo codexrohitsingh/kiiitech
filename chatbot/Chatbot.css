@@ -229,6 +229,8 @@
   }
 
   .suggestions-container {
+    padding: 0 10px 10px;
+  }
 
   .suggestion-btn {
     font-size: 11px;
