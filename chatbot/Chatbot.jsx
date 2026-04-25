@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
 import ChatbotIcon from "./components/Chatboticon";
-import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
 import { companyInfo, suggestions, courseFees } from "./companyInfo";
 import './Chatbot.css'
@@ -48,35 +47,6 @@ const Chatbot = () => {
         setCurrentSuggestions(suggestions);
       }
     }, 600);
-  };
-
-  const generateBotResponse = async (history) => {
-    const updateHistory = (text, isError = false) => {
-      setChatHistory((prev) => [
-        ...prev.filter((msg) => msg.text !== "Thinking..."),
-        { role: "model", text, isError },
-      ]);
-    };
-
-    history = history.map(({ role, text }) => ({ role, parts: [{ text }] }));
-
-    const requestOptions = {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ contents: history }),
-    };
-
-    try {
-      const response = await fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyCMnCEMyVZhstwAIebQuFSKbmUNl0uktHc", requestOptions);
-      const data = await response.json();
-
-      if (!response.ok) throw new Error(data?.error?.message || "Something went wrong!");
-
-      const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
-      updateHistory(apiResponseText);
-    } catch (error) {
-      updateHistory(error.message, true);
-    }
   };
 
   useEffect(() => {

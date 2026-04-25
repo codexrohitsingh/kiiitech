@@ -121,9 +121,8 @@
   display: flex;
   flex-direction: column;
   gap: 20px;
-  height: 360px;
+  height: 440px;
   overflow-y: auto;
-  margin-bottom: 82px;
   padding: 25px 22px;
   scrollbar-width: thin;
   scrollbar-color: #DDD3F9 transparent;
