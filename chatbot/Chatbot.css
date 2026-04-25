@@ -20,6 +20,7 @@
   background: #6D4FC2;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
   transition: all 0.2s ease;
+  z-index: 1000;
 }
 
 .container.show-chatbot #chatbot-toggler {
@@ -56,6 +57,7 @@
   box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
               0 32px 64px -48px rgba(0, 0, 0, 0.5);
   transition: all 0.1s ease;
+  z-index: 1000;
 }
 
 .container.show-chatbot .chatbot-popup {
@@ -261,6 +263,8 @@
   #chatbot-toggler {
     right: 20px;
     bottom: 20px;
+    height: 45px;
+    width: 45px;
   }
 
   .chatbot-popup {
@@ -269,6 +273,7 @@
     height: 100%;
     border-radius: 0;
     width: 100%;
+    transform-origin: center;
   }
 
   .chatbot-popup .chat-header {
@@ -276,11 +281,21 @@
   }
 
   .chat-body {
-    height: calc(90% - 55px);
-    padding: 25px 15px;
+    height: calc(100% - 140px);
+    padding: 20px 15px;
+    margin-bottom: 70px;
   }
 
   .chat-footer {
     padding: 10px 15px 15px;
+  }
+
+  .suggestions-container {
+    padding: 0 10px 10px;
+  }
+
+  .suggestion-btn {
+    font-size: 11px;
+    padding: 4px 10px;
   }
 }
