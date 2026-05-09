@@ -142,7 +142,7 @@ export default function Chatbot() {
               border border-violet-100
             "
           >
-            {/* Header */}
+            {/* Header  .*/}
             <div className="bg-gradient-to-r from-violet-600 to-pink-500 px-4 py-3.5 flex items-center gap-3 flex-shrink-0">
               <div className="w-11 h-11 rounded-full border-2 border-white/30 bg-white/15 flex items-center justify-center text-xl flex-shrink-0">
                 👩
