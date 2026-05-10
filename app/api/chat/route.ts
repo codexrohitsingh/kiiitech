@@ -1,4 +1,5 @@
 import { SYSTEM_PROMPT } from "@/chatbot/data/collegeData";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 
 export async function POST(req: Request) {
   try {
@@ -9,43 +10,36 @@ export async function POST(req: Request) {
     }
 
     // ✅ Validate API key
-    const apiKey = process.env.ANTHROPIC_API_KEY;
+    const apiKey = process.env.GOOGLE_GENERATIVE_AI_API_KEY;
 
     if (!apiKey) {
       return Response.json(
-        { error: "API key not configured" },
+        { error: "Gemini API key not configured" },
         { status: 500 }
       );
     }
 
-    const response = await fetch("https://api.anthropic.com/v1/messages", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "x-api-key": apiKey,
-        "anthropic-version": "2023-06-01",
-      },
-      body: JSON.stringify({
-        model: "claude-sonnet-4-20250514",
-        max_tokens: 1000,
-        system: SYSTEM_PROMPT,
-        messages,
-      }),
+    const genAI = new GoogleGenerativeAI(apiKey);
+    const model = genAI.getGenerativeModel({
+      model: "gemini-1.5-flash",
+      systemInstruction: SYSTEM_PROMPT,
     });
 
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      return Response.json(
-        { error: err.error?.message || "Claude API error" },
-        { status: response.status }
-      );
-    }
+    // Convert messages to Gemini format
+    // messages: [{ role: 'user', content: '...' }, { role: 'assistant', content: '...' }]
+    const history = messages.slice(0, -1).map((m: any) => ({
+      role: m.role === "assistant" ? "model" : "user",
+      parts: [{ text: m.content }],
+    }));
 
-    const data = await response.json();
+    const lastMessage = messages[messages.length - 1].content;
 
-    const reply =
-      data.content?.find((b: any) => b.type === "text")?.text ||
-      "Sorry, I couldn't generate a response.";
+    const chat = model.startChat({
+      history: history,
+    });
+
+    const result = await chat.sendMessage(lastMessage);
+    const reply = result.response.text();
 
     return Response.json({ reply });
   } catch (err) {
