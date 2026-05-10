@@ -15,13 +15,14 @@ export async function POST(req: Request) {
     if (!apiKey) {
       return Response.json(
         { error: "Gemini API key not configured" },
-        { status: 500 }
+        { status: 500 },
       );
     }
 
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: "gemini-1.5-flash",
+      model: "gemini-2.5-flash",
+
       systemInstruction: SYSTEM_PROMPT,
     });
 
@@ -39,14 +40,35 @@ export async function POST(req: Request) {
     });
 
     const result = await chat.sendMessage(lastMessage);
-    const reply = result.response.text();
+    const response = await result.response;
+
+    let reply = "";
+    try {
+      reply = response.text();
+    } catch (e) {
+      console.warn(
+        "Gemini response.text() failed, likely blocked by safety filters:",
+        e,
+      );
+      reply =
+        "I'm sorry, I can't answer that query. Please ask something related to KIITech college.";
+    }
+
+    if (!reply) {
+      return Response.json({
+        reply: "I'm sorry, I couldn't generate a response at the moment.",
+      });
+    }
 
     return Response.json({ reply });
-  } catch (err) {
-    console.error("Chat API error:", err);
+  } catch (err: any) {
+    console.error("Chat API error details:", err);
+
+    // Return more helpful error for debugging (you can remove this in production)
+    const errorMessage = err.message || "Internal server error";
     return Response.json(
-      { error: "Internal server error" },
-      { status: 500 }
+      { error: `Gemini API Error: ${errorMessage}` },
+      { status: 500 },
     );
   }
 }
