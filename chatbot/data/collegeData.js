@@ -56,7 +56,11 @@ FEES:
 - Diploma: ₹20,000/sem → Total ₹1,20,000
 - PGDM: ₹30,000/sem → Total ₹1,20,000
 
+Founder:
+-Er.Sohail Khan
 
+Advisor:
+-Dr. Chandrabhanu Malla
 
 ADMISSION 2026-27:
 - Status: OPEN NOW
