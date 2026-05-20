@@ -75,7 +75,7 @@ ADMISSION 2026-27:
 
 PLACEMENTS:
 - 100% placement assistance guaranteed
-- Average Package: ₹2.8 LPA | Highest Package: ₹6.5 LPA (2024-25 batch)
+- Average Package: ₹8-10 LPA | Highest Package: ₹35 LPA (2024-25 batch)
 - Placement Rate: 92% (2024-25)
 - 45+ company tie-ups
 - Pre-placement training: Aptitude, GD, Communication, Interview Skills
