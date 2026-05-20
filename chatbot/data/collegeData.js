@@ -30,13 +30,8 @@ export const collegeData = {
     hi: `100% प्लेसमेंट सहायता। औसत पैकेज ₹2.8 LPA, सर्वोच्च ₹6.5 LPA (2024-25)। 92% प्लेसमेंट दर। टॉप रिक्रूटर्स: Wipro, Infosys, TCS iON, Reliance Jio, Tata Steel, HCL।`,
   },
 
-  scholarships: {
-    en: `Merit Scholarship: Top 3 students get 50% fee waiver. SC/ST/OBC/EWS: Jharkhand e-Kalyan portal (up to 100% waiver). KIITech Need-Based Grant: up to ₹10,000/semester.`,
-    hi: `मेरिट स्कॉलरशिप: टॉप 3 छात्रों को 50% फीस माफी। SC/ST/OBC/EWS: झारखंड ई-कल्याण पोर्टल (100% तक माफी)। KIITech जरूरत-आधारित अनुदान: ₹10,000/सेमेस्टर तक।`,
-  },
-
   campus: {
-    en: `5-acre campus. 120+ PC computer lab, 10,000+ book library, smart classrooms, boys & girls hostels, sports ground (cricket, football, volleyball), gymnasium, medical facility, CCTV, 24/7 security, canteen, ATM.`,
+    en: `5-acre campus. 120+ PC computer lab, 10,000+ book library, smart classrooms, sports ground (cricket, football, volleyball), gymnasium, medical facility, CCTV, 24/7 security, canteen.`,
     hi: `5 एकड़ परिसर। 120+ PC कंप्यूटर लैब, 10,000+ पुस्तक पुस्तकालय, स्मार्ट क्लासरूम, बॉयज़ और गर्ल्स हॉस्टल, खेल मैदान, जिम, मेडिकल सुविधा, CCTV, 24/7 सुरक्षा।`,
   },
 };
