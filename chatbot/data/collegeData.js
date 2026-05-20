@@ -69,7 +69,7 @@ ADMISSION 2026-27:
 - Eligibility PGDM: Graduation any stream, min 50%
 - Process: Merit-based, no entrance exam
 - Documents: 10th & 12th marksheets, TC, Character Certificate, Aadhaar, photos
-- Last Date: 30 July 2026
+- Last Date: 30 August 2026
 - Orientation: 5 August 2026 | Classes: 10 August 2026
 - Seats: BCA-60, BBA-60, PGDM-30, Diploma-60 per branch
 - Lateral entry: ITI holders can join Diploma 2nd year
@@ -88,10 +88,9 @@ CAMPUS FACILITIES:
 - 5-acre modern campus
 - Computer Lab: 120+ systems, high-speed Wi-Fi
 - Library: 10,000+ books, journals, e-resources
-- Boys Hostel (200 capacity), Girls Hostel (100 capacity)
 - Sports: Cricket, Football, Volleyball, Badminton
 - Gymnasium, Medical/First Aid, CCTV, 24/7 security
-- Canteen (subsidised), ATM on campus
+- Canteen (subsidised),
 - Fully equipped workshop labs for Diploma branches
 
 FACULTY:
