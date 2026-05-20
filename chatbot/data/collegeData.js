@@ -69,7 +69,7 @@ ADMISSION 2026-27:
 - Process: Merit-based, no entrance exam
 - Documents: 10th & 12th marksheets, TC, Character Certificate, Aadhaar, photos
 - Last Date: 30 August 2026
-- Orientation: 5 August 2026 | Classes: 10 August 2026
+- Orientation: 5 September 2026 | Classes: 10 August 2026
 - Seats: BCA-60, BBA-60, PGDM-30, Diploma-60 per branch
 - Lateral entry: ITI holders can join Diploma 2nd year
 
