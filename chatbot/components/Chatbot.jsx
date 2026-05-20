@@ -6,6 +6,7 @@ import TypingIndicator from "./TypingIndicator";
 import ChatMessage from "./ChatMessage";
 import ChatForm from "./ChatForm";
 import { useChatbot } from "../hooks/useChatbot";
+import Image from "next/image";
 
 const SUGGESTIONS = [
   {
@@ -116,7 +117,16 @@ export default function Chatbot() {
             />
           </svg>
         ) : (
-          <span className="text-2xl">👩</span>
+          <img
+            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+            alt="Profile"
+            style={{
+              width: "40px",
+              height: "40px",
+              borderRadius: "100%",
+              objectFit: "cover",
+            }}
+          />
         )}
 
         {/* 🔴 Badge */}
@@ -145,7 +155,16 @@ export default function Chatbot() {
             {/* Header  .*/}
             <div className="bg-gradient-to-r from-violet-600 to-pink-500 px-4 py-3.5 flex items-center gap-3 flex-shrink-0">
               <div className="w-11 h-11 rounded-full border-2 border-white/30 bg-white/15 flex items-center justify-center text-xl flex-shrink-0">
-                👩
+                <img
+                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+                  alt="Profile"
+                  style={{
+                    width: "40px",
+                    height: "40px",
+                    borderRadius: "100%",
+                    objectFit: "cover",
+                  }}
+                />
               </div>
               <div className="flex-1 min-w-0">
                 <h2 className="text-white font-semibold text-[15px] font-sans">
