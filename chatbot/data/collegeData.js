@@ -57,7 +57,7 @@ FEES:
 - PGDM: ₹30,000/sem → Total ₹1,20,000
 
 Founder:
--Er.Sohail Khan
+-Er. Sohail Khan
 
 Advisor:
 -Dr. Chandrabhanu Malla
