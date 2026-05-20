@@ -60,8 +60,8 @@ FEES:
 - BBA: ₹20,000/sem → Total ₹1,20,000
 - Diploma: ₹20,000/sem → Total ₹1,20,000
 - PGDM: ₹30,000/sem → Total ₹1,20,000
-- Hostel: ₹60,000/year | Mess: ₹2,500/month
-- Registration: ₹2,000 (one-time) | Library Security: ₹1,000 (refundable)
+
+
 
 ADMISSION 2026-27:
 - Status: OPEN NOW
@@ -82,11 +82,7 @@ PLACEMENTS:
 - 45+ company tie-ups
 - Pre-placement training: Aptitude, GD, Communication, Interview Skills
 
-SCHOLARSHIPS:
-- Merit: Top 3 per batch → 50% fee waiver
-- SC/ST/OBC/EWS: Jharkhand e-Kalyan portal → up to 100% fee waiver
-- KIITech Need-Based Grant: up to ₹10,000/semester
-- Post-Matric Scholarship also available
+
 
 CAMPUS FACILITIES:
 - 5-acre modern campus
