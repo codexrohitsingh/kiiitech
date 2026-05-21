@@ -99,14 +99,24 @@ export default function ChatMessage({ chat }) {
 
   return (
     <div className="flex items-end gap-2">
-      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-violet-600 to-pink-500 flex items-center justify-center text-sm flex-shrink-0 mb-4">
-        👩
-      </div>
+      <img
+        src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+        alt="Profile"
+        style={{
+          width: "40px",
+          height: "40px",
+          borderRadius: "100%",
+          objectFit: "cover",
+        }}
+      />
+
       <div className="max-w-[80%]">
         <div className="px-4 py-3 bg-white border border-violet-100 rounded-2xl rounded-bl-sm shadow-sm space-y-0.5">
           {parsed}
           {chat.isFallback && (
-            <p className="text-[10px] text-amber-500 mt-1">⚠ Offline mode – limited responses</p>
+            <p className="text-[10px] text-amber-500 mt-1">
+              ⚠ Offline mode – limited responses
+            </p>
           )}
         </div>
         <p className="text-[10px] text-gray-400 mt-1 pl-1">{chat.time}</p>

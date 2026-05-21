@@ -1,7 +1,7 @@
 export const collegeData = {
-  name: "KIITech – Dr. A.P.J. Abdul Kalam Institute of Technology",
+  name: "KIITech - Dr. A.P.J. Abdul Kalam Institute of Technology",
   botName: "Anya",
-  location: "Majhgaon, West Singhbhum, Jharkhand – 833215",
+  location: "Majhgaon, West Singhbhum, Jharkhand - 833215",
   phone: "+91 9337736501",
   phone2: "+91 7004812345",
   email: "admissions@kiitechjhk.ac.in",
