@@ -13,7 +13,7 @@ export const getFallbackReply = (msg, lang) => {
     lower.includes("cost")
   ) {
     return lang === "hi"
-      ? `💰 **फीस:**\n- BCA/BBA: ₹20,000/सेमेस्टर (कुल ₹1,20,000)\n- PGDM: ₹30,000/सेमेस्टर\n- हॉस्टल: ₹60,000/वर्ष\n\n🎓 स्कॉलरशिप भी उपलब्ध है!`
+      ? `💰 **फीस:**\n- BCA/BBA/Diploma: ₹20,000/सेमेस्टर (कुल ₹1,20,000)\n- PGDM: ₹30,000/सेमेस्टर\n- हॉस्टल: ₹60,000/वर्ष\n\n🎓 स्कॉलरशिप भी उपलब्ध है!`
       : `💰 **Fee Structure:**\n- BCA/BBA/Diploma: ₹20,000/semester (Total ₹1,20,000)\n- PGDM: ₹30,000/semester\n- Hostel: ₹60,000/year\n\n🎓 Scholarships available for eligible students!`;
   }
 
