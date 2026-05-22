@@ -118,7 +118,7 @@ export default function Chatbot() {
           </svg>
         ) : (
           <img
-            src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+            src="/assitantimage.png"
             alt="Profile"
             style={{
               width: "40px",
@@ -156,7 +156,7 @@ export default function Chatbot() {
             <div className="bg-gradient-to-r from-violet-600 to-pink-500 px-4 py-3.5 flex items-center gap-3 flex-shrink-0">
               <div className="w-11 h-11 rounded-full border-2 border-white/30 bg-white/15 flex items-center justify-center text-xl flex-shrink-0">
                 <img
-                  src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop"
+                  src="/assitantimage.png"
                   alt="Profile"
                   style={{
                     width: "40px",
