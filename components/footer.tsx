@@ -153,6 +153,14 @@ export function Footer() {
               </li>
               <li>
                 <Link
+                  href="/gallery"
+                  className="hover:text-accent transition-colors"
+                >
+                  Gallery
+                </Link>
+              </li>
+              <li>
+                <Link
                   href="/faculty"
                   className="hover:text-accent transition-colors"
                 >

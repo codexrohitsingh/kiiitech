@@ -78,6 +78,7 @@ export function Header() {
               {[
                 { href: "/about", label: "About" },
                 { href: "/admissions", label: "Admissions" },
+                { href: "/gallery", label: "Gallery" },
                 { href: "/placements", label: "Placements" },
                 { href: "/contact", label: "Contact" },
               ].map((link) => (
@@ -159,6 +160,7 @@ export function Header() {
           {[
             { href: "/about", label: "About" },
             { href: "/admissions", label: "Admissions" },
+            { href: "/gallery", label: "Gallery" },
             { href: "/placements", label: "Placements" },
             { href: "/contact", label: "Contact" },
           ].map((link) => (

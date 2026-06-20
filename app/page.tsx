@@ -235,6 +235,50 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Gallery Section */}
+      <section className="py-20 bg-background">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-block bg-accent/10 text-accent px-4 py-2 rounded-full mb-4 text-sm font-semibold">
+              Our Campus Life
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4">
+              Campus Gallery
+            </h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Explore our vibrant campus life and state-of-the-art facilities
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { src: "/hero1.png", alt: "Campus Building" },
+              { src: "/hero2.jpeg", alt: "Student Activities" },
+              { src: "/hero3.jpeg", alt: "Classroom" },
+              { src: "/about.png", alt: "College Facilities" },
+              { src: "/bca.png", alt: "Computer Lab" },
+              { src: "/bba.png", alt: "Business Lab" },
+            ].map((image, index) => (
+              <div key={index} className="relative aspect-square overflow-hidden rounded-xl group">
+                <Image
+                  src={image.src}
+                  alt={image.alt}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+                <div className="absolute inset-0 bg-primary/0 group-hover:bg-primary/30 transition-colors duration-300 flex items-center justify-center">
+                  <div className="opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-white/90 px-4 py-2 rounded-lg">
+                      <p className="font-semibold text-primary">{image.alt}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Stats Section */}
       <section className="py-20 bg-primary text-primary-foreground">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
