@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     type: "website",
   },
 };
-
+// hi there
 export default function Home() {
   return (
     <>
