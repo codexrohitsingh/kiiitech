@@ -14,7 +14,7 @@ import {
 } from "lucide-react";
 import { NewApplyNow } from "@/components/apply";
 // import { ApplyNow } from "@/components/apply";
-
+// yo
 export const metadata: Metadata = {
   title: "KIITECH - Excellence in Technical Education",
   description:

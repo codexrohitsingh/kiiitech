@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { FaWhatsapp } from "react-icons/fa";
 export function Footer() {
-  const currentYear = new Date().getFullYear();
+const currentYear = new Date().getFullYear();
 
   return (
     <footer className="bg-primary text-primary-foreground">
